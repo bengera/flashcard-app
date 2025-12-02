@@ -1,0 +1,67 @@
+:root {
+  /* Neutral */
+  --clr-neutral-900: #2e1401;
+  --clr-neutral-600: #6d5b4d;
+  --clr-neutral-100: #f7f3f0;
+  --clr-neutral-0: #ffffff;
+
+  /* Accent Colors */
+  --clr-yellow-500: #f8cb46;
+
+  --clr-blue-400: #92adeb;
+  --clr-blue-600: #5072c7;
+
+  --clr-teal-400: #47d9c9;
+
+  --clr-pink-400: #fc8ae5;
+  --clr-pink-500: #f073a3;
+  --clr-pink-700: #e11966;
+  /* -----------------------------------
+     TEXT PRESET 1
+     Font Size: 40px (Bold)
+     ----------------------------------- */
+
+  /* ---------- Spacing ---------- */
+  --space-0: 0;
+  --space-1: 2px;
+  --space-2: 4px;
+  --space-3: 8px;
+  --space-4: 12px;
+  --space-5: 16px;
+  --space-6: 24px;
+  --space-7: 32px;
+  --space-8: 40px;
+  --space-9: 48px;
+  --space-10: 64px;
+  --space-11: 80px;
+  --space-12: 96px;
+}
+
+/* FONT IMPORTS */
+@font-face {
+  font-family: "Poppins";
+  src: url("/fonts/Poppins/Poppins-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("/fonts/Poppins/Poppins-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("/fonts/Poppins/Poppins-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("/fonts/Poppins/Poppins-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}

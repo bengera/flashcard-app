@@ -1,0 +1,12 @@
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: var(--clr-neutral-100);
+  margin: 0;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}

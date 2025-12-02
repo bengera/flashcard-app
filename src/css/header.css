@@ -1,0 +1,35 @@
+.header {
+  padding: 1rem;
+}
+
+.header__content {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+
+  font-weight: 600;
+}
+
+.header__tab {
+  border: 1px solid var(--clr-neutral-900);
+  box-shadow: 1px 2px 0px var(--clr-neutral-900);
+  border-radius: 25px;
+  padding: 0.4rem;
+  display: flex;
+  gap: 1rem;
+  background-color: var(--clr-neutral-0);
+}
+
+.button-tab {
+  padding: 12px 16px;
+  border: 0;
+  border-radius: 25px;
+  cursor: pointer;
+  background-color: var(--clr-neutral-0);
+}
+
+.button-tab.active {
+  background-color: red;
+  background-color: var(--clr-yellow-500);
+  border: 1px solid var(--clr-neutral-900);
+}
