@@ -13,7 +13,7 @@
 .header__tab {
   border: 1px solid var(--clr-neutral-900);
   box-shadow: 1px 2px 0px var(--clr-neutral-900);
-  border-radius: 25px;
+  border-radius: 45px;
   padding: 0.4rem;
   display: flex;
   gap: 1rem;
@@ -21,7 +21,7 @@
 }
 
 .button-tab {
-  padding: 12px 16px;
+  padding: 6px 8px;
   border: 0;
   border-radius: 25px;
   cursor: pointer;
