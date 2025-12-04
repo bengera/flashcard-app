@@ -1,0 +1,89 @@
+.flashcard-section {
+  border: 1px solid var(--clr-neutral-900);
+  border-radius: 10px;
+  /* padding: 1rem; */
+  font-weight: 500;
+  color: var(--clr-neutral-900);
+  height: 80vh;
+}
+
+.flashcard__checkbox-content {
+  margin-top: 10px;
+}
+
+.flashcard__header {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+.button-shuffle {
+  align-self: start;
+}
+
+.button-categories {
+  width: 163px;
+  position: relative;
+  text-align: initial;
+  padding-left: 1rem;
+  color: var(--clr-neutral-900);
+}
+
+.button-categories::after {
+  content: "";
+  position: absolute;
+  width: 30px;
+  height: 14px;
+  right: 0rem;
+  top: 0.8rem;
+  transition: transform 0.2s ease-in-out;
+  background: url(images/icon-chevron-down.svg) no-repeat;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+.button-categories.active::after {
+  transform: rotate(180deg);
+}
+
+.button-shuffle {
+  position: relative;
+  padding-left: 2rem;
+}
+
+.button-shuffle::before {
+  content: "";
+  position: absolute;
+  width: 30px;
+  height: 15px;
+  right: 3.5rem;
+  top: 0.8rem;
+  transition: transform 0.2s ease-in-out;
+  background: url(images/icon-shuffle.svg) no-repeat;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+input[type="checkbox"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  vertical-align: middle;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 1px solid var(--clr-neutral-900);
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 0;
+  margin-right: 8px;
+}
+
+input[type="checkbox"]:checked {
+  background-image: url(images/icon-check.svg);
+  background-repeat: no-repeat;
+  z-index: 100;
+  background-color: var(--clr-yellow-500);
+  background-size: 50%, cover;
+  background-position: center;
+  border: none;
+  border: 2px solid var(--clr-neutral-900);
+}

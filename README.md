@@ -51,3 +51,7 @@ This roadmap outlines planned improvements and milestones on the way to a comple
 CSS NOTES
 
 - get used to writing everything explicitly/flat without sass concatenating parent selector
+
+HTML NOTES
+
+<hr className="solid"></hr>
