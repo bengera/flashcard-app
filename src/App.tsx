@@ -8,8 +8,8 @@ return (
         <div className="header__content">
             <img src="images\logo-small.svg" alt="logo" className="header__logo" />
             <div className="header__tab shadow">
-                <button className="button-tab active">Study Mode</button>
-                <button className="button-tab">All Cards</button>
+                <button className="button-tab active button-rounded">Study Mode</button>
+                <button className="button-tab button-rounded">All Cards</button>
             </div>
         </div>
     </header>
@@ -17,19 +17,23 @@ return (
         <section className="flashcard-section shadow">
             <div className="flashcard__header">
                 <div className="flashcard__header-left">
-                    <button className="button-categories">All Categories</button>
+                    <button className="button-categories button-rounded">All Categories</button>
                     <div className="flashcard__checkbox-content">
                         <input className="checkbox-basic" type="checkbox" id="hide-mastered" />
                         <label htmlFor="hide-mastered">Hide Mastered
                         </label>
                     </div>
                 </div>
-                <button className="button-shuffle">Shuffle</button>
+                <button className="button-shuffle button-rounded">Shuffle</button>
 
             </div> {/* flashcard__content end */}
             <hr className="solid"></hr>
             <div className="flashcard__container">
-                <div className="flashcard__content"></div>
+                <div className="flashcard__content shadow">
+                    <p className="flashcard__tag">Web Development</p>
+                    <p className="flashcard__question">What does HTML stand for?</p>
+                    <button className="flashcard__button-reveal">Click to reveal answer</button>
+                </div>
             </div>
 
 

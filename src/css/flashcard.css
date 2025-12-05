@@ -1,7 +1,7 @@
 .flashcard-section {
   border: 1px solid var(--clr-neutral-900);
   border-radius: 10px;
-  /* padding: 1rem; */
+  background-color: var(--clr-neutral-0);
   font-weight: 500;
   color: var(--clr-neutral-900);
   height: 80vh;
@@ -9,12 +9,22 @@
 
 .flashcard__checkbox-content {
   margin-top: 10px;
+  vertical-align: middle;
 }
 
 .flashcard__header {
   display: flex;
   justify-content: space-between;
   padding: 1rem;
+  padding-bottom: 0;
+}
+
+.flashcard__container {
+  padding: 1rem;
+}
+
+.flashcard__content {
+  background-color: var(--clr-pink-400);
 }
 
 .button-shuffle {
