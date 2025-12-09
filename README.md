@@ -55,3 +55,10 @@ CSS NOTES
 HTML NOTES
 
 <hr className="solid"></hr>
+
+-- DOM depth
+App shell – overall layout
+
+Header – logo + mode tabs
+
+Study area – filters + single flashcard + progress (later)

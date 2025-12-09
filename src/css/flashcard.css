@@ -21,14 +21,55 @@
 
 .flashcard__container {
   padding: 1rem;
+  position: relative;
 }
 
 .flashcard__content {
   background-color: var(--clr-pink-400);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 6rem;
 }
 
-.button-shuffle {
-  align-self: start;
+.flashcard__tag {
+  background-color: var(--clr-neutral-0);
+  padding: 10px 12px;
+  font-size: 12px;
+  text-align: center;
+  align-self: center;
+  font-weight: 600;
+  border: 1px solid var(--clr-neutral-900);
+  border-radius: 20px;
+}
+
+.flashcard__question {
+  font-size: 24px;
+  text-align: center;
+  font-weight: 900;
+  padding: 4rem 2rem 0 2rem;
+  margin: 0;
+}
+
+.flashcard__button-reveal {
+  border: 0;
+  font-weight: 400;
+  background-color: transparent;
+}
+
+.blue-star,
+.yellow-star {
+  position: absolute;
+}
+
+.blue-star {
+  right: 52px;
+  top: 58px;
+}
+
+.yellow-star {
+  bottom: 51px;
+  left: 47px;
 }
 
 .button-categories {
@@ -55,12 +96,13 @@
   transform: rotate(180deg);
 }
 
-.button-shuffle {
+.button--shuffle {
   position: relative;
   padding-left: 2rem;
+  align-self: start;
 }
 
-.button-shuffle::before {
+.button--shuffle::before {
   content: "";
   position: absolute;
   width: 30px;

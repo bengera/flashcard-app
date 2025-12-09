@@ -3,7 +3,7 @@
 
 function App() {
 return (
-<div className="master-container">
+<div className="app">
     <header className="header">
         <div className="header__content">
             <img src="images\logo-small.svg" alt="logo" className="header__logo" />
@@ -16,7 +16,7 @@ return (
     <main>
         <section className="flashcard-section shadow">
             <div className="flashcard__header">
-                <div className="flashcard__header-left">
+                <div className="flashcard__filters">
                     <button className="button-categories button-rounded">All Categories</button>
                     <div className="flashcard__checkbox-content">
                         <input className="checkbox-basic" type="checkbox" id="hide-mastered" />
@@ -24,13 +24,16 @@ return (
                         </label>
                     </div>
                 </div>
-                <button className="button-shuffle button-rounded">Shuffle</button>
+                <button className="button--shuffle button-rounded">Shuffle</button>
 
             </div> {/* flashcard__content end */}
             <hr className="solid"></hr>
             <div className="flashcard__container">
-                <div className="flashcard__content shadow">
-                    <p className="flashcard__tag">Web Development</p>
+                <img className="blue-star" src="images/pattern-star-blue.svg" alt="blue star pattern" aria-hidden='true' />
+                <img className="yellow-star" src="images/pattern-star-yellow.svg" alt="yellow star pattern" aria-hidden='true' />
+
+                <div className="flashcard__content shadow-thick">
+                    <p className="flashcard__tag shadow-thick">Web Development</p>
                     <p className="flashcard__question">What does HTML stand for?</p>
                     <button className="flashcard__button-reveal">Click to reveal answer</button>
                 </div>
