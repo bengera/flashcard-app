@@ -31,7 +31,6 @@ button {
 }
 
 .shadow-thick {
-  background: #fc8ae5;
   border: 2px solid #2e1401;
   box-shadow: 2px 2px 0px #2e1401;
   border-radius: 16px;

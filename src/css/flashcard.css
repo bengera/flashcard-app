@@ -29,7 +29,12 @@
   border-radius: 10px;
   display: flex;
   flex-direction: column;
-  padding-bottom: 6rem;
+  /* padding-bottom: 6rem; */
+}
+
+.flashcard__central-content {
+  padding: 4rem 2rem;
+  text-align: center;
 }
 
 .flashcard__tag {
@@ -47,7 +52,6 @@
   font-size: 24px;
   text-align: center;
   font-weight: 900;
-  padding: 4rem 2rem 0 2rem;
   margin: 0;
 }
 
@@ -56,6 +60,30 @@
   font-weight: 400;
   background-color: transparent;
 }
+
+.flashcard__progress-container {
+  /* border: 2px solid red; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+.flashcard__progress-bar {
+  width: 60px;
+  height: 8px;
+  border: 1px solid var(--clr-neutral-900);
+  border-radius: 5px;
+  background-color: var(--clr-neutral-0);
+}
+
+.flashcard__action-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding: 1rem;
+}
+
+/*DECORATIVE ELEMENTS*/
 
 .blue-star,
 .yellow-star {
@@ -71,6 +99,8 @@
   bottom: 51px;
   left: 47px;
 }
+
+/*BUTTONS AND INPUTS*/
 
 .button-categories {
   width: 163px;
@@ -111,8 +141,21 @@
   top: 0.8rem;
   transition: transform 0.2s ease-in-out;
   background: url(images/icon-shuffle.svg) no-repeat;
-  transform-box: fill-box;
-  transform-origin: center;
+}
+
+.button-knowit {
+  background-color: var(--clr-yellow-500);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.2rem;
+}
+
+.button-reset {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.2rem;
 }
 
 input[type="checkbox"] {

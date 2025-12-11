@@ -34,10 +34,26 @@ return (
 
                 <div className="flashcard__content shadow-thick">
                     <p className="flashcard__tag shadow-thick">Web Development</p>
+                    <div className="flashcard__central-content">
                     <p className="flashcard__question">What does HTML stand for?</p>
                     <button className="flashcard__button-reveal">Click to reveal answer</button>
+                    </div>
+                    <div className="flashcard__progress-container">
+                        <div className="flashcard__progress-bar"></div>
+                        <p className="flashcard__progress-number">0/5</p>
+                    </div>
                 </div>
             </div>
+            <div className="flashcard__action-buttons">
+                <button className="button-knowit button-rounded shadow-thick">
+                    <img src="images/icon-circle-check.svg" alt="check-icon" />
+                    I know this</button>
+                <button className="button-reset button-rounded shadow-thick">
+                    <img src="images/icon-reset.svg" alt="reset-icon" />
+                    Reset progress</button>
+                </div>
+
+                 <hr className="solid"></hr>
 
 
         </section>
