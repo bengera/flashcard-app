@@ -82,6 +82,13 @@
   padding: 1rem;
 }
 
+.flashcard__card-navigation {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: var(--clr-neutral-600);
+}
+
 /*DECORATIVE ELEMENTS*/
 
 .blue-star,
@@ -102,44 +109,21 @@
 /*BUTTONS AND INPUTS*/
 
 .button-categories {
-  width: 163px;
-  position: relative;
   text-align: initial;
   padding-left: 1rem;
   color: var(--clr-neutral-900);
-}
-
-.button-categories::after {
-  content: "";
-  position: absolute;
-  width: 30px;
-  height: 14px;
-  right: 0rem;
-  top: 0.8rem;
-  transition: transform 0.2s ease-in-out;
-  background: url(images/icon-chevron-down.svg) no-repeat;
-  transform-box: fill-box;
-  transform-origin: center;
-}
-.button-categories.active::after {
-  transform: rotate(180deg);
+  display: inline-flex;
+  gap: 4.5px;
 }
 
 .button--shuffle {
-  position: relative;
-  padding-left: 2rem;
   align-self: start;
-}
-
-.button--shuffle::before {
-  content: "";
-  position: absolute;
-  width: 30px;
-  height: 15px;
-  right: 3.5rem;
-  top: 0.8rem;
-  transition: transform 0.2s ease-in-out;
-  background: url(images/icon-shuffle.svg) no-repeat;
+  display: inline-flex;
+  background-color: var(--clr-neutral-0);
+  border-radius: var(--radius-24);
+  border: 1px solid var(--clr-neutral-900);
+  gap: 4.5px;
+  width: 106px;
 }
 
 .button-knowit {
@@ -155,6 +139,16 @@
   align-items: center;
   justify-content: center;
   gap: 0.2rem;
+}
+
+.left-button,
+.right-button {
+  border-radius: var(--radius-full);
+  width: 40px;
+  height: 40px;
+  border: 1px solid black;
+  background-color: transparent;
+  padding-top: 4px;
 }
 
 input[type="checkbox"] {

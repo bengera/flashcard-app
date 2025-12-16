@@ -8,7 +8,7 @@ return (
         <div className="header__content">
             <img src="images\logo-small.svg" alt="logo" className="header__logo" />
             <div className="header__tab shadow">
-                <button className="button-tab active button-rounded">Study Mode</button>
+                <button className="button-tab active button-rounded narrow">Study Mode</button>
                 <button className="button-tab button-rounded">All Cards</button>
             </div>
         </div>
@@ -17,14 +17,19 @@ return (
         <section className="flashcard-section shadow">
             <div className="flashcard__header">
                 <div className="flashcard__filters">
-                    <button className="button-categories button-rounded">All Categories</button>
+                    <button className="button-categories button-rounded">All Categories
+                        <img src="images/icon-chevron-down.svg" alt="arrow-icon" />
+                    </button>
                     <div className="flashcard__checkbox-content">
                         <input className="checkbox-basic" type="checkbox" id="hide-mastered" />
                         <label htmlFor="hide-mastered">Hide Mastered
                         </label>
                     </div>
                 </div>
-                <button className="button--shuffle button-rounded">Shuffle</button>
+                <button className="button--shuffle narrow">
+                    <img src="images/icon-shuffle.svg" alt="shuffle-icon" />
+                    Shuffle
+                </button>
 
             </div> {/* flashcard__content end */}
             <hr className="solid"></hr>
@@ -54,7 +59,16 @@ return (
                 </div>
 
                  <hr className="solid"></hr>
+                <div className="flashcard__card-navigation">
+                    <button className="left-button">
+                        <img src="images/icon-chevron-left.svg" alt="arrow-left" />
+                   </button>
+                   <p className="flashcard__card-counter">Card 1 of 40</p>
 
+                  <button className="right-button">
+                        <img src="images/icon-chevron-right.svg" alt="arrow-right" />
+                   </button>
+                </div>
 
         </section>
     </main>
