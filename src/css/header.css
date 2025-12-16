@@ -12,7 +12,7 @@
 
 .header__tab {
   border: 1px solid var(--clr-neutral-900);
-  border-radius: 45px;
+  border-radius: var(--radius-full);
   padding: 0.3rem;
   display: flex;
   gap: 1rem;

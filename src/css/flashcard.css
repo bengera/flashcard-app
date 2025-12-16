@@ -1,6 +1,6 @@
 .flashcard-section {
   border: 1px solid var(--clr-neutral-900);
-  border-radius: 10px;
+  border-radius: var(--radius-10);
   background-color: var(--clr-neutral-0);
   font-weight: 500;
   color: var(--clr-neutral-900);
@@ -26,7 +26,7 @@
 
 .flashcard__content {
   background-color: var(--clr-pink-400);
-  border-radius: 10px;
+  border-radius: var(--radius-10);
   display: flex;
   flex-direction: column;
   /* padding-bottom: 6rem; */
@@ -45,7 +45,6 @@
   align-self: center;
   font-weight: 600;
   border: 1px solid var(--clr-neutral-900);
-  border-radius: 20px;
 }
 
 .flashcard__question {
@@ -72,7 +71,7 @@
   width: 60px;
   height: 8px;
   border: 1px solid var(--clr-neutral-900);
-  border-radius: 5px;
+  border-radius: var(--radius-full);
   background-color: var(--clr-neutral-0);
 }
 
@@ -166,7 +165,7 @@ input[type="checkbox"] {
   width: 18px;
   height: 18px;
   border: 1px solid var(--clr-neutral-900);
-  border-radius: 5px;
+  border-radius: var(--radius-6);
   cursor: pointer;
   margin: 0;
   margin-right: 8px;

@@ -14,7 +14,7 @@ select {
 .button-rounded {
   padding: 8px 11px;
   background-color: var(--clr-neutral-0);
-  border-radius: 25px;
+  border-radius: var(--radius-24);
   border: 1px solid var(--clr-neutral-900);
 }
 
@@ -33,5 +33,5 @@ button {
 .shadow-thick {
   border: 2px solid #2e1401;
   box-shadow: 2px 2px 0px #2e1401;
-  border-radius: 16px;
+  border-radius: var(--radius-16);
 }
