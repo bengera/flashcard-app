@@ -1,4 +1,5 @@
 @import "./variables.css";
+@import "./utilities.css";
 @import "./global.css";
 @import "./header.css";
-@import "./flashcard.css";
+@import "./study-panel.css";

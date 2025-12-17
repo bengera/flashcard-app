@@ -11,20 +11,8 @@ select {
   font: inherit;
 }
 
-button {
+.btn {
   cursor: pointer;
-}
-
-.button-rounded {
-  padding: 0.8rem 0.3rem;
-  background-color: var(--clr-neutral-0);
-  border-radius: var(--radius-24);
-  border: 1px solid var(--clr-neutral-900);
-}
-
-.button-rounded,
-.narrow {
-  padding: 0.5rem 1rem;
 }
 
 .app {

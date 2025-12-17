@@ -1,25 +1,50 @@
-.flashcard-section {
+.study {
   border: 1px solid var(--clr-neutral-900);
   border-radius: var(--radius-10);
   background-color: var(--clr-neutral-0);
   font-weight: 500;
   color: var(--clr-neutral-900);
-  height: 80vh;
+  /* height: 80vh; */
 }
 
-.flashcard__checkbox-content {
+.study__option {
   margin-top: 10px;
   vertical-align: middle;
 }
 
-.flashcard__header {
+.study__header {
   display: flex;
   justify-content: space-between;
   padding: 1rem;
   padding-bottom: 0;
 }
 
-.flashcard__container {
+.study__checkbox {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  vertical-align: middle;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 1px solid var(--clr-neutral-900);
+  border-radius: var(--radius-6);
+  cursor: pointer;
+  margin: 0;
+  margin-right: 8px;
+}
+
+input[type="checkbox"]:checked {
+  background-image: url(images/icon-check.svg);
+  background-repeat: no-repeat;
+  z-index: 100;
+  background-color: var(--clr-yellow-500);
+  background-size: 50%, cover;
+  background-position: center;
+  border: none;
+  border: 2px solid var(--clr-neutral-900);
+}
+
+.flashcard {
   padding: 1rem;
   position: relative;
 }
@@ -91,24 +116,23 @@
 
 /*DECORATIVE ELEMENTS*/
 
-.blue-star,
-.yellow-star {
+.flashcard__decoration {
   position: absolute;
 }
 
-.blue-star {
+.flashcard__decoration--blue-star {
   right: 52px;
   top: 58px;
 }
 
-.yellow-star {
+.flashcard__decoration--yellow-star {
   bottom: 51px;
   left: 47px;
 }
 
 /*BUTTONS AND INPUTS*/
 
-.button-categories {
+.btn-categories {
   text-align: initial;
   padding-left: 1rem;
   color: var(--clr-neutral-900);
@@ -116,7 +140,7 @@
   gap: 4.5px;
 }
 
-.button--shuffle {
+.btn--shuffle {
   align-self: start;
   display: inline-flex;
   background-color: var(--clr-neutral-0);
@@ -126,7 +150,7 @@
   width: 106px;
 }
 
-.button-knowit {
+.btn--knowit {
   background-color: var(--clr-yellow-500);
   display: inline-flex;
   align-items: center;
@@ -134,44 +158,19 @@
   gap: 0.2rem;
 }
 
-.button-reset {
+.btn--reset {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.2rem;
 }
 
-.left-button,
-.right-button {
+.btn--left-button,
+.btn--right-button {
   border-radius: var(--radius-full);
   width: 40px;
   height: 40px;
   border: 1px solid black;
   background-color: transparent;
   padding-top: 4px;
-}
-
-input[type="checkbox"] {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  vertical-align: middle;
-  appearance: none;
-  width: 18px;
-  height: 18px;
-  border: 1px solid var(--clr-neutral-900);
-  border-radius: var(--radius-6);
-  cursor: pointer;
-  margin: 0;
-  margin-right: 8px;
-}
-
-input[type="checkbox"]:checked {
-  background-image: url(images/icon-check.svg);
-  background-repeat: no-repeat;
-  z-index: 100;
-  background-color: var(--clr-yellow-500);
-  background-size: 50%, cover;
-  background-position: center;
-  border: none;
-  border: 2px solid var(--clr-neutral-900);
 }
