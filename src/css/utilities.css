@@ -1,3 +1,4 @@
+/*BUTTON PILLS */
 .u-rounded-pill,
 .u-rounded-pill-narrow {
   background-color: var(--clr-neutral-0);
@@ -11,4 +12,15 @@
 
 .u-rounded-pill-narrow {
   padding: 0.5rem 1rem;
+}
+
+/*SHADOWS */
+.u-shadow {
+  box-shadow: 1px 2px 0px var(--clr-neutral-900);
+}
+
+.u-shadow--thick {
+  border: 2px solid #2e1401;
+  box-shadow: 2px 2px 0px #2e1401;
+  border-radius: var(--radius-16);
 }

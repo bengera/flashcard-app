@@ -132,7 +132,7 @@ input[type="checkbox"]:checked {
 
 /*BUTTONS AND INPUTS*/
 
-.btn-categories {
+.btn--categories {
   text-align: initial;
   padding-left: 1rem;
   color: var(--clr-neutral-900);

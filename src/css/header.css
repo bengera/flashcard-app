@@ -6,11 +6,10 @@
   display: flex;
   justify-content: space-between;
   width: 100%;
-
   font-weight: 600;
 }
 
-.header__tab {
+.tabs {
   border: 1px solid var(--clr-neutral-900);
   border-radius: var(--radius-full);
   padding: 0.3rem;
@@ -19,11 +18,11 @@
   background-color: var(--clr-neutral-0);
 }
 
-.button-tab {
+.tab {
   border: 0;
 }
 
-.button-tab.active {
+.tab--active {
   background-color: red;
   background-color: var(--clr-yellow-500);
   border: 1px solid var(--clr-neutral-900);

@@ -7,14 +7,14 @@ return (
     <header className="header">
         <div className="header__content">
             <img src="images\logo-small.svg" alt="logo" className="header__logo" />
-            <div className="header__tab shadow">
-                <button className="button-tab active u-rounded-pill-narrow">Study Mode</button>
-                <button className="button-tab u-rounded-pill">All Cards</button>
+            <div className="tabs u-shadow">
+                <button className="tab--active u-rounded-pill-narrow">Study Mode</button>
+                <button className="tab u-rounded-pill">All Cards</button>
             </div>
         </div>
     </header>
     <main>
-        <section className="study shadow">
+        <section className="study u-shadow">
             <div className="study__header">
                 <div className="study__filters">
                     <button type="button" className="btn btn--categories u-rounded-pill">All Categories
@@ -37,8 +37,8 @@ return (
                 <img className="flashcard__decoration flashcard__decoration--blue-star" src="images/pattern-star-blue.svg" alt="blue star pattern" aria-hidden='true' />
                 <img className="flashcard__decoration flashcard__decoration--yellow-star" src="images/pattern-star-yellow.svg" alt="yellow star pattern" aria-hidden='true' />
 
-                <div className="flashcard__content shadow-thick">
-                    <p className="flashcard__tag shadow-thick">Web Development</p>
+                <div className="flashcard__content u-shadow--thick">
+                    <p className="flashcard__tag u-shadow--thick">Web Development</p>
                     <div className="flashcard__central-content">
                     <p className="flashcard__question">What does HTML stand for?</p>
                     <button className="flashcard__button-reveal">Click to reveal answer</button>
@@ -50,10 +50,10 @@ return (
                 </div>
             </div>
             <div className="flashcard__action-buttons">
-                <button className="btn btn--knowit u-rounded-pill shadow-thick">
+                <button className="btn btn--knowit u-rounded-pill u-shadow--thick">
                     <img src="images/icon-circle-check.svg" alt="check-icon" />
                     I know this</button>
-                <button className="btn btn--reset u-rounded-pill shadow-thick">
+                <button className="btn btn--reset u-rounded-pill u-shadow--thick">
                     <img src="images/icon-reset.svg" alt="reset-icon" />
                     Reset progress</button>
                 </div>
