@@ -8,8 +8,8 @@ return (
         <div className="header__content">
             <img src="images\logo-small.svg" alt="logo" className="header__logo" />
             <div className="tabs u-shadow">
-                <button className="tab--active u-rounded-pill-narrow">Study Mode</button>
-                <button className="tab u-rounded-pill">All Cards</button>
+                <button  className="tab tab--active u-rounded-pill-narrow">Study Mode</button>
+                <button type="button" className="tab u-rounded-pill">All Cards</button>
             </div>
         </div>
     </header>
@@ -17,7 +17,7 @@ return (
         <section className="study u-shadow">
             <div className="study__header">
                 <div className="study__filters">
-                    <button type="button" className="btn btn--categories u-rounded-pill">All Categories
+                    <button type="button" className="btn btn--categories u-rounded-pill-narrow">All Categories
                         <img src="images/icon-chevron-down.svg" alt="arrow-icon" />
                     </button>
                     <div className="study__option">
@@ -26,7 +26,7 @@ return (
                         </label>
                     </div>
                 </div>
-                <button className="btn btn--shuffle u-rounded-pill-narrow">
+                <button type="button" className="btn btn--shuffle u-rounded-pill-narrow">
                     <img src="images/icon-shuffle.svg" alt="shuffle-icon" />
                     Shuffle
                 </button>
@@ -41,7 +41,7 @@ return (
                     <p className="flashcard__tag u-shadow--thick">Web Development</p>
                     <div className="flashcard__central-content">
                     <p className="flashcard__question">What does HTML stand for?</p>
-                    <button className="flashcard__button-reveal">Click to reveal answer</button>
+                    <button type="button" className="flashcard__button-reveal">Click to reveal answer</button>
                     </div>
                     <div className="flashcard__progress-container">
                         <div className="flashcard__progress-bar"></div>
@@ -49,23 +49,23 @@ return (
                     </div>
                 </div>
             </div>
-            <div className="flashcard__action-buttons">
-                <button className="btn btn--knowit u-rounded-pill u-shadow--thick">
+            <div className="study__action-buttons">
+                <button type="button" className="btn btn--knowit u-rounded-pill u-shadow--thick">
                     <img src="images/icon-circle-check.svg" alt="check-icon" />
                     I know this</button>
-                <button className="btn btn--reset u-rounded-pill u-shadow--thick">
+                <button type="button" className="btn btn--reset u-rounded-pill u-shadow--thick">
                     <img src="images/icon-reset.svg" alt="reset-icon" />
                     Reset progress</button>
                 </div>
 
                  <hr className="solid"></hr>
-                <div className="flashcard__card-navigation">
-                    <button type="button" className="btn btn--left-button">
+                <div className="study__card-navigation">
+                    <button type="button" className="btn btn__left-button">
                         <img src="images/icon-chevron-left.svg" alt="arrow-left" />
                    </button>
-                   <p className="flashcard__card-counter">Card 1 of 40</p>
+                   <p className="study__card-counter">Card 1 of 40</p>
 
-                  <button type="button" className="btn btn--right-button">
+                  <button type="button" className="btn btn__right-button">
                         <img src="images/icon-chevron-right.svg" alt="arrow-right" />
                    </button>
                 </div>

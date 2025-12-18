@@ -33,6 +33,21 @@
   margin-right: 8px;
 }
 
+.study__action-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding: 1rem;
+}
+
+.study__card-navigation {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1rem 0.6rem 1rem;
+  align-items: center;
+  color: var(--clr-neutral-600);
+}
+
 input[type="checkbox"]:checked {
   background-image: url(images/icon-check.svg);
   background-repeat: no-repeat;
@@ -100,20 +115,6 @@ input[type="checkbox"]:checked {
   background-color: var(--clr-neutral-0);
 }
 
-.flashcard__action-buttons {
-  display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
-  padding: 1rem;
-}
-
-.flashcard__card-navigation {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  color: var(--clr-neutral-600);
-}
-
 /*DECORATIVE ELEMENTS*/
 
 .flashcard__decoration {
@@ -165,8 +166,8 @@ input[type="checkbox"]:checked {
   gap: 0.2rem;
 }
 
-.btn--left-button,
-.btn--right-button {
+.btn__left-button,
+.btn__right-button {
   border-radius: var(--radius-full);
   width: 40px;
   height: 40px;
