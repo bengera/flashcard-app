@@ -20,8 +20,8 @@
 }
 
 .study__checkbox {
-  -webkit-appearance: none;
-  -moz-appearance: none;
+  /* -webkit-appearance: none;
+  -moz-appearance: none; */
   vertical-align: middle;
   appearance: none;
   width: 18px;
