@@ -2,7 +2,7 @@
 .u-rounded-pill,
 .u-rounded-pill-narrow {
   background-color: var(--clr-neutral-0);
-  border-radius: var(--radius-24);
+  border-radius: var(--radius-full);
   border: 1px solid var(--clr-neutral-900);
 }
 

@@ -4,6 +4,14 @@ body {
   margin: 0;
 }
 
+/*Disable IOS blue links*/
+a,
+button {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  color: inherit;
+}
+
 button,
 input,
 textarea,

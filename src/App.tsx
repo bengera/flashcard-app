@@ -9,7 +9,7 @@ return (
             <img src="images\logo-small.svg" alt="logo" className="header__logo" />
             <div className="tabs u-shadow">
                 <button  className="tab tab--active u-rounded-pill-narrow">Study Mode</button>
-                <button type="button" className="tab u-rounded-pill">All Cards</button>
+                <button type="button" className="tab u-rounded-pill-narrow">All Cards</button>
             </div>
         </div>
     </header>
