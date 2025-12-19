@@ -4,6 +4,7 @@
 function App() {
 return (
 <div className="app">
+    <h1 className="u-visually-hidden">Study Flashcards</h1>
     <header className="header">
         <div className="header__content">
             <img src="images/logo-small.svg" alt="logo" className="header__logo" />
@@ -69,6 +70,10 @@ return (
                         <img src="images/icon-chevron-right.svg" alt="arrow-right" />
                    </button>
                 </div>
+
+        </section>
+
+        <section className="statistics">
 
         </section>
     </main>
