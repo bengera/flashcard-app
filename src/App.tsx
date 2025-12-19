@@ -73,8 +73,21 @@ return (
 
         </section>
 
-        <section className="statistics">
-
+        <section className="statistics u-shadow">
+            <h2 className="statistic__heading">Study Statistics</h2>
+           
+            <div className="statistics__card u-shadow">
+                <div className="statistics__card-left-content">
+                <p className="statistics__card-label">Total Cards</p>
+                <p className="statistics__card-number">40</p>
+                </div>
+                <div className="statistics__card-icon-container">
+                    <img src="/images/icon-stats-mastered.svg" alt="icon-mastered" className="statistics__card-icon" />
+                </div>
+                </div>
+                
+               
+            
         </section>
     </main>
 </div>
