@@ -139,6 +139,7 @@ input[type="checkbox"]:checked {
   color: var(--clr-neutral-900);
   display: inline-flex;
   gap: 4.5px;
+  align-items: center;
 }
 
 .btn--shuffle {
@@ -149,6 +150,7 @@ input[type="checkbox"]:checked {
   border: 1px solid var(--clr-neutral-900);
   gap: 4.5px;
   width: 106px;
+  align-items: center;
 }
 
 .btn--knowit {
