@@ -23,7 +23,6 @@
 .statistics__card {
   display: grid;
   grid-template-columns: 2fr 1fr;
-  gap: 4rem;
   border: 2px solid var(--clr-neutral-900);
   border-radius: var(--radius-10);
 }
@@ -32,9 +31,14 @@
   margin-left: 1rem;
 }
 
+.statistics__card-icon {
+  width: 30px;
+  margin: 0 auto;
+}
+
 .statistics__card-icon-container {
   border-left: 2px solid var(--clr-neutral-900);
-  padding: 3rem;
+  display: flex;
   border-top-right-radius: var(--radius-8);
   border-bottom-right-radius: var(--radius-8);
 }
@@ -64,6 +68,6 @@
 }
 
 .icon {
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: auto;
 }
