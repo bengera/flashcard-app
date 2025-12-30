@@ -69,12 +69,16 @@ input[type="checkbox"]:checked {
   border-radius: var(--radius-10);
   display: flex;
   flex-direction: column;
+  min-height: 400px;
   /* padding-bottom: 6rem; */
 }
 
 .flashcard__central-content {
   padding: 4rem 2rem;
   text-align: center;
+  flex: 1;
+  align-items: center;
+  align-content: center;
 }
 
 .flashcard__tag {
