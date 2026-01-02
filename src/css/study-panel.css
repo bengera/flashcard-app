@@ -119,6 +119,10 @@ input[type="checkbox"]:checked {
   background-color: var(--clr-neutral-0);
 }
 
+.flashcard__progress-bar--mastered {
+  background-color: var(--clr-teal-400);
+}
+
 /*DECORATIVE ELEMENTS*/
 
 .flashcard__decoration {
@@ -157,7 +161,7 @@ input[type="checkbox"]:checked {
   align-items: center;
 }
 
-.btn--knowit {
+.btn-knowit {
   background-color: var(--clr-yellow-500);
   display: inline-flex;
   align-items: center;
@@ -165,7 +169,12 @@ input[type="checkbox"]:checked {
   gap: 0.2rem;
 }
 
-.btn--reset {
+.btn-knowit--mastered {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-knowit .btn--reset {
   display: inline-flex;
   align-items: center;
   justify-content: center;

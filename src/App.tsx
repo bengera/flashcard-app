@@ -5,12 +5,11 @@ import data from "../data.json";
 import { useState } from "react";
 
 function App() {
- const cards = data.flashcards;
- const [currentIdx, setCurrentIdx] = useState(0);
- const currentCard = cards[currentIdx];
- 
+  const cards = data.flashcards;
+  const [currentIdx, setCurrentIdx] = useState(0);
+  const currentCard = cards[currentIdx];
+  const isMastered = currentCard.knownCount === 5;
 
- 
   return (
     <div className="app">
       <h1 className="u-visually-hidden">Study Flashcards</h1>
@@ -78,7 +77,9 @@ function App() {
             />
 
             <div className="flashcard__content u-shadow--thick">
-              <p className="flashcard__tag u-shadow--thick">{currentCard.category}</p>
+              <p className="flashcard__tag u-shadow--thick">
+                {currentCard.category}
+              </p>
               <div className="flashcard__central-content">
                 <p className="flashcard__question">{currentCard.question}</p>
                 <button type="button" className="flashcard__button-reveal">
@@ -86,7 +87,11 @@ function App() {
                 </button>
               </div>
               <div className="flashcard__progress-container">
-                <div className="flashcard__progress-bar"></div>
+                <div
+                  className={`flashcard__progress-bar ${
+                    isMastered ? "flashcard__progress-bar--mastered" : ""
+                  }`}
+                ></div>
                 <p className="flashcard__progress-number">{`${currentCard.knownCount}/5`}</p>
               </div>
             </div>
@@ -94,10 +99,15 @@ function App() {
           <div className="study__action-buttons">
             <button
               type="button"
-              className="btn btn--knowit u-rounded-pill u-shadow--thick"            >
+              className={`btn btn-knowit u-rounded-pill u-shadow--thick ${
+                isMastered ? "btn-knowit--mastered" : ""
+              }`}
+              disabled={isMastered}
+            >
               <img src="images/icon-circle-check.svg" alt="check-icon" />I know
               this
             </button>
+
             <button
               type="button"
               className="btn btn--reset u-rounded-pill u-shadow--thick"
@@ -108,12 +118,22 @@ function App() {
           </div>
           <hr className="solid"></hr>
           <div className="study__card-navigation">
-            <button type="button" className="btn btn__left-button"  onClick={()=> setCurrentIdx(currentIdx - 1)}>
+            <button
+              type="button"
+              className="btn btn__left-button"
+              onClick={() => setCurrentIdx(currentIdx - 1)}
+            >
               <img src="images/icon-chevron-left.svg" alt="arrow-left" />
             </button>
-            <p className="study__card-counter">Card {currentIdx + 1} of {cards.length}</p>
+            <p className="study__card-counter">
+              Card {currentIdx + 1} of {cards.length}
+            </p>
 
-            <button type="button" className="btn btn__right-button" onClick={()=> setCurrentIdx(currentIdx + 1)}>
+            <button
+              type="button"
+              className="btn btn__right-button"
+              onClick={() => setCurrentIdx(currentIdx + 1)}
+            >
               <img src="images/icon-chevron-right.svg" alt="arrow-right" />
             </button>
           </div>
@@ -121,13 +141,31 @@ function App() {
 
         <section className="statistics u-shadow">
           <h2 className="statistics__heading">Study Statistics</h2>
-            <StatisticCard label="Total Cards" number={cards.length} icon="stats-total" variant="blue"/>
-            <StatisticCard label="Mastered" number={11} icon="stats-mastered" variant="teal"/>
-            <StatisticCard label="In Progress" number={21} icon="stats-in-progress" variant="red"/>
-            <StatisticCard label="Not Started" number={8} icon="stats-not-started" variant="pink"/>
-               
+          <StatisticCard
+            label="Total Cards"
+            number={cards.length}
+            icon="stats-total"
+            variant="blue"
+          />
+          <StatisticCard
+            label="Mastered"
+            number={11}
+            icon="stats-mastered"
+            variant="teal"
+          />
+          <StatisticCard
+            label="In Progress"
+            number={21}
+            icon="stats-in-progress"
+            variant="red"
+          />
+          <StatisticCard
+            label="Not Started"
+            number={8}
+            icon="stats-not-started"
+            variant="pink"
+          />
         </section>
-       
       </main>
     </div>
   );
