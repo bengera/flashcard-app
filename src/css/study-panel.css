@@ -70,6 +70,7 @@ input[type="checkbox"]:checked {
   display: flex;
   flex-direction: column;
   min-height: 400px;
+  cursor: pointer;
   /* padding-bottom: 6rem; */
 }
 
@@ -79,6 +80,11 @@ input[type="checkbox"]:checked {
   flex: 1;
   align-items: center;
   align-content: center;
+}
+
+.flashcard__central-content--revealed {
+  display: grid;
+  grid-template-rows: repeat(2, min-content);
 }
 
 .flashcard__tag {
@@ -102,6 +108,10 @@ input[type="checkbox"]:checked {
   border: 0;
   font-weight: 400;
   background-color: transparent;
+}
+
+.flashcard__button-reveal--revealed {
+  grid-row: 2;
 }
 
 .flashcard__progress-container {

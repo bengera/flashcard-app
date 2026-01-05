@@ -9,6 +9,7 @@ function App() {
   const [currentIdx, setCurrentIdx] = useState(0);
   const currentCard = cards[currentIdx];
   const isMastered = currentCard.knownCount === 5;
+  const [reveal, setReveal] = useState(false);
 
   return (
     <div className="app">
@@ -76,15 +77,24 @@ function App() {
               aria-hidden="true"
             />
 
-            <div className="flashcard__content u-shadow--thick">
+            <div
+              className="flashcard__content u-shadow--thick"
+              onClick={() => setReveal(!reveal)}
+            >
               <p className="flashcard__tag u-shadow--thick">
                 {currentCard.category}
               </p>
               <div className="flashcard__central-content">
                 <p className="flashcard__question">{currentCard.question}</p>
-                <button type="button" className="flashcard__button-reveal">
-                  Click to reveal answer
-                </button>
+                {reveal ? (
+                  <button type="button" className="flashcard__button-reveal">
+                    Answer:
+                  </button>
+                ) : (
+                  <button type="button" className="flashcard__button-reveal">
+                    Click to reveal answer
+                  </button>
+                )}
               </div>
               <div className="flashcard__progress-container">
                 <div
