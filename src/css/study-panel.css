@@ -76,7 +76,6 @@ input[type="checkbox"]:checked {
 }
 
 .flashcard__central-content {
-  padding: 4rem 2rem;
   text-align: center;
   flex: 1;
   align-items: center;
@@ -132,6 +131,15 @@ input[type="checkbox"]:checked {
 /*FLASHCARD-REVEALED*/
 .flashcard__content--revealed {
   background-color: var(--clr-blue-400);
+}
+
+.flashcard__content--revealed .flashcard__central-content {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: center;
+}
+
+.flashcard__content--revealed .flashcard__question {
 }
 
 /*DECORATIVE ELEMENTS*/
