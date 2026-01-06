@@ -65,20 +65,26 @@ function App() {
           <hr className="solid"></hr>
           <div className="flashcard">
             <img
-              className="flashcard__decoration flashcard__decoration--blue-star"
-              src="images/pattern-star-blue.svg"
+              className="flashcard__decoration flashcard__decoration--top-star"
+              src={
+                !reveal
+                  ? "images/pattern-star-blue.svg"
+                  : "images/pattern-star-pink.svg"
+              }
               alt="blue star pattern"
               aria-hidden="true"
             />
             <img
-              className="flashcard__decoration flashcard__decoration--yellow-star"
-              src="images/pattern-star-yellow.svg"
-              alt="yellow star pattern"
+              className="flashcard__decoration flashcard__decoration--bottom-star"
+              src={"images/pattern-star-yellow.svg"}
+              alt="star pattern"
               aria-hidden="true"
             />
 
             <div
-              className="flashcard__content u-shadow--thick"
+              className={`flashcard__content u-shadow--thick ${
+                reveal ? "flashcard__content--revealed" : ""
+              }`}
               onClick={() => setReveal(!reveal)}
             >
               <p className="flashcard__tag u-shadow--thick">

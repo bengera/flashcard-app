@@ -1,3 +1,4 @@
+/*SECITON*/
 .study {
   border: 1px solid var(--clr-neutral-900);
   border-radius: var(--radius-10);
@@ -82,11 +83,6 @@ input[type="checkbox"]:checked {
   align-content: center;
 }
 
-.flashcard__central-content--revealed {
-  display: grid;
-  grid-template-rows: repeat(2, min-content);
-}
-
 .flashcard__tag {
   background-color: var(--clr-neutral-0);
   padding: 10px 12px;
@@ -115,7 +111,7 @@ input[type="checkbox"]:checked {
 }
 
 .flashcard__progress-container {
-  /* border: 2px solid red; */
+  margin-top: auto;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -133,18 +129,23 @@ input[type="checkbox"]:checked {
   background-color: var(--clr-teal-400);
 }
 
+/*FLASHCARD-REVEALED*/
+.flashcard__content--revealed {
+  background-color: var(--clr-blue-400);
+}
+
 /*DECORATIVE ELEMENTS*/
 
 .flashcard__decoration {
   position: absolute;
 }
 
-.flashcard__decoration--blue-star {
+.flashcard__decoration--top-star {
   right: 52px;
   top: 58px;
 }
 
-.flashcard__decoration--yellow-star {
+.flashcard__decoration--bottom-star {
   bottom: 51px;
   left: 47px;
 }
