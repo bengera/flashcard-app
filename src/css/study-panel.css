@@ -176,10 +176,12 @@ input[type="checkbox"]:checked {
   align-items: center;
 }
 
-/* .btn-knowit
 .btn--reset {
-
-} */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.2rem;
+}
 
 .btn-knowit {
   background-color: var(--clr-yellow-500);
@@ -192,13 +194,6 @@ input[type="checkbox"]:checked {
 .btn-knowit--mastered {
   opacity: 0.5;
   cursor: not-allowed;
-}
-
-.btn--reset {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.2rem;
 }
 
 .btn__left-button,
