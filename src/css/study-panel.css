@@ -72,7 +72,6 @@ input[type="checkbox"]:checked {
   flex-direction: column;
   min-height: 400px;
   cursor: pointer;
-  /* padding-bottom: 6rem; */
 }
 
 .flashcard__central-content {
@@ -92,7 +91,7 @@ input[type="checkbox"]:checked {
   border: 1px solid var(--clr-neutral-900);
 }
 
-.flashcard__question {
+.flashcard__text {
   font-size: 24px;
   text-align: center;
   font-weight: 900;
@@ -139,9 +138,6 @@ input[type="checkbox"]:checked {
   justify-content: center;
 }
 
-.flashcard__content--revealed .flashcard__question {
-}
-
 /*DECORATIVE ELEMENTS*/
 
 .flashcard__decoration {
@@ -180,6 +176,11 @@ input[type="checkbox"]:checked {
   align-items: center;
 }
 
+/* .btn-knowit
+.btn--reset {
+
+} */
+
 .btn-knowit {
   background-color: var(--clr-yellow-500);
   display: inline-flex;
@@ -193,7 +194,7 @@ input[type="checkbox"]:checked {
   cursor: not-allowed;
 }
 
-.btn-knowit .btn--reset {
+.btn--reset {
   display: inline-flex;
   align-items: center;
   justify-content: center;

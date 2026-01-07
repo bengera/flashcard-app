@@ -5,11 +5,12 @@ import data from "../data.json";
 import { useState } from "react";
 
 function App() {
-  const cards = data.flashcards;
+  // const cards = data.flashcards;
+  const [cards, setCards] = useState(data.flashcards);
   const [currentIdx, setCurrentIdx] = useState(0);
+  const [reveal, setReveal] = useState(false);
   const currentCard = cards[currentIdx];
   const isMastered = currentCard.knownCount === 5;
-  const [reveal, setReveal] = useState(false);
 
   return (
     <div className="app">
@@ -91,7 +92,9 @@ function App() {
                 {currentCard.category}
               </p>
               <div className="flashcard__central-content">
-                <p className="flashcard__question">{currentCard.question}</p>
+                <p className="flashcard__text">
+                  {!reveal ? currentCard.question : currentCard.answer}
+                </p>
                 {reveal ? (
                   <button type="button" className="flashcard__button-reveal">
                     Answer:
@@ -127,6 +130,15 @@ function App() {
             <button
               type="button"
               className="btn btn--reset u-rounded-pill u-shadow--thick"
+              onClick={() => {
+                setCards((prevCard) =>
+                  prevCard.map((card) =>
+                    card.id === currentCard.id
+                      ? { ...card, knownCount: 0 }
+                      : card
+                  )
+                );
+              }}
             >
               <img src="images/icon-reset.svg" alt="reset-icon" />
               Reset progress
@@ -137,7 +149,11 @@ function App() {
             <button
               type="button"
               className="btn btn__left-button"
-              onClick={() => setCurrentIdx(currentIdx - 1)}
+              onClick={() =>
+                setCurrentIdx((prev) =>
+                  prev === 0 ? cards.length - 1 : prev - 1
+                )
+              }
             >
               <img src="images/icon-chevron-left.svg" alt="arrow-left" />
             </button>
@@ -148,7 +164,11 @@ function App() {
             <button
               type="button"
               className="btn btn__right-button"
-              onClick={() => setCurrentIdx(currentIdx + 1)}
+              onClick={() =>
+                setCurrentIdx((prev) =>
+                  prev === cards.length - 1 ? 0 : prev + 1
+                )
+              }
             >
               <img src="images/icon-chevron-right.svg" alt="arrow-right" />
             </button>
