@@ -1,12 +1,11 @@
-// import { useState } from "react";
-// // import "./App.css";
-import { StatisticCard } from "./components/statistic-card";
+import React, { useState } from "react";
 import data from "../data.json";
-import { useState } from "react";
+import { StatisticsPanel } from "./components/statistics-panel";
+import { Header } from "./components/header";
+import type { Flashcard } from "./types/flashcard";
 
 function App() {
-  // const cards = data.flashcards;
-  const [cards, setCards] = useState(data.flashcards);
+  const [cards, setCards] = useState<Flashcard[]>(data.flashcards);
   const [currentIdx, setCurrentIdx] = useState(0);
   const [reveal, setReveal] = useState(false);
   const currentCard = cards[currentIdx];
@@ -15,23 +14,8 @@ function App() {
   return (
     <div className="app">
       <h1 className="u-visually-hidden">Study Flashcards</h1>
-      <header className="header">
-        <div className="header__content">
-          <img
-            src="images/logo-small.svg"
-            alt="logo"
-            className="header__logo"
-          />
-          <div className="tabs u-shadow">
-            <button className="tab tab--active u-rounded-pill-narrow">
-              Study Mode
-            </button>
-            <button type="button" className="tab u-rounded-pill-narrow">
-              All Cards
-            </button>
-          </div>
-        </div>
-      </header>
+      <Header />
+
       <main>
         <section className="study u-shadow">
           <div className="study__header">
@@ -107,10 +91,13 @@ function App() {
               </div>
               <div className="flashcard__progress-container">
                 <div
-                  className={`flashcard__progress-bar ${
-                    isMastered ? "flashcard__progress-bar--mastered" : ""
-                  }`}
-                ></div>
+                  className="flashcard__progress-bar"
+                  style={
+                    { "--value": currentCard.knownCount } as React.CSSProperties
+                  }
+                >
+                  <div className="flashcard__progress-bar-fill"></div>
+                </div>
                 <p className="flashcard__progress-number">{`${currentCard.knownCount}/5`}</p>
               </div>
             </div>
@@ -121,6 +108,15 @@ function App() {
               className={`btn btn-knowit u-rounded-pill u-shadow--thick ${
                 isMastered ? "btn-knowit--mastered" : ""
               }`}
+              onClick={() => {
+                setCards((prevCard) =>
+                  prevCard.map((card) =>
+                    card.id === currentCard.id
+                      ? { ...card, knownCount: card.knownCount + 1 }
+                      : card
+                  )
+                );
+              }}
               disabled={isMastered}
             >
               <img src="images/icon-circle-check.svg" alt="check-icon" />I know
@@ -174,34 +170,7 @@ function App() {
             </button>
           </div>
         </section>
-
-        <section className="statistics u-shadow">
-          <h2 className="statistics__heading">Study Statistics</h2>
-          <StatisticCard
-            label="Total Cards"
-            number={cards.length}
-            icon="stats-total"
-            variant="blue"
-          />
-          <StatisticCard
-            label="Mastered"
-            number={11}
-            icon="stats-mastered"
-            variant="teal"
-          />
-          <StatisticCard
-            label="In Progress"
-            number={21}
-            icon="stats-in-progress"
-            variant="red"
-          />
-          <StatisticCard
-            label="Not Started"
-            number={8}
-            icon="stats-not-started"
-            variant="pink"
-          />
-        </section>
+        <StatisticsPanel cards={cards} />
       </main>
     </div>
   );
