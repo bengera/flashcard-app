@@ -6,10 +6,15 @@ import type { Flashcard } from "./types/flashcard";
 
 function App() {
   const [cards, setCards] = useState<Flashcard[]>(data.flashcards);
+  const [hideMasteredCards, setHideMasteredCards] = useState(false);
   const [currentIdx, setCurrentIdx] = useState(0);
   const [reveal, setReveal] = useState(false);
+
   const currentCard = cards[currentIdx];
   const isMastered = currentCard.knownCount === 5;
+  const visibleCards = hideMasteredCards
+    ? cards.filter((card) => card.knownCount !== 5)
+    : cards;
 
   return (
     <div className="app">
@@ -30,8 +35,10 @@ function App() {
               <div className="study__option">
                 <input
                   className="study__checkbox"
+                  checked={hideMasteredCards}
                   type="checkbox"
                   id="hide-mastered"
+                  onChange={(e) => setHideMasteredCards(e.target.checked)} // is true or false
                 />
                 <label className="study__label" htmlFor="hide-mastered">
                   Hide Mastered
@@ -119,8 +126,8 @@ function App() {
               }}
               disabled={isMastered}
             >
-              <img src="images/icon-circle-check.svg" alt="check-icon" />I know
-              this
+              <img src="images/icon-circle-check.svg" alt="check-icon" />
+              {!isMastered ? "I know this" : "Already mastered"}
             </button>
 
             <button
