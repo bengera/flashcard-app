@@ -1,20 +1,29 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import data from "../data.json";
 import { StatisticsPanel } from "./components/statistics-panel";
 import { Header } from "./components/header";
 import type { Flashcard } from "./types/flashcard";
 
 function App() {
-  const [cards, setCards] = useState<Flashcard[]>(data.flashcards);
-  const [hideMasteredCards, setHideMasteredCards] = useState(false);
-  const [currentIdx, setCurrentIdx] = useState(0);
-  const [reveal, setReveal] = useState(false);
+  const [cards, setCards] = useState<Flashcard[]>(data.flashcards); // al cards direct from json
+  const [hideMasteredCards, setHideMasteredCards] = useState(false); // state for checkbox input of hiding mastered cards
+  const [currentIdx, setCurrentIdx] = useState(0); // curret card being viewed
+  const [reveal, setReveal] = useState(false); // show answer
 
-  const currentCard = cards[currentIdx];
-  const isMastered = currentCard.knownCount === 5;
   const visibleCards = hideMasteredCards
     ? cards.filter((card) => card.knownCount !== 5)
     : cards;
+  const currentCard = visibleCards[currentIdx];
+  const isMastered = currentCard.knownCount === 5;
+
+  // const notStarted;
+  // const inProgress;l
+
+  useEffect(() => {
+    if (currentIdx >= visibleCards.length) {
+      setCurrentIdx(0);
+    }
+  }, [currentIdx, visibleCards.length]);
 
   return (
     <div className="app">
@@ -154,14 +163,14 @@ function App() {
               className="btn btn__left-button"
               onClick={() =>
                 setCurrentIdx((prev) =>
-                  prev === 0 ? cards.length - 1 : prev - 1
+                  prev === 0 ? visibleCards.length - 1 : prev - 1
                 )
               }
             >
               <img src="images/icon-chevron-left.svg" alt="arrow-left" />
             </button>
             <p className="study__card-counter">
-              Card {currentIdx + 1} of {cards.length}
+              Card {currentIdx + 1} of {visibleCards.length}
             </p>
 
             <button
@@ -169,7 +178,7 @@ function App() {
               className="btn btn__right-button"
               onClick={() =>
                 setCurrentIdx((prev) =>
-                  prev === cards.length - 1 ? 0 : prev + 1
+                  prev === visibleCards.length - 1 ? 0 : prev + 1
                 )
               }
             >
