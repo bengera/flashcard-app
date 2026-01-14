@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import type { Flashcard } from "../types/flashcard";
 
 type StudyPanelProps = {
@@ -10,9 +10,6 @@ type StudyPanelProps = {
 
   currentIdx: number;
   setCurrentIdx: React.Dispatch<React.SetStateAction<number>>;
-
-  reveal: boolean;
-  setReveal: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 export function StudyPanel({
@@ -22,15 +19,29 @@ export function StudyPanel({
   setHideMasteredCards,
   currentIdx,
   setCurrentIdx,
-  reveal,
-  setReveal,
 }: StudyPanelProps) {
+  const [reveal, setReveal] = useState(false); // show answer
+
   const visibleCards = hideMasteredCards
     ? cards.filter((card) => card.knownCount !== 5)
     : cards;
 
   const currentCard = visibleCards[currentIdx];
   const isMastered = currentCard.knownCount === 5;
+
+  function nextCard() {
+    setReveal(false);
+    return setCurrentIdx((prev) =>
+      prev === 0 ? visibleCards.length + 1 : prev + 1
+    );
+  }
+
+  function previousCard() {
+    setReveal(false);
+    return setCurrentIdx((prev) =>
+      prev === 0 ? visibleCards.length - 1 : prev - 1
+    );
+  }
 
   useEffect(() => {
     if (currentIdx >= visibleCards.length) {
@@ -178,11 +189,9 @@ export function StudyPanel({
         <button
           type="button"
           className="btn btn__left-button"
-          onClick={() =>
-            setCurrentIdx((prev) =>
-              prev === 0 ? visibleCards.length - 1 : prev - 1
-            )
-          }
+          onClick={() => {
+            previousCard();
+          }}
         >
           <img src="images/icon-chevron-left.svg" alt="arrow-left" />
         </button>
@@ -194,11 +203,9 @@ export function StudyPanel({
         <button
           type="button"
           className="btn btn__right-button"
-          onClick={() =>
-            setCurrentIdx((prev) =>
-              prev === visibleCards.length - 1 ? 0 : prev + 1
-            )
-          }
+          onClick={() => {
+            nextCard();
+          }}
         >
           <img src="images/icon-chevron-right.svg" alt="arrow-right" />
         </button>

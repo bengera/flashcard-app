@@ -9,7 +9,6 @@ function App() {
   const [cards, setCards] = useState<Flashcard[]>(data.flashcards); // al cards direct from json
   const [hideMasteredCards, setHideMasteredCards] = useState(false); // state for checkbox input of hiding mastered cards
   const [currentIdx, setCurrentIdx] = useState(0); // curret card being viewed
-  const [reveal, setReveal] = useState(false); // show answer
 
   return (
     <div className="app">
@@ -24,8 +23,6 @@ function App() {
           setHideMasteredCards={setHideMasteredCards}
           currentIdx={currentIdx}
           setCurrentIdx={setCurrentIdx}
-          reveal={reveal}
-          setReveal={setReveal}
         />
 
         <StatisticsPanel cards={cards} />
