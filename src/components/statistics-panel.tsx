@@ -4,14 +4,12 @@ import type { Flashcard } from "../types/flashcard";
 type StatisticsPanelProps = {
   cards: Flashcard[];
 };
-// prettier-ignore {
+
 export function StatisticsPanel({ cards }: StatisticsPanelProps) {
   const mastered = cards.filter((c) => c.knownCount === 5).length;
-  const inProgress = cards.filter(
-    (c) => c.knownCount > 0 && c.knownCount < 5
-  ).length;
+  const inProgress = cards.filter((c) => c.knownCount > 0 && c.knownCount < 5).length;
   const notStarted = cards.filter((c) => c.knownCount === 0).length;
-  // }
+
   return (
     <section className="statistics u-shadow">
       <h2 className="statistics__heading">Study Statistics</h2>
@@ -23,7 +21,7 @@ export function StatisticsPanel({ cards }: StatisticsPanelProps) {
       />
       <StatisticCard
         label="Mastered"
-        number={mastered}
+        number={mastered} 
         icon="stats-mastered"
         variant="teal"
       />

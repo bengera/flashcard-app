@@ -22,6 +22,7 @@ export function StudyPanel({
 }: StudyPanelProps) {
   const [reveal, setReveal] = useState(false); // show answer
 
+
   const visibleCards = hideMasteredCards
     ? cards.filter((card) => card.knownCount !== 5)
     : cards; // all cards shown unless hideMasteredCards is checked
@@ -48,11 +49,22 @@ export function StudyPanel({
     });
   }
 
+  function shuffleArray<T>(array: T[]): T[] {
+   const shuffled = [...array];
+   for (let i = shuffled.length - 1; i > 0; i--){
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]]
+   }
+   
+   return shuffled;
+  }
+
   useEffect(() => {
     if (currentIdx >= visibleCards.length) {
       setCurrentIdx(0);
     }
   }, [currentIdx, visibleCards.length, setCurrentIdx]);
+
 
   return (
     <section className="study u-shadow">
@@ -83,8 +95,11 @@ export function StudyPanel({
         <button
           type="button"
           className="btn btn--shuffle u-rounded-pill-narrow"
+          onClick={() => {
+            setCards((prev) => shuffleArray(prev))
+          }}   
         >
-          <img src="images/icon-shuffle.svg" alt="shuffle-icon" />
+          <img src="images/icon-shuffle.svg" alt="shuffle-icon"/>
           Shuffle
         </button>
       </div>
