@@ -24,23 +24,28 @@ export function StudyPanel({
 
   const visibleCards = hideMasteredCards
     ? cards.filter((card) => card.knownCount !== 5)
-    : cards;
+    : cards; // all cards shown unless hideMasteredCards is checked
 
   const currentCard = visibleCards[currentIdx];
-  const isMastered = currentCard.knownCount === 5;
+
+  const isMastered = currentCard.knownCount === 5; // bug - cant access knownCount, currentCount is undefined
 
   function nextCard() {
     setReveal(false);
-    return setCurrentIdx((prev) =>
-      prev === 0 ? visibleCards.length + 1 : prev + 1
-    );
+    return setCurrentIdx((prev) => {
+      const lastIndex = visibleCards.length - 1; // last index is the length -1
+      if (prev === lastIndex) return 0; // recognize last index, prevent it from goin beyond that
+      return prev + 1; // add one if not last index
+    });
   }
 
   function previousCard() {
     setReveal(false);
-    return setCurrentIdx((prev) =>
-      prev === 0 ? visibleCards.length - 1 : prev - 1
-    );
+    setCurrentIdx((prev) => {
+      const lastIndex = visibleCards.length - 1;
+      if (prev === 0) return lastIndex;
+      return prev - 1;
+    });
   }
 
   useEffect(() => {
@@ -157,8 +162,8 @@ export function StudyPanel({
               prev.map((card) =>
                 card.id === currentCard.id
                   ? { ...card, knownCount: card.knownCount + 1 }
-                  : card
-              )
+                  : card,
+              ),
             );
           }}
           disabled={isMastered}
@@ -173,8 +178,8 @@ export function StudyPanel({
           onClick={() => {
             setCards((prev) =>
               prev.map((card) =>
-                card.id === currentCard.id ? { ...card, knownCount: 0 } : card
-              )
+                card.id === currentCard.id ? { ...card, knownCount: 0 } : card,
+              ),
             );
           }}
         >
