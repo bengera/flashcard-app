@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
+import { FlashCardContent } from "./flashcard-content";
 import type { Flashcard } from "../types/flashcard";
+
 
 type StudyPanelProps = {
   cards: Flashcard[];
@@ -105,8 +107,11 @@ export function StudyPanel({
       </div>
 
       <hr className="solid" />
-
-      <div className="flashcard">
+      <FlashCardContent 
+      reveal={reveal} 
+      setReveal={setReveal} 
+      currentCard={currentCard}/>
+      {/* <div className="flashcard">
         <img
           className="flashcard__decoration flashcard__decoration--top-star"
           src={
@@ -164,7 +169,7 @@ export function StudyPanel({
             </p>
           </div>
         </div>
-      </div>
+      </div> */}
 
       <div className="study__action-buttons">
         <button
