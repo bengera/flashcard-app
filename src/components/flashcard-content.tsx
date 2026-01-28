@@ -18,7 +18,7 @@ export function FlashCardContent({reveal, setReveal, currentCard}: FlashcardCont
                       ? "images/pattern-star-blue.svg"
                       : "images/pattern-star-pink.svg"
                   }
-                  alt="blue star pattern"
+                  alt="star pattern"
                   aria-hidden="true"
                 />
                 <img

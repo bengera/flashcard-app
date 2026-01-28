@@ -1,5 +1,6 @@
 import { useState } from "react";
-import data from "../data.json";
+// import data from "../data.json";
+import data from "../data-empty.json";
 import { StatisticsPanel } from "./components/statistics-panel";
 import { Header } from "./components/header";
 import type { Flashcard } from "./types/flashcard";

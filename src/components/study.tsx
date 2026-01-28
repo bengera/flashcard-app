@@ -23,15 +23,12 @@ export function StudyPanel({
   setCurrentIdx,
 }: StudyPanelProps) {
   const [reveal, setReveal] = useState(false); // show answer
-
-
   const visibleCards = hideMasteredCards
     ? cards.filter((card) => card.knownCount !== 5)
     : cards; // all cards shown unless hideMasteredCards is checked
 
   const currentCard = visibleCards[currentIdx];
-
-  const isMastered = currentCard.knownCount === 5; // bug - cant access knownCount, currentCount is undefined
+  const isMastered = currentCard?.knownCount === 5; 
 
   function nextCard() {
     setReveal(false);
@@ -67,7 +64,7 @@ export function StudyPanel({
     }
   }, [currentIdx, visibleCards.length, setCurrentIdx]);
 
-
+if (visibleCards.length === 0) return; // prevent error when no flashcards present
   return (
     <section className="study u-shadow">
       <div className="study__header">
@@ -111,66 +108,7 @@ export function StudyPanel({
       reveal={reveal} 
       setReveal={setReveal} 
       currentCard={currentCard}/>
-      {/* <div className="flashcard">
-        <img
-          className="flashcard__decoration flashcard__decoration--top-star"
-          src={
-            !reveal
-              ? "images/pattern-star-blue.svg"
-              : "images/pattern-star-pink.svg"
-          }
-          alt="blue star pattern"
-          aria-hidden="true"
-        />
-        <img
-          className="flashcard__decoration flashcard__decoration--bottom-star"
-          src={"images/pattern-star-yellow.svg"}
-          alt="star pattern"
-          aria-hidden="true"
-        />
-
-        <div
-          className={`flashcard__content u-shadow--thick ${
-            reveal ? "flashcard__content--revealed" : ""
-          }`}
-          onClick={() => setReveal(!reveal)}
-        >
-          <p className="flashcard__tag u-shadow--thick">
-            {currentCard.category}
-          </p>
-
-          <div className="flashcard__central-content">
-            <p className="flashcard__text">
-              {!reveal ? currentCard.question : currentCard.answer}
-            </p>
-
-            {reveal ? (
-              <button type="button" className="flashcard__button-reveal">
-                Answer:
-              </button>
-            ) : (
-              <button type="button" className="flashcard__button-reveal">
-                Click to reveal answer
-              </button>
-            )}
-          </div>
-
-          <div className="flashcard__progress-container">
-            <div
-              className="flashcard__progress-bar"
-              style={
-                { "--value": currentCard.knownCount } as React.CSSProperties
-              }
-            >
-              <div className="flashcard__progress-bar-fill"></div>
-            </div>
-            <p className="flashcard__progress-number">
-              {currentCard.knownCount}/5
-            </p>
-          </div>
-        </div>
-      </div> */}
-
+      
       <div className="study__action-buttons">
         <button
           type="button"
