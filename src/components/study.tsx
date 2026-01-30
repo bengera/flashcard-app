@@ -172,7 +172,7 @@ export function StudyPanel({
         </button>
 
         <p className="study__card-counter">
-          Card {currentIdx + 1} of {visibleCards.length}
+          Card {visibleCards.length === 0 ? 0 : currentIdx + 1} of {visibleCards.length}
         </p>
 
         <button
