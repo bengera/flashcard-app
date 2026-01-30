@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { FlashCardContent } from "./flashcard-content";
+import { EmptyPanel } from "./emptyPanel";
 import type { Flashcard } from "../types/flashcard";
 
 
@@ -112,13 +113,7 @@ export function StudyPanel({
         reveal={reveal} 
         setReveal={setReveal} 
         currentCard={currentCard}/>
-      ): (
-            <div className="empty-panel">
-            <h2 className="empty-panel__heading">No cards to study</h2>
-            <p className="empty-panel__sub-message">You don't have any cards yet. Add your first card in the All Cards tab.</p>
-            <button className="btn btn-allcards u-rounded-pill u-shadow--thick" typeof="button">Go to All Cards</button>
-        </div>
-      )}
+      ): <EmptyPanel/>}
 
       
       
