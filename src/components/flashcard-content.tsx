@@ -9,6 +9,10 @@ type FlashcardContentProps = {
 
 export function FlashCardContent({reveal, setReveal, currentCard}: FlashcardContentProps)
 {
+    if (!currentCard) {
+        return null;
+    }
+
     return (
         <div className="flashcard">
                 <img
