@@ -23,11 +23,13 @@ export function StudyPanel({
   setCurrentIdx,
 }: StudyPanelProps) {
   const [reveal, setReveal] = useState(false); // show answer
+
   const visibleCards = hideMasteredCards
     ? cards.filter((card) => card.knownCount !== 5)
     : cards; // all cards shown unless hideMasteredCards is checked
 
-  const currentCard = visibleCards[currentIdx];
+  const hasCards = visibleCards.length > 0;
+  const currentCard = hasCards ? visibleCards[currentIdx] : undefined;
   const isMastered = currentCard?.knownCount === 5; 
 
   function nextCard() {
@@ -64,7 +66,7 @@ export function StudyPanel({
     }
   }, [currentIdx, visibleCards.length, setCurrentIdx]);
 
-if (visibleCards.length === 0) return; // prevent error when no flashcards present
+// if (visibleCards.length === 0) return; // prevent error when no flashcards present
   return (
     <section className="study u-shadow">
       <div className="study__header">
@@ -104,10 +106,21 @@ if (visibleCards.length === 0) return; // prevent error when no flashcards prese
       </div>
 
       <hr className="solid" />
-      <FlashCardContent 
-      reveal={reveal} 
-      setReveal={setReveal} 
-      currentCard={currentCard}/>
+      
+      {hasCards ? (
+        <FlashCardContent 
+        reveal={reveal} 
+        setReveal={setReveal} 
+        currentCard={currentCard}/>
+      ): (
+            <div className="empty-panel">
+            <h2 className="empty-panel__heading">No cards to study</h2>
+            <p className="empty-panel__sub-message">You don't have any cards yet. Add your first card in the All Cards tab.</p>
+            <button className="btn btn-allcards u-rounded-pill u-shadow--thick" typeof="button">Go to All Cards</button>
+        </div>
+      )}
+
+      
       
       <div className="study__action-buttons">
         <button
@@ -116,13 +129,15 @@ if (visibleCards.length === 0) return; // prevent error when no flashcards prese
             isMastered ? "btn-knowit--mastered" : ""
           }`}
           onClick={() => {
-            setCards((prev) =>
-              prev.map((card) =>
-                card.id === currentCard.id
-                  ? { ...card, knownCount: card.knownCount + 1 }
-                  : card,
-              ),
-            );
+            if (!currentCard) return; {
+              setCards((prev) =>
+                prev.map((card) =>
+                  card.id === currentCard.id
+                    ? { ...card, knownCount: card.knownCount + 1 }
+                    : card,
+                ),
+              );
+            }
           }}
           disabled={isMastered}
         >
@@ -134,11 +149,13 @@ if (visibleCards.length === 0) return; // prevent error when no flashcards prese
           type="button"
           className="btn btn--reset u-rounded-pill u-shadow--thick"
           onClick={() => {
-            setCards((prev) =>
-              prev.map((card) =>
-                card.id === currentCard.id ? { ...card, knownCount: 0 } : card,
-              ),
-            );
+            if (!currentCard) return; {
+              setCards((prev) =>
+                prev.map((card) =>
+                  card.id === currentCard.id ? { ...card, knownCount: 0 } : card,
+                ),
+              );
+            }
           }}
         >
           <img src="images/icon-reset.svg" alt="reset-icon" />

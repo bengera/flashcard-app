@@ -214,3 +214,25 @@ input[type="checkbox"]:checked {
   background-color: transparent;
   padding-top: 4px;
 }
+
+.empty-panel {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.empty-panel__heading {
+  margin: 0;
+}
+
+.empty-panel__sub-message {
+  font-weight: 100;
+}
+
+.btn-allcards {
+  width: 160px;
+  padding: 0.5rem 0.2rem;
+  border-radius: var(--radius-24);
+}

@@ -3,7 +3,7 @@ import type { Flashcard } from "../types/flashcard"
 type FlashcardContentProps = {
     reveal: boolean;
     setReveal: React.Dispatch<React.SetStateAction<boolean>>;
-    currentCard: Flashcard;
+    currentCard: Flashcard | undefined;
 }
 
 
