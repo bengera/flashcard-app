@@ -21,8 +21,8 @@
 }
 
 .study__checkbox {
-  /* -webkit-appearance: none;
-  -moz-appearance: none; */
+  -webkit-appearance: none;
+  -moz-appearance: none;
   vertical-align: middle;
   appearance: none;
   width: 18px;
@@ -56,7 +56,6 @@ input[type="checkbox"]:checked {
   background-color: var(--clr-yellow-500);
   background-size: 50%;
   background-position: center;
-  border: none;
   border: 2px solid var(--clr-neutral-900);
 }
 
