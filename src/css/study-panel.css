@@ -50,7 +50,7 @@
 }
 
 input[type="checkbox"]:checked {
-  background-image: url(images/icon-check.svg);
+  background-image: url(/images/icon-check.svg);
   background-repeat: no-repeat;
   z-index: 100;
   background-color: var(--clr-yellow-500);
