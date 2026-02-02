@@ -54,7 +54,7 @@ input[type="checkbox"]:checked {
   background-repeat: no-repeat;
   z-index: 100;
   background-color: var(--clr-yellow-500);
-  background-size: 50%, cover;
+  background-size: 50%;
   background-position: center;
   border: none;
   border: 2px solid var(--clr-neutral-900);

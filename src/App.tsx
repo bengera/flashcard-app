@@ -3,8 +3,8 @@ import data from "../data.json";
 // import data from "../data-empty.json"; // test for empty flashcards
 import { StatisticsPanel } from "./components/statistics-panel";
 import { Header } from "./components/header";
-import type { Flashcard } from "./types/flashcard";
 import { StudyPanel } from "./components/study";
+import type { Flashcard } from "./types/flashcard";
 
 function App() {
   const [cards, setCards] = useState<Flashcard[]>(data.flashcards); // all cards direct from json

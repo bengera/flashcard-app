@@ -128,7 +128,7 @@ export function StudyPanel({
               setCards((prev) =>
                 prev.map((card) =>
                   card.id === currentCard.id
-                    ? { ...card, knownCount: card.knownCount + 1 }
+                    ? { ...card, knownCount: Math.min(card.knownCount + 1, 5) }
                     : card,
                 ),
               );
