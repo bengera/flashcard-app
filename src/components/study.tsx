@@ -24,7 +24,6 @@ export function StudyPanel({
   setCurrentIdx,
 }: StudyPanelProps) {
   const [reveal, setReveal] = useState(false); // show answer
-
   const visibleCards = hideMasteredCards
     ? cards.filter((card) => card.knownCount !== 5)
     : cards; // all cards shown unless hideMasteredCards is checked
@@ -32,6 +31,13 @@ export function StudyPanel({
   const hasCards = visibleCards.length > 0;
   const currentCard = hasCards ? visibleCards[currentIdx] : undefined;
   const isMastered = currentCard?.knownCount === 5; 
+
+  const [showCatergories, setShowCategories] = useState(false);
+
+  function dropDown(){
+    console.log('dropdown triggered')
+    setShowCategories(!showCatergories);
+  }
 
   function nextCard() {
     setReveal(false);
@@ -75,6 +81,7 @@ export function StudyPanel({
           <button
             type="button"
             className="btn btn--categories u-rounded-pill-narrow"
+            onClick={() => dropDown()}
           >
             All Categories
             <img src="images/icon-chevron-down.svg" alt="arrow-icon" />
@@ -92,6 +99,20 @@ export function StudyPanel({
               Hide Mastered
             </label>
           </div>
+          
+       {showCatergories ? (   <div className="study__categories-dropdown">
+            <div className="category-item">
+              <input type="checkbox" className="category-dropdown__checkbox" />
+              <p>Art</p>
+              <p>(1)</p>
+            </div>
+            <div className="category-item">
+              <input type="checkbox" className="category-dropdown__checkbox" />
+              <p>Geography</p>
+              <p>(6)</p>
+            </div>
+          </div>): null}
+
         </div>
 
         <button

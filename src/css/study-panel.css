@@ -59,6 +59,36 @@ input[type="checkbox"]:checked {
   border: 2px solid var(--clr-neutral-900);
 }
 
+.study__filters {
+  position: relative;
+}
+
+.study__categories-dropdown {
+  position: absolute;
+  top: 45px;
+  width: 180px;
+  border: 1px solid var(--clr-neutral-900);
+  border-radius: var(--radius-8);
+  background-color: #fff;
+  z-index: 100;
+}
+
+.category-dropdown__checkbox {
+  margin-left: 1rem;
+}
+
+.category-item {
+  display: flex;
+  border-bottom: 1px solid;
+  gap: 5px;
+  padding: 10px;
+}
+
+.category-item p,
+.category-item input {
+  margin: 0;
+}
+
 .flashcard {
   padding: 1rem;
   position: relative;
