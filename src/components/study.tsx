@@ -24,19 +24,27 @@ export function StudyPanel({
   setCurrentIdx,
 }: StudyPanelProps) {
   const [reveal, setReveal] = useState(false); // show answer
+  const [uniqueCat, setUniqueCat] = useState<string[]>([]);
   const visibleCards = hideMasteredCards
     ? cards.filter((card) => card.knownCount !== 5)
     : cards; // all cards shown unless hideMasteredCards is checked
 
-  const hasCards = visibleCards.length > 0;
-  const currentCard = hasCards ? visibleCards[currentIdx] : undefined;
-  const isMastered = currentCard?.knownCount === 5; 
-
-  const [showCatergories, setShowCategories] = useState(false);
+const hasCards: boolean = visibleCards.length > 0;
+const currentCard = hasCards ? visibleCards[currentIdx] : undefined;
+const isMastered = currentCard?.knownCount === 5; 
+const [showCatergories, setShowCategories] = useState(false); // false by default
+  
 
   function dropDown(){
     console.log('dropdown triggered')
     setShowCategories(!showCatergories);
+     if (!showCatergories){
+    const categories = cards.map((card) => card.category)
+     const uniqueCategories = [...new Set(categories)];
+     setUniqueCat(uniqueCategories)
+      
+    }
+    
   }
 
   function nextCard() {
@@ -100,17 +108,17 @@ export function StudyPanel({
             </label>
           </div>
           
-       {showCatergories ? (   <div className="study__categories-dropdown">
-            <div className="category-item">
+       {showCatergories ? (   
+        <div className="study__categories-dropdown">
+
+          {uniqueCat.map((item) => (
+             <div className="category-item">
               <input type="checkbox" className="category-dropdown__checkbox" />
-              <p>Art</p>
-              <p>(1)</p>
+              <p className="category-item__description">{item}</p>
+              <p className="category-item__number">(1)</p>
             </div>
-            <div className="category-item">
-              <input type="checkbox" className="category-dropdown__checkbox" />
-              <p>Geography</p>
-              <p>(6)</p>
-            </div>
+          ))}
+            
           </div>): null}
 
         </div>

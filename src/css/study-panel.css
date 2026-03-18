@@ -20,7 +20,8 @@
   padding-bottom: 0;
 }
 
-.study__checkbox {
+.study__checkbox,
+.category-dropdown__checkbox {
   -webkit-appearance: none;
   -moz-appearance: none;
   vertical-align: middle;
@@ -79,9 +80,17 @@ input[type="checkbox"]:checked {
 
 .category-item {
   display: flex;
-  border-bottom: 1px solid;
+  align-items: center;
   gap: 5px;
   padding: 10px;
+}
+
+.category-item__number {
+  color: var(--clr-neutral-600);
+}
+
+.category-item:not(:last-of-type) {
+  border-bottom: 1px solid;
 }
 
 .category-item p,
