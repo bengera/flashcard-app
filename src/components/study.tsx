@@ -3,7 +3,6 @@ import { FlashCardContent } from "./flashcard-content";
 import { EmptyPanel } from "./emptyPanel";
 import type { Flashcard } from "../types/flashcard";
 
-
 type StudyPanelProps = {
   cards: Flashcard[];
   setCards: React.Dispatch<React.SetStateAction<Flashcard[]>>;
@@ -29,22 +28,19 @@ export function StudyPanel({
     ? cards.filter((card) => card.knownCount !== 5)
     : cards; // all cards shown unless hideMasteredCards is checked
 
-const hasCards: boolean = visibleCards.length > 0;
-const currentCard = hasCards ? visibleCards[currentIdx] : undefined;
-const isMastered = currentCard?.knownCount === 5; 
-const [showCatergories, setShowCategories] = useState(false); // false by default
-  
+  const hasCards: boolean = visibleCards.length > 0;
+  const currentCard = hasCards ? visibleCards[currentIdx] : undefined;
+  const isMastered = currentCard?.knownCount === 5;
+  const [showCatergories, setShowCategories] = useState(false); // false by default
 
-  function dropDown(){
-    console.log('dropdown triggered')
+  function dropDown() {
+    console.log("dropdown triggered");
     setShowCategories(!showCatergories);
-     if (!showCatergories){
-    const categories = cards.map((card) => card.category)
-     const uniqueCategories = [...new Set(categories)];
-     setUniqueCat(uniqueCategories)
-      
+    if (!showCatergories) {
+      const categories = cards.map((card) => card.category);
+      const uniqueCategories = [...new Set(categories)];
+      setUniqueCat(uniqueCategories);
     }
-    
   }
 
   function nextCard() {
@@ -66,13 +62,13 @@ const [showCatergories, setShowCategories] = useState(false); // false by defaul
   }
 
   function shuffleArray<T>(array: T[]): T[] {
-   const shuffled = [...array];
-   for (let i = shuffled.length - 1; i > 0; i--){
-    const j = Math.floor(Math.random() * (i + 1));
-    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]]
-   }
-   
-   return shuffled;
+    const shuffled = [...array];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+
+    return shuffled;
   }
 
   useEffect(() => {
@@ -81,7 +77,7 @@ const [showCatergories, setShowCategories] = useState(false); // false by defaul
     }
   }, [currentIdx, visibleCards.length, setCurrentIdx]);
 
-// if (visibleCards.length === 0) return; // prevent error when no flashcards present
+  // if (visibleCards.length === 0) return; // prevent error when no flashcards present
   return (
     <section className="study u-shadow">
       <div className="study__header">
@@ -107,45 +103,50 @@ const [showCatergories, setShowCategories] = useState(false); // false by defaul
               Hide Mastered
             </label>
           </div>
-          
-       {showCatergories ? (   
-        <div className="study__categories-dropdown">
 
-          {uniqueCat.map((item) => (
-             <div className="category-item">
-              <input type="checkbox" className="category-dropdown__checkbox" />
-              <p className="category-item__description">{item}</p>
-              <p className="category-item__number">(1)</p>
+          {showCatergories ? (
+            <div className="study__categories-dropdown">
+              {uniqueCat.map((item) => {
+               const count = cards.filter((card) => card.category === item).length;
+                return (
+                  <div className="category-item">
+                    <input
+                      type="checkbox"
+                      className="category-dropdown__checkbox"
+                    />
+                    <p className="category-item__description">{item}</p>
+                    <p className="category-item__number">({count})</p>
+                  </div>
+                );
+              })}
             </div>
-          ))}
-            
-          </div>): null}
-
+          ) : null}
         </div>
 
         <button
           type="button"
           className="btn btn--shuffle u-rounded-pill-narrow"
           onClick={() => {
-            setCards((prev) => shuffleArray(prev))
-          }}   
+            setCards((prev) => shuffleArray(prev));
+          }}
         >
-          <img src="images/icon-shuffle.svg" alt="shuffle-icon"/>
+          <img src="images/icon-shuffle.svg" alt="shuffle-icon" />
           Shuffle
         </button>
       </div>
 
       <hr className="solid" />
-      
-      {hasCards ? (
-        <FlashCardContent 
-        reveal={reveal} 
-        setReveal={setReveal} 
-        currentCard={currentCard}/>
-      ): <EmptyPanel/>}
 
-      
-      
+      {hasCards ? (
+        <FlashCardContent
+          reveal={reveal}
+          setReveal={setReveal}
+          currentCard={currentCard}
+        />
+      ) : (
+        <EmptyPanel />
+      )}
+
       <div className="study__action-buttons">
         <button
           type="button"
@@ -153,7 +154,8 @@ const [showCatergories, setShowCategories] = useState(false); // false by defaul
             isMastered ? "btn-knowit--mastered" : ""
           }`}
           onClick={() => {
-            if (!currentCard) return; {
+            if (!currentCard) return;
+            {
               setCards((prev) =>
                 prev.map((card) =>
                   card.id === currentCard.id
@@ -173,10 +175,13 @@ const [showCatergories, setShowCategories] = useState(false); // false by defaul
           type="button"
           className="btn btn--reset u-rounded-pill u-shadow--thick"
           onClick={() => {
-            if (!currentCard) return; {
+            if (!currentCard) return;
+            {
               setCards((prev) =>
                 prev.map((card) =>
-                  card.id === currentCard.id ? { ...card, knownCount: 0 } : card,
+                  card.id === currentCard.id
+                    ? { ...card, knownCount: 0 }
+                    : card,
                 ),
               );
             }
@@ -201,7 +206,8 @@ const [showCatergories, setShowCategories] = useState(false); // false by defaul
         </button>
 
         <p className="study__card-counter">
-          Card {visibleCards.length === 0 ? 0 : currentIdx + 1} of {visibleCards.length}
+          Card {visibleCards.length === 0 ? 0 : currentIdx + 1} of{" "}
+          {visibleCards.length}
         </p>
 
         <button
