@@ -34,12 +34,11 @@ export function StudyPanel({
   const [showCatergories, setShowCategories] = useState(false); // false by default
 
   function dropDown() {
-    console.log("dropdown triggered");
     setShowCategories(!showCatergories);
     if (!showCatergories) {
       const categories = cards.map((card) => card.category);
       const uniqueCategories = [...new Set(categories)];
-      setUniqueCat(uniqueCategories);
+      setUniqueCat(uniqueCategories.sort());
     }
   }
 
@@ -109,7 +108,7 @@ export function StudyPanel({
               {uniqueCat.map((item) => {
                const count = cards.filter((card) => card.category === item).length;
                 return (
-                  <div className="category-item">
+                  <div className="category-item" key={item}> 
                     <input
                       type="checkbox"
                       className="category-dropdown__checkbox"
