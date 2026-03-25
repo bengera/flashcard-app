@@ -24,9 +24,13 @@ export function StudyPanel({
 }: StudyPanelProps) {
   const [reveal, setReveal] = useState(false); // show answer
   const [uniqueCat, setUniqueCat] = useState<string[]>([]);
-  const visibleCards = hideMasteredCards
-    ? cards.filter((card) => card.knownCount !== 5)
-    : cards; // all cards shown unless hideMasteredCards is checked
+ const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
+
+  const visibleCards = cards.filter((card) =>{
+   const categoryFilter =  selectedCategories.length === 0 || selectedCategories.includes(card.category);
+   const masterFilter = hideMasteredCards ? card.knownCount !== 5 : true;
+   return categoryFilter && masterFilter; // return if both true
+  })
 
   const hasCards: boolean = visibleCards.length > 0;
   const currentCard = hasCards ? visibleCards[currentIdx] : undefined;
@@ -68,6 +72,21 @@ export function StudyPanel({
     }
 
     return shuffled;
+  }
+
+  function filterCategories(category: string, checked: boolean){
+   
+    setSelectedCategories((prev) => {
+      if (checked){
+        return [...prev, category]
+      } else{
+        return prev.filter(item => item !== category)
+      }
+      
+    })
+    
+    
+
   }
 
   useEffect(() => {
@@ -112,6 +131,7 @@ export function StudyPanel({
                     <input
                       type="checkbox"
                       className="category-dropdown__checkbox"
+                      onChange={(e) => filterCategories(item, e.target.checked)}
                     />
                     <p className="category-item__description">{item}</p>
                     <p className="category-item__number">({count})</p>
