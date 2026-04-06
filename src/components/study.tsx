@@ -24,7 +24,8 @@ export function StudyPanel({
 }: StudyPanelProps) {
   const [reveal, setReveal] = useState(false); // show answer
   const [uniqueCat, setUniqueCat] = useState<string[]>([]);
- const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
+  const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
+
 
   const visibleCards = cards.filter((card) =>{
    const categoryFilter =  selectedCategories.length === 0 || selectedCategories.includes(card.category);
@@ -37,6 +38,8 @@ export function StudyPanel({
   const isMastered = currentCard?.knownCount === 5;
   const [showCatergories, setShowCategories] = useState(false); // false by default
 
+
+  // DROPDOWN CATEGORIES RENDER
   function dropDown() {
     setShowCategories(!showCatergories);
     if (!showCatergories) {
@@ -75,8 +78,7 @@ export function StudyPanel({
   }
 
   function filterCategories(category: string, checked: boolean){
-   
-    setSelectedCategories((prev) => {
+      setSelectedCategories((prev) => {
       if (checked){
         return [...prev, category]
       } else{
@@ -94,6 +96,11 @@ export function StudyPanel({
       setCurrentIdx(0);
     }
   }, [currentIdx, visibleCards.length, setCurrentIdx]);
+
+  // TESTING DEV MODE EFFECTS
+  useEffect(() => {
+    console.log("categories updated:", selectedCategories);
+  },[selectedCategories])
 
   // if (visibleCards.length === 0) return; // prevent error when no flashcards present
   return (
@@ -122,6 +129,7 @@ export function StudyPanel({
             </label>
           </div>
 
+ {/* RENDERING CATEGORIES */}
           {showCatergories ? (
             <div className="study__categories-dropdown">
               {uniqueCat.map((item) => {
@@ -132,6 +140,8 @@ export function StudyPanel({
                       type="checkbox"
                       className="category-dropdown__checkbox"
                       onChange={(e) => filterCategories(item, e.target.checked)}
+                      checked={selectedCategories.includes(item)}
+
                     />
                     <p className="category-item__description">{item}</p>
                     <p className="category-item__number">({count})</p>
