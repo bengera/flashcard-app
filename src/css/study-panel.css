@@ -176,6 +176,20 @@ input[type="checkbox"]:checked {
   background-color: var(--clr-teal-400);
 }
 
+.flashcard__mastered-badge {
+  width: 120px;
+  border: 1px solid black;
+  font-size: 12px;
+  border-radius: 10px;
+  background-color: var(--clr-teal-400);
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  align-self: center;
+  justify-content: center;
+  gap: 3px;
+}
+
 /*FLASHCARD-REVEALED*/
 .flashcard__content--revealed {
   background-color: var(--clr-blue-400);
