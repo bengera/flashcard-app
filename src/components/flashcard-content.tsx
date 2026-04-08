@@ -6,6 +6,7 @@ type FlashcardContentProps = {
   currentCard: Flashcard | undefined;
 };
 
+
 export function FlashCardContent({
   reveal,
   setReveal,
@@ -14,6 +15,10 @@ export function FlashCardContent({
   if (!currentCard) {
     return null;
   }
+
+  const isMastered = currentCard.knownCount === 5;
+
+  
 
   return (
     <div className="flashcard">
@@ -58,14 +63,15 @@ export function FlashCardContent({
           )}
         </div>
 
-     <div className="flashcard__mastered-badge u-shadow">
-      <img alt="mastered-icon" src="images/icon-mastered.svg"></img>
-      <span>Mastered 5/5</span></div>
-    
+        <div className={`flashcard__progress-container ${isMastered ? 'flashcard__progress-container-mastered' : ''}`}>
+          {isMastered ? (<div className="flashcard__mastered-badge u-shadow">
+            <img alt="mastered-icon" src="images/icon-mastered.svg"></img>
+            <span>Mastered 5/5</span>
+          </div>) : null}
+          
 
-        <div className="flashcard__progress-container">
           <div
-            className="flashcard__progress-bar"
+            className="flashcard__progress-bar "
             style={{ "--value": currentCard.knownCount } as React.CSSProperties}
           >
             <div className="flashcard__progress-bar-fill"></div>
