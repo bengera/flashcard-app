@@ -2,7 +2,10 @@ export function Header() {
   return (
     <header className="header">
       <div className="header__content">
+        
         <img src="images/logo-small.svg" alt="logo" className="header__logo" />
+        <p className="header__tab-title-text">Flashcard</p>
+        
         <div className="tabs u-shadow">
           <button className="tab tab--active u-rounded-pill-narrow">
             Study Mode

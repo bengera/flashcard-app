@@ -4,9 +4,21 @@
 
 .header__content {
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   width: 100%;
   font-weight: 600;
+}
+
+.header__tab-title-text {
+  display: none;
+  margin-left: 10px;
+  font-size: 19px;
+}
+
+@media only screen and (min-width: 670px) {
+  .header__tab-title-text {
+    display: block;
+  }
 }
 
 .tabs {
@@ -16,6 +28,9 @@
   display: flex;
   gap: 1rem;
   background-color: var(--clr-neutral-0);
+  margin-left: auto;
+  height: 43px;
+  align-self: center;
 }
 
 .tab {
