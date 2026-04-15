@@ -71,10 +71,7 @@
 
 .statistics__card-number {
   font-weight: 600;
-  font-size: 24px;
-  /* margin-right: 1px;
-  margin-top: 2.5rem;
-  margin-bottom: 0px; */
+  font-size: clamp(1.5rem, 1.0142rem + 2.1591vw, 2.6875rem);
 }
 
 .icon {
