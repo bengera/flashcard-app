@@ -17,7 +17,17 @@
   margin: 0.5rem 0;
 }
 
-.statistics__card-content {
+.statistics__allcards {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+@media only screen and (min-width: 670px) {
+  .statistics__allcards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 .statistics__card {

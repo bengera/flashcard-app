@@ -12,7 +12,8 @@
 .header__tab-title-text {
   display: none;
   margin-left: 10px;
-  font-size: 19px;
+  font-size: clamp(1rem, 0.7656rem + 0.75vw, 1.1875rem);
+  color: var(--clr-neutral-900);
 }
 
 @media only screen and (min-width: 670px) {

@@ -13,6 +13,7 @@ export function StatisticsPanel({ cards }: StatisticsPanelProps) {
   return (
     <section className="statistics u-shadow">
       <h2 className="statistics__heading">Study Statistics</h2>
+      <div className="statistics__allcards">
       <StatisticCard
         label="Total Cards"
         number={cards.length}
@@ -37,6 +38,7 @@ export function StatisticsPanel({ cards }: StatisticsPanelProps) {
         icon="stats-not-started"
         variant="pink"
       />
+      </div>
     </section>
   );
 }
