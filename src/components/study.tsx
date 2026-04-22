@@ -26,18 +26,18 @@ export function StudyPanel({
   const [uniqueCat, setUniqueCat] = useState<string[]>([]);
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
 
-
-  const visibleCards = cards.filter((card) =>{
-   const categoryFilter =  selectedCategories.length === 0 || selectedCategories.includes(card.category);
-   const masterFilter = hideMasteredCards ? card.knownCount !== 5 : true;
-   return categoryFilter && masterFilter; // return if both true
-  })
+  const visibleCards = cards.filter((card) => {
+    const categoryFilter =
+      selectedCategories.length === 0 ||
+      selectedCategories.includes(card.category);
+    const masterFilter = hideMasteredCards ? card.knownCount !== 5 : true;
+    return categoryFilter && masterFilter; // return if both true
+  });
 
   const hasCards: boolean = visibleCards.length > 0;
   const currentCard = hasCards ? visibleCards[currentIdx] : undefined;
   const isMastered = currentCard?.knownCount === 5;
   const [showCatergories, setShowCategories] = useState(false); // false by default
-
 
   // DROPDOWN CATEGORIES RENDER
   function dropDown() {
@@ -77,18 +77,14 @@ export function StudyPanel({
     return shuffled;
   }
 
-  function filterCategories(category: string, checked: boolean){
-      setSelectedCategories((prev) => {
-      if (checked){
-        return [...prev, category]
-      } else{
-        return prev.filter(item => item !== category)
+  function filterCategories(category: string, checked: boolean) {
+    setSelectedCategories((prev) => {
+      if (checked) {
+        return [...prev, category];
+      } else {
+        return prev.filter((item) => item !== category);
       }
-      
-    })
-    
-    
-
+    });
   }
 
   useEffect(() => {
@@ -100,7 +96,7 @@ export function StudyPanel({
   // TESTING DEV MODE EFFECTS
   useEffect(() => {
     console.log("categories updated:", selectedCategories);
-  },[selectedCategories])
+  }, [selectedCategories]);
 
   // if (visibleCards.length === 0) return; // prevent error when no flashcards present
   return (
@@ -129,19 +125,20 @@ export function StudyPanel({
             </label>
           </div>
 
- {/* RENDERING CATEGORIES */}
+          {/* RENDERING CATEGORIES */}
           {showCatergories ? (
             <div className="study__categories-dropdown">
               {uniqueCat.map((item) => {
-               const count = cards.filter((card) => card.category === item).length;
+                const count = cards.filter(
+                  (card) => card.category === item
+                ).length;
                 return (
-                  <div className="category-item" key={item}> 
+                  <div className="category-item" key={item}>
                     <input
                       type="checkbox"
                       className="category-dropdown__checkbox"
                       onChange={(e) => filterCategories(item, e.target.checked)}
                       checked={selectedCategories.includes(item)}
-
                     />
                     <p className="category-item__description">{item}</p>
                     <p className="category-item__number">({count})</p>
@@ -189,8 +186,8 @@ export function StudyPanel({
                 prev.map((card) =>
                   card.id === currentCard.id
                     ? { ...card, knownCount: Math.min(card.knownCount + 1, 5) }
-                    : card,
-                ),
+                    : card
+                )
               );
             }
           }}
@@ -208,10 +205,8 @@ export function StudyPanel({
             {
               setCards((prev) =>
                 prev.map((card) =>
-                  card.id === currentCard.id
-                    ? { ...card, knownCount: 0 }
-                    : card,
-                ),
+                  card.id === currentCard.id ? { ...card, knownCount: 0 } : card
+                )
               );
             }
           }}
@@ -231,7 +226,10 @@ export function StudyPanel({
             previousCard();
           }}
         >
+
           <img src="images/icon-chevron-left.svg" alt="arrow-left" />
+                   <p className="study__card-button-text">Previous</p>
+
         </button>
 
         <p className="study__card-counter">
@@ -246,7 +244,8 @@ export function StudyPanel({
             nextCard();
           }}
         >
-          <img src="images/icon-chevron-right.svg" alt="arrow-right" />
+          <p className="study__card-button-text">Next</p>
+          <img className="study__arrow-btn" src="images/icon-chevron-right.svg" alt="arrow-right" />
         </button>
       </div>
     </section>

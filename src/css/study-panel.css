@@ -13,11 +13,24 @@
   vertical-align: middle;
 }
 
+@media only screen and (min-width: 670px) {
+  .study__option {
+    align-self: center;
+    margin-top: 0;
+  }
+}
+
 .study__header {
   display: flex;
   justify-content: space-between;
   padding: 1rem;
   padding-bottom: 0;
+}
+
+@media only screen and (min-width: 670px) {
+  .study__header {
+    padding-bottom: 1rem;
+  }
 }
 
 .study__checkbox,
@@ -42,6 +55,14 @@
   padding: 1rem;
 }
 
+@media only screen and (min-width: 670px) {
+  .study__action-buttons {
+    flex-direction: row;
+    justify-content: center;
+    padding: 0.4rem;
+  }
+}
+
 .study__card-navigation {
   display: flex;
   justify-content: space-between;
@@ -62,6 +83,13 @@ input[type="checkbox"]:checked {
 
 .study__filters {
   position: relative;
+}
+
+@media only screen and (min-width: 670px) {
+  .study__filters {
+    display: flex;
+    gap: 1rem;
+  }
 }
 
 .study__categories-dropdown {
@@ -124,7 +152,7 @@ input[type="checkbox"]:checked {
 
 .flashcard__tag {
   background-color: var(--clr-neutral-0);
-  padding: 10px 12px;
+  padding: 8px 10px;
   font-size: 12px;
   text-align: center;
   align-self: center;
@@ -260,12 +288,29 @@ input[type="checkbox"]:checked {
   gap: 0.2rem;
 }
 
+@media only screen and (min-width: 670px) {
+  .btn--reset {
+    width: 173px;
+    border-radius: 100px;
+    height: 43px;
+  }
+}
+
 .btn-knowit {
   background-color: var(--clr-yellow-500);
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.2rem;
+}
+
+@media only screen and (min-width: 670px) {
+  .btn-knowit {
+    width: auto;
+    padding: 1rem 2rem;
+    border-radius: var(--radius-full);
+    height: 43px;
+  }
 }
 
 .btn-knowit--mastered {
@@ -281,6 +326,49 @@ input[type="checkbox"]:checked {
   border: 1px solid black;
   background-color: transparent;
   padding-top: 4px;
+}
+@media only screen and (min-width: 670px) {
+  .btn__left-button,
+  .btn__right-button {
+    padding-top: 4px;
+    width: 96px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    padding-left: 0.5rem;
+    font-size: 16px;
+    align-self: center;
+    gap: 8px;
+  }
+}
+
+@media only screen and (min-width: 670px) {
+  .btn__left-button {
+    width: 140px;
+
+    align-self: center;
+  }
+}
+
+.study__card-button-text {
+  display: none;
+  color: var(--clr-neutral-900);
+}
+
+@media only screen and (min-width: 670px) {
+  .study__card-button-text {
+    display: block;
+    align-self: center;
+  }
+}
+
+@media only screen and (min-width: 670px) {
+  .study__arrow-btn {
+    height: 21px;
+    justify-self: center;
+    align-self: center;
+    gap: 1rem;
+  }
 }
 
 .empty-panel {
