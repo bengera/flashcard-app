@@ -227,7 +227,7 @@ export function StudyPanel({
           }}
         >
 
-          <img src="images/icon-chevron-left.svg" alt="arrow-left" />
+          <img className="study__arrow-btn" src="images/icon-chevron-left.svg" alt="arrow-left" />
                    <p className="study__card-button-text">Previous</p>
 
         </button>
