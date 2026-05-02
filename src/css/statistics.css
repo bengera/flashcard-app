@@ -11,6 +11,12 @@
   padding: 1rem;
 }
 
+@media only screen and (min-width: 670px) {
+  .statistics {
+    margin-top: 0;
+  }
+}
+
 .statistics__heading {
   font-weight: 600;
   font-size: 26px;
@@ -27,6 +33,12 @@
   .statistics__allcards {
     display: grid;
     grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .statistics__allcards {
+    display: flex;
   }
 }
 
@@ -72,6 +84,12 @@
 .statistics__card-number {
   font-weight: 600;
   font-size: clamp(1.5rem, 1.0142rem + 2.1591vw, 2.6875rem);
+}
+
+@media only screen and (min-width: 1024px) {
+  .statistics__card-number {
+    font-size: 21px;
+  }
 }
 
 .icon {

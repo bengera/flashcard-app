@@ -51,7 +51,7 @@ This roadmap outlines planned improvements and milestones on the way to a comple
 CSS NOTES
 
 - could not use variables inside CSS media queries
-  HTML NOTES
+- Not having scss to create media queries has taken up a lot of time
 
 <hr className="solid"></hr>
 

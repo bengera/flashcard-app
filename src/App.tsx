@@ -18,7 +18,7 @@ function App() {
       <h1 className="u-visually-hidden">Study Flashcards</h1>
       <Header />
 
-      <main>
+      <main className="main">
         <StudyPanel
           cards={cards}
           setCards={setCards}
