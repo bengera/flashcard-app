@@ -345,8 +345,8 @@ input[type="checkbox"]:checked {
 @media only screen and (min-width: 670px) {
   .btn__left-button {
     width: 130px;
-text-align: left;
-justify-content: flex-start;
+    text-align: left;
+    justify-content: flex-start;
     align-self: center;
   }
 }
@@ -378,6 +378,12 @@ justify-content: flex-start;
   flex-direction: column;
   align-items: center;
   text-align: center;
+}
+
+@media only screen and (min-width: 1024px) {
+  .empty-panel {
+    padding: 10.5rem 4rem;
+  }
 }
 
 .empty-panel__heading {
