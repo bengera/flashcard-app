@@ -49,6 +49,12 @@
   border-radius: var(--radius-10);
 }
 
+@media only screen and (min-width: 1024px) {
+  .card {
+    margin: 1rem;
+  }
+}
+
 .statistics__card-left-content {
   margin-left: 1rem;
 }
@@ -88,7 +94,9 @@
 
 @media only screen and (min-width: 1024px) {
   .statistics__card-number {
-    font-size: 21px;
+    font-size: 40px;
+    font-weight: 700;
+    margin: 10px;
   }
 }
 
