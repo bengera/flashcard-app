@@ -172,8 +172,10 @@ export function StudyPanel({
       ) : (
         <EmptyPanel />
       )}
-
-      <div className="study__action-buttons">
+{/* Invisible from here when no cards -START */}
+{hasCards ? (
+  <>
+ <div className="study__action-buttons">
         <button
           type="button"
           className={`btn btn-knowit u-rounded-pill u-shadow--thick ${
@@ -248,6 +250,10 @@ export function StudyPanel({
           <img className="study__arrow-btn" src="images/icon-chevron-right.svg" alt="arrow-right" />
         </button>
       </div>
+      </>
+): null}
+     
+      {/* Invisible -END */}
     </section>
   );
 }
