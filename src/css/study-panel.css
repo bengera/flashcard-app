@@ -8,16 +8,21 @@
   /* height: 80vh; */
 }
 
+@media only screen and (min-width: 670px) {
+  .study {
+    margin-bottom: 2rem;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .study {
+    margin-bottom: 0;
+  }
+}
+
 .study__option {
   margin-top: 10px;
   vertical-align: middle;
-}
-
-@media only screen and (min-width: 670px) {
-  .study__option {
-    align-self: center;
-    margin-top: 0;
-  }
 }
 
 .study__header {

@@ -4,22 +4,29 @@ import data from "../data.json";
 import { StatisticsPanel } from "./components/statistics-panel";
 import { Header } from "./components/header";
 import { StudyPanel } from "./components/study";
+import { AllCards } from "./components/allCards";
 import type { Flashcard } from "./types/flashcard";
 
 function App() {
   const [cards, setCards] = useState<Flashcard[]>(data.flashcards); // all cards direct from json
   const [hideMasteredCards, setHideMasteredCards] = useState(false); // state for checkbox input of hiding mastered cards
   const [currentIdx, setCurrentIdx] = useState(0); // current card being viewed
+  const [studyMode, setStudyMode] = useState<boolean>(true);
 
  
 
   return (
     <div className="app">
       <h1 className="u-visually-hidden">Study Flashcards</h1>
-      <Header />
+      <Header
+        studyMode={studyMode}
+        setStudyMode={setStudyMode}
+      />
 
       <main className="main">
-        <StudyPanel
+        {studyMode ? (
+          <>
+           <StudyPanel
           cards={cards}
           setCards={setCards}
           hideMasteredCards={hideMasteredCards}
@@ -27,8 +34,13 @@ function App() {
           currentIdx={currentIdx}
           setCurrentIdx={setCurrentIdx}
         />
+        <StatisticsPanel cards={cards} /></>
+        ) :     
+        <div>allcards</div>}
+        
+      
 
-        <StatisticsPanel cards={cards} />
+        
       </main>
     </div>
   );
