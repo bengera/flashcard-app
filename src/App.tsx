@@ -11,7 +11,7 @@ function App() {
   const [cards, setCards] = useState<Flashcard[]>(data.flashcards); // all cards direct from json
   const [hideMasteredCards, setHideMasteredCards] = useState(false); // state for checkbox input of hiding mastered cards
   const [currentIdx, setCurrentIdx] = useState(0); // current card being viewed
-  const [studyMode, setStudyMode] = useState<boolean>(true); // true default!
+  const [studyMode, setStudyMode] = useState<boolean>(false); // true default!
 
  
 
@@ -23,8 +23,7 @@ function App() {
         setStudyMode={setStudyMode}
       />
 
-      <main className="main">
-        <div className="main-inner-container">
+      <main className={studyMode ? "main" : "main-all-cards"}>
         {studyMode ? (
           <>
             <StudyPanel
@@ -40,7 +39,6 @@ function App() {
         ) : (
           <AllCards />
         )}
-        </div>
       </main>
     </div>
   );
