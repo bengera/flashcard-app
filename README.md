@@ -36,6 +36,10 @@ Create and study flashcards
 
 ## Features
 
+## Learning points
+
+- tabs choose a value, they do not flip
+
 ## Roadmap
 
 This roadmap outlines planned improvements and milestones on the way to a complete app.

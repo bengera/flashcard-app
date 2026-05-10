@@ -5,9 +5,10 @@ type HeaderProps = {
 
 export function Header({ studyMode, setStudyMode }: HeaderProps) {
 
-function changeMode(){
- setStudyMode(!studyMode);
-}
+// function changeMode(){
+//  setStudyMode(!studyMode);
+// }
+
 
   return (
     <header className="header">
@@ -17,10 +18,10 @@ function changeMode(){
         <p className="header__tab-title-text">Flashcard</p>
         
         <div className="tabs u-shadow">
-          <button onClick={() => changeMode()} type="button" className="tab tab--active u-rounded-pill-narrow">
+          <button onClick={() => setStudyMode(true)} type="button" className={`tab u-rounded-pill-narrow ${studyMode ? 'tab--active' : ''}`}>
             Study Mode
           </button>
-          <button onClick={() => changeMode()} type="button" className="tab u-rounded-pill-narrow">
+          <button onClick={() => setStudyMode(false)} type="button" className={`tab u-rounded-pill-narrow ${studyMode ? '' : 'tab--active'}`}>
             All Cards
           </button>
         </div>
