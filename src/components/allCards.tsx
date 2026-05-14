@@ -2,7 +2,7 @@ export function AllCards() {
   return (
     
     <form className="card-form">
-  <div className="form-group">
+  <div className="form-group flex-group">
     <label htmlFor="question">Question</label>
     <input
       id="question"
@@ -12,7 +12,7 @@ export function AllCards() {
     />
   </div>
 
-  <div className="form-group">
+  <div className="form-group flex-group">
     <label htmlFor="answer">Answer</label>
     <textarea
       id="answer"
@@ -21,7 +21,7 @@ export function AllCards() {
     ></textarea>
   </div>
 
-  <div className="form-group">
+  <div className="form-group flex-group">
     <label htmlFor="category">Category</label>
     <input
       id="category"
@@ -31,7 +31,9 @@ export function AllCards() {
     />
   </div>
 
-  <button type="submit">⊕ Create Card</button>
+  <button className="btn-submit u-rounded-pill u-shadow--thick" type="submit">
+     <img src="images/icon-circle-plus.svg" alt="icon-plus" />
+    Create Card</button>
 </form>
   );
 }
