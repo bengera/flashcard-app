@@ -102,6 +102,7 @@ export function StudyPanel({
   return (
     <section className="study u-shadow">
       <div className="study__header">
+        /* extract filter start */
         <div className="study__filters">
           <button
             type="button"
@@ -160,6 +161,8 @@ export function StudyPanel({
           Shuffle
         </button>
       </div>
+
+      /* extract filter end */
 
       <hr className="solid" />
 
