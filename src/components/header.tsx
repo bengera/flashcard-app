@@ -5,10 +5,6 @@ type HeaderProps = {
 
 export function Header({ studyMode, setStudyMode }: HeaderProps) {
 
-// function changeMode(){
-//  setStudyMode(!studyMode);
-// }
-
 
   return (
     <header className="header">
