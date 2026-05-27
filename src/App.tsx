@@ -9,7 +9,7 @@ import type { Flashcard } from "./types/flashcard";
 
 function App() {
   // const [cards, setCards] = useState<Flashcard[]>(data.flashcards); // all cards direct from json
-  const [cards, setCards] = useState<Flashcard>(() => {
+  const [cards, setCards] = useState<Flashcard[]>(() => {
     const storedCards = localStorage.getItem('cards');
     return storedCards ? JSON.parse(storedCards) : data.flashcards; // fallback
   })
