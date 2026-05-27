@@ -28,3 +28,7 @@ textarea {
   cursor: pointer;
   width: 40%;
 }
+
+textarea {
+  resize: none;
+}

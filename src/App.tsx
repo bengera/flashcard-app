@@ -37,7 +37,9 @@ function App() {
             <StatisticsPanel cards={cards} />
           </>
         ) : (
-          <AllCards />
+          <AllCards  
+          cards={cards}
+          setCards={setCards} />
         )}
       </main>
     </div>

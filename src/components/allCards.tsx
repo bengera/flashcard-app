@@ -1,7 +1,29 @@
-export function AllCards() {
+ import { useState } from "react";
+import type { Flashcard } from "../types/flashcard";
+ 
+ type AllCardsProps = {
+    cards: Flashcard[];
+    setCards: React.Dispatch<React.SetStateAction<Flashcard[]>>;
+  
+   
+  };
+
+export function AllCards({cards, setCards}: AllCardsProps) {
+  const [question, setQuestion] = useState<string>("");
+  const [answer, setAnswer] = useState<string>("");
+  const [category, setCategory] = useState<string>("");
+
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>){
+    e.preventDefault();
+    console.log(question, answer, category)
+
+   
+
+  }
+
   return (
     
-    <form className="card-form">
+    <form className="card-form" onSubmit={handleSubmit}>
   <div className="form-group flex-group">
     <label htmlFor="question">Question</label>
     <input
@@ -9,6 +31,8 @@ export function AllCards() {
       name="question"
       type="text"
       placeholder="e.g., What is the capital of France?"
+      value={question}
+      onChange={(e) => setQuestion(e.currentTarget.value)}
     />
   </div>
 
@@ -18,6 +42,8 @@ export function AllCards() {
       id="answer"
       name="answer"
       placeholder="e.g., Paris"
+      value={answer}
+      onChange={(e) => setAnswer(e.currentTarget.value)}
     ></textarea>
   </div>
 
@@ -28,6 +54,8 @@ export function AllCards() {
       name="category"
       type="text"
       placeholder="e.g., Geography"
+      value={category}
+      onChange={(e) => setCategory(e.currentTarget.value)}
     />
   </div>
 

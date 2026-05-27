@@ -54,6 +54,8 @@ This roadmap outlines planned improvements and milestones on the way to a comple
 
 CSS NOTES
 
+onChange={(e) => setQuestion(e.currentTarget.value)}
+
 - could not use variables inside CSS media queries
 - Not having scss to create media queries has taken up a lot of time
 
