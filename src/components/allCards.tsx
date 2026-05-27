@@ -17,7 +17,18 @@ export function AllCards({cards, setCards}: AllCardsProps) {
     e.preventDefault();
     console.log(question, answer, category)
 
-   
+    const newCard : Flashcard = {
+      question,
+      answer,
+      category,
+      id: crypto.randomUUID(),
+      knownCount: 0
+    }
+
+    setCards((prevCards) => [...prevCards, newCard])
+    setQuestion('');
+    setAnswer('');
+    // blank space for cateogry to add my questions without retyping
 
   }
 

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import data from "../data.json";
 // import data from "../data-empty.json"; // test for empty flashcards
 import { StatisticsPanel } from "./components/statistics-panel";
@@ -8,12 +8,21 @@ import { AllCards } from "./components/allCards";
 import type { Flashcard } from "./types/flashcard";
 
 function App() {
-  const [cards, setCards] = useState<Flashcard[]>(data.flashcards); // all cards direct from json
+  // const [cards, setCards] = useState<Flashcard[]>(data.flashcards); // all cards direct from json
+  const [cards, setCards] = useState<Flashcard>(() => {
+    const storedCards = localStorage.getItem('cards');
+    return storedCards ? JSON.parse(storedCards) : data.flashcards; // fallback
+  })
   const [hideMasteredCards, setHideMasteredCards] = useState(false); // state for checkbox input of hiding mastered cards
   const [currentIdx, setCurrentIdx] = useState(0); // current card being viewed
   const [studyMode, setStudyMode] = useState<boolean>(false); // true default!
 
- 
+   useEffect(
+    function () {
+      localStorage.setItem("cards", JSON.stringify(cards));
+    },
+    [cards],
+  );
 
   return (
     <div className="app">
