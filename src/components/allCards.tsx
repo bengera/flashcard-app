@@ -8,7 +8,7 @@ import type { Flashcard } from "../types/flashcard";
    
   };
 
-export function AllCards({cards, setCards}: AllCardsProps) {
+export function AllCards({setCards}: AllCardsProps) {
   const [question, setQuestion] = useState<string>("");
   const [answer, setAnswer] = useState<string>("");
   const [category, setCategory] = useState<string>("");
@@ -18,10 +18,10 @@ export function AllCards({cards, setCards}: AllCardsProps) {
     console.log(question, answer, category)
 
     const newCard : Flashcard = {
+      id: crypto.randomUUID(),
       question,
       answer,
       category,
-      id: crypto.randomUUID(),
       knownCount: 0
     }
 
@@ -33,7 +33,7 @@ export function AllCards({cards, setCards}: AllCardsProps) {
   }
 
   return (
-    
+    <>
     <form className="card-form" onSubmit={handleSubmit}>
   <div className="form-group flex-group">
     <label htmlFor="question">Question</label>
@@ -74,5 +74,13 @@ export function AllCards({cards, setCards}: AllCardsProps) {
      <img src="images/icon-circle-plus.svg" alt="icon-plus" />
     Create Card</button>
 </form>
+
+<div className="flashcards-container">
+      {/* Flashcard controls component here */}
+      <div className="flashcard-controls">
+        
+      </div>
+</div>
+</>
   );
 }
