@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { FlashCardContent } from "./flashcard-content";
 import { EmptyPanel } from "./emptyPanel";
 import type { Flashcard } from "../types/flashcard";
+import { FlashcardControls } from "./flashcardControls";
 
 type StudyPanelProps = {
   cards: Flashcard[];
@@ -150,16 +151,9 @@ export function StudyPanel({
           ) : null}
         </div>
 
-        <button
-          type="button"
-          className="btn btn--shuffle u-rounded-pill-narrow"
-          onClick={() => {
-            setCards((prev) => shuffleArray(prev));
-          }}
-        >
-          <img src="images/icon-shuffle.svg" alt="shuffle-icon" />
-          Shuffle
-        </button>
+       <FlashcardControls
+       onShuffle={()=> setCards((prev) => shuffleArray(prev))}
+       />
       </div>
 
       <hr className="solid" />
