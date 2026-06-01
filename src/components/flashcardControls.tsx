@@ -24,8 +24,29 @@ export function FlashcardControls({
     selectedCategories
 }: FlashcardControlProps){
     return (
-        <>
+      <>
          <div className="study__filters">
+             <button
+            type="button"
+            className="btn btn--categories u-rounded-pill-narrow"
+            onClick={onDropDown}
+          >
+            All Categories
+            <img src="images/icon-chevron-down.svg" alt="arrow-icon" />
+          </button>
+
+            <div className="study__option">
+            <input
+              className="study__checkbox"
+              checked={hideMasteredCards}
+              type="checkbox"
+              id="hide-mastered"
+              onChange={(e) => setHideMasteredCards(e.target.checked)}
+            />
+            <label className="study__label" htmlFor="hide-mastered">
+              Hide Mastered
+            </label>
+          </div>
             
           {/* RENDERING CATEGORIES */}
           {showCategories ? (
@@ -49,28 +70,9 @@ export function FlashcardControls({
               })}
             </div>
           ) : null}
+        </div>
+      
        
-
-           <button
-            type="button"
-            className="btn btn--categories u-rounded-pill-narrow"
-            onClick={onDropDown}
-          >
-            All Categories
-            <img src="images/icon-chevron-down.svg" alt="arrow-icon" />
-          </button>
-         <div className="study__option">
-            <input
-              className="study__checkbox"
-              checked={hideMasteredCards}
-              type="checkbox"
-              id="hide-mastered"
-              onChange={(e) => setHideMasteredCards(e.target.checked)}
-            />
-            <label className="study__label" htmlFor="hide-mastered">
-              Hide Mastered
-            </label>
-          </div>
          <button
           type="button"
           className="btn btn--shuffle u-rounded-pill-narrow"
@@ -79,7 +81,7 @@ export function FlashcardControls({
           <img src="images/icon-shuffle.svg" alt="shuffle-icon" />
           Shuffle
         </button>
-         </div>
         </>
+       
     )
 }
