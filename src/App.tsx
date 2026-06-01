@@ -42,6 +42,7 @@ function App() {
               setHideMasteredCards={setHideMasteredCards}
               currentIdx={currentIdx}
               setCurrentIdx={setCurrentIdx}
+              setStudyMode={setStudyMode}
             />
             <StatisticsPanel cards={cards} />
           </>

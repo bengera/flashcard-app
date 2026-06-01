@@ -7,7 +7,7 @@ import { FlashcardControls } from "./flashcardControls";
 type StudyPanelProps = {
   cards: Flashcard[];
   setCards: React.Dispatch<React.SetStateAction<Flashcard[]>>;
-
+  setStudyMode: (mode: boolean) => void;
   hideMasteredCards: boolean;
   setHideMasteredCards: React.Dispatch<React.SetStateAction<boolean>>;
 
@@ -22,6 +22,7 @@ export function StudyPanel({
   setHideMasteredCards,
   currentIdx,
   setCurrentIdx,
+  setStudyMode
 }: StudyPanelProps) {
   const [reveal, setReveal] = useState(false); // show answer
   const [uniqueCat, setUniqueCat] = useState<string[]>([]);
@@ -127,7 +128,9 @@ export function StudyPanel({
           
         />
       ) : (
-        <EmptyPanel />
+        <EmptyPanel
+        setStudyMode={setStudyMode}
+        />
       )}
 {/* Invisible from here when no cards -START */}
 {hasCards ? (

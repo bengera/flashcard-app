@@ -18,7 +18,6 @@ export function FlashCardContent({
 
   const isMastered = currentCard.knownCount === 5;
 
-  
 
   return (
     <div className="flashcard">
