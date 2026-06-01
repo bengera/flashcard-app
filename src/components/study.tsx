@@ -38,12 +38,12 @@ export function StudyPanel({
   const hasCards: boolean = visibleCards.length > 0;
   const currentCard = hasCards ? visibleCards[currentIdx] : undefined;
   const isMastered = currentCard?.knownCount === 5;
-  const [showCatergories, setShowCategories] = useState(false); // false by default
+  const [showCategories, setShowCategories] = useState(false); // false by default
 
   // DROPDOWN CATEGORIES RENDER
   function dropDown() {
-    setShowCategories(!showCatergories);
-    if (!showCatergories) {
+    setShowCategories(!showCategories);
+    if (!showCategories) {
       const categories = cards.map((card) => card.category);
       const uniqueCategories = [...new Set(categories)];
       setUniqueCat(uniqueCategories.sort());
@@ -104,56 +104,17 @@ export function StudyPanel({
     <section className="study u-shadow">
       <div className="study__header">
     
-        <div className="study__filters">
-          <button
-            type="button"
-            className="btn btn--categories u-rounded-pill-narrow"
-            onClick={() => dropDown()}
-          >
-            All Categories
-            <img src="images/icon-chevron-down.svg" alt="arrow-icon" />
-          </button>
-
-          <div className="study__option">
-            <input
-              className="study__checkbox"
-              checked={hideMasteredCards}
-              type="checkbox"
-              id="hide-mastered"
-              onChange={(e) => setHideMasteredCards(e.target.checked)}
-            />
-            <label className="study__label" htmlFor="hide-mastered">
-              Hide Mastered
-            </label>
-          </div>
-
-          {/* RENDERING CATEGORIES */}
-          {showCatergories ? (
-            <div className="study__categories-dropdown">
-              {uniqueCat.map((item) => {
-                const count = cards.filter(
-                  (card) => card.category === item
-                ).length;
-                return (
-                  <div className="category-item" key={item}>
-                    <input
-                      type="checkbox"
-                      className="category-dropdown__checkbox"
-                      onChange={(e) => filterCategories(item, e.target.checked)}
-                      checked={selectedCategories.includes(item)}
-                    />
-                    <p className="category-item__description">{item}</p>
-                    <p className="category-item__number">({count})</p>
-                  </div>
-                );
-              })}
-            </div>
-          ) : null}
-        </div>
-
+       
        <FlashcardControls
-       onShuffle={()=> setCards((prev) => shuffleArray(prev))}
-       />
+          onShuffle={() => setCards((prev) => shuffleArray(prev))}
+          onDropDown={() => dropDown()}
+          hideMasteredCards={hideMasteredCards}
+          setHideMasteredCards={setHideMasteredCards}
+          showCategories={showCategories}
+          uniqueCat={uniqueCat}
+          filterCategories={filterCategories}
+          selectedCategories={selectedCategories} 
+          cards={cards}/>
       </div>
 
       <hr className="solid" />
@@ -163,6 +124,7 @@ export function StudyPanel({
           reveal={reveal}
           setReveal={setReveal}
           currentCard={currentCard}
+          
         />
       ) : (
         <EmptyPanel />
