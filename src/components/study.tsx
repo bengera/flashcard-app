@@ -1,32 +1,60 @@
-import React, { useState, useEffect } from "react";
+import React, {useEffect } from "react";
 import { FlashCardContent } from "./flashcard-content";
 import { EmptyPanel } from "./emptyPanel";
 import type { Flashcard } from "../types/flashcard";
 import { FlashcardControls } from "./flashcardControls";
 
 type StudyPanelProps = {
-  cards: Flashcard[];
-  setCards: React.Dispatch<React.SetStateAction<Flashcard[]>>;
-  setStudyMode: (mode: boolean) => void;
-  hideMasteredCards: boolean;
-  setHideMasteredCards: React.Dispatch<React.SetStateAction<boolean>>;
+  cardsState: {
+    cards: Flashcard[];
+    setCards: React.Dispatch<React.SetStateAction<Flashcard[]>>;
+  };
 
-  currentIdx: number;
-  setCurrentIdx: React.Dispatch<React.SetStateAction<number>>;
+  studyState: {
+    setStudyMode: (mode: boolean) => void;
+    reveal: boolean;
+    setReveal: React.Dispatch<React.SetStateAction<boolean>>;
+    currentIdx: number;
+    setCurrentIdx: React.Dispatch<React.SetStateAction<number>>;
+  };
+
+  controlState: {
+    hideMasteredCards: boolean;
+    setHideMasteredCards: React.Dispatch<React.SetStateAction<boolean>>;
+    uniqueCat: string[];
+    setUniqueCat: React.Dispatch<React.SetStateAction<string[]>>;
+    selectedCategories: string[];
+    setSelectedCategories: React.Dispatch<React.SetStateAction<string[]>>;
+    showCategories: boolean;
+    setShowCategories: React.Dispatch<React.SetStateAction<boolean>>;
+  };
 };
 
 export function StudyPanel({
-  cards,
-  setCards,
-  hideMasteredCards,
-  setHideMasteredCards,
-  currentIdx,
-  setCurrentIdx,
-  setStudyMode
+ cardsState,
+ studyState,
+ controlState
+
 }: StudyPanelProps) {
-  const [reveal, setReveal] = useState(false); // show answer
-  const [uniqueCat, setUniqueCat] = useState<string[]>([]);
-  const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
+ const {cards, setCards} = cardsState;
+   const {
+    setStudyMode,
+    reveal,
+    setReveal,
+    currentIdx,
+    setCurrentIdx,
+  } = studyState;
+
+  const {
+    hideMasteredCards,
+    setHideMasteredCards,
+    uniqueCat,
+    setUniqueCat,
+    selectedCategories,
+    setSelectedCategories,
+    showCategories,
+    setShowCategories,
+  } = controlState;
 
   const visibleCards = cards.filter((card) => {
     const categoryFilter =
@@ -39,7 +67,6 @@ export function StudyPanel({
   const hasCards: boolean = visibleCards.length > 0;
   const currentCard = hasCards ? visibleCards[currentIdx] : undefined;
   const isMastered = currentCard?.knownCount === 5;
-  const [showCategories, setShowCategories] = useState(false); // false by default
 
   // DROPDOWN CATEGORIES RENDER
   function dropDown() {
