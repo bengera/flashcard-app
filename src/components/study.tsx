@@ -27,6 +27,7 @@ type StudyPanelProps = {
     setSelectedCategories: React.Dispatch<React.SetStateAction<string[]>>;
     showCategories: boolean;
     setShowCategories: React.Dispatch<React.SetStateAction<boolean>>;
+    
   };
 };
 

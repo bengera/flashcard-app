@@ -74,8 +74,7 @@ const controlsState = {
           </>
         ) : (
           <AllCards  
-          cards={cards}
-          setCards={setCards} />
+          cardsState={cardsState} />
         )}
       </main>
     </div>
