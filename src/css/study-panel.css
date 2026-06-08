@@ -147,6 +147,12 @@ input[type="checkbox"]:checked {
   cursor: pointer;
 }
 
+/* @media only screen and (min-width: 670px) {
+  .flashcard__content {
+    min-height: 480px;
+  }
+} */
+
 .flashcard__central-content {
   text-align: center;
   flex: 1;

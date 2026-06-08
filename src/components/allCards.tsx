@@ -1,12 +1,23 @@
 import { useState } from "react";
 import type { Flashcard } from "../types/flashcard";
+import type React from "react";
+import type { FlashCardControlProps } from "./flashcardControls";
+import { FlashcardControls } from "./flashcardControls";
+
  
  type cardsStateProps = {
-  setCards: React.Dispatch<React.SetStateAction<Flashcard[]>>;
+ cardsState: {
+    cards: Flashcard[];
+    setCards: React.Dispatch<React.SetStateAction<Flashcard[]>>;
+};
+   flashCardControlsProps: FlashCardControlProps;
+
 };
 
+
 export function AllCards({
-  setCards
+  cardsState: { setCards },
+  flashCardControlsProps
 }: cardsStateProps) {
   const [question, setQuestion] = useState<string>("");
   const [answer, setAnswer] = useState<string>("");
@@ -77,7 +88,7 @@ export function AllCards({
 <div className="flashcards-container">
       {/* Flashcard controls component here */}
       <div className="flashcard-controls">
-        
+        <FlashcardControls {...flashCardControlsProps} />
       </div>
 </div>
 

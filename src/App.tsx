@@ -7,8 +7,8 @@ import { StudyPanel } from "./components/study";
 import { AllCards } from "./components/allCards";
 import type { Flashcard } from "./types/flashcard";
 
+
 function App() {
-  // const [cards, setCards] = useState<Flashcard[]>(data.flashcards); // all cards direct from json
   const [cards, setCards] = useState<Flashcard[]>(() => {
     const storedCards = localStorage.getItem('cards');
     return storedCards ? JSON.parse(storedCards) : data.flashcards; // fallback
@@ -26,6 +26,7 @@ function App() {
   const cardsState = {
   cards,
   setCards,
+
 };
 
 const studyState = {
@@ -47,12 +48,56 @@ const controlsState = {
   setShowCategories
 };
 
+const flashCardControlsProps = {
+  onShuffle: () => setCards((prev) => shuffleArray(prev)),
+  onDropDown: dropDown,
+  hideMasteredCards,
+  setHideMasteredCards,
+  showCategories,
+  uniqueCat,
+  filterCategories,
+  selectedCategories,
+  cards,
+};
+
+  function filterCategories(category: string, checked: boolean) {
+    setSelectedCategories((prev) => {
+      if (checked) {
+        return [...prev, category];
+      } else {
+        return prev.filter((item) => item !== category);
+      }
+    });
+  }
+
+  function shuffleArray<T>(array: T[]): T[] {
+    const shuffled = [...array];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+
+    return shuffled;
+  }
+
+  // DROPDOWN CATEGORIES RENDER
+  function dropDown() {
+    setShowCategories(!showCategories);
+    if (!showCategories) {
+      const categories = cards.map((card) => card.category);
+      const uniqueCategories = [...new Set(categories)];
+      setUniqueCat(uniqueCategories.sort());
+    }
+  }
+
    useEffect(
     function () {
       localStorage.setItem("cards", JSON.stringify(cards));
     },
     [cards],
   );
+
+  
 
   return (
     <div className="app">
@@ -69,12 +114,18 @@ const controlsState = {
               cardsState={cardsState}
               studyState={studyState}
               controlState={controlsState}
+              flashCardControlsProps={flashCardControlsProps}
+             
+              
             />
             <StatisticsPanel cards={cards} />
           </>
         ) : (
           <AllCards  
-          cardsState={cardsState} />
+          cardsState={cardsState} 
+         flashCardControlsProps={flashCardControlsProps}
+          />
+          
         )}
       </main>
     </div>

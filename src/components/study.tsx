@@ -2,13 +2,18 @@ import React, {useEffect } from "react";
 import { FlashCardContent } from "./flashcard-content";
 import { EmptyPanel } from "./emptyPanel";
 import type { Flashcard } from "../types/flashcard";
-import { FlashcardControls } from "./flashcardControls";
+import { FlashcardControls, type FlashCardControlProps } from "./flashcardControls";
+
 
 type StudyPanelProps = {
   cardsState: {
     cards: Flashcard[];
     setCards: React.Dispatch<React.SetStateAction<Flashcard[]>>;
+   
   };
+
+   flashCardControlsProps: FlashCardControlProps;
+
 
   studyState: {
     setStudyMode: (mode: boolean) => void;
@@ -29,12 +34,15 @@ type StudyPanelProps = {
     setShowCategories: React.Dispatch<React.SetStateAction<boolean>>;
     
   };
+
+ 
 };
 
 export function StudyPanel({
  cardsState,
  studyState,
- controlState
+ controlState,
+ flashCardControlsProps,
 
 }: StudyPanelProps) {
  const {cards, setCards} = cardsState;
@@ -48,13 +56,8 @@ export function StudyPanel({
 
   const {
     hideMasteredCards,
-    setHideMasteredCards,
-    uniqueCat,
-    setUniqueCat,
     selectedCategories,
-    setSelectedCategories,
-    showCategories,
-    setShowCategories,
+      
   } = controlState;
 
   const visibleCards = cards.filter((card) => {
@@ -69,15 +72,7 @@ export function StudyPanel({
   const currentCard = hasCards ? visibleCards[currentIdx] : undefined;
   const isMastered = currentCard?.knownCount === 5;
 
-  // DROPDOWN CATEGORIES RENDER
-  function dropDown() {
-    setShowCategories(!showCategories);
-    if (!showCategories) {
-      const categories = cards.map((card) => card.category);
-      const uniqueCategories = [...new Set(categories)];
-      setUniqueCat(uniqueCategories.sort());
-    }
-  }
+
 
   function nextCard() {
     setReveal(false);
@@ -97,25 +92,9 @@ export function StudyPanel({
     });
   }
 
-  function shuffleArray<T>(array: T[]): T[] {
-    const shuffled = [...array];
-    for (let i = shuffled.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-    }
 
-    return shuffled;
-  }
 
-  function filterCategories(category: string, checked: boolean) {
-    setSelectedCategories((prev) => {
-      if (checked) {
-        return [...prev, category];
-      } else {
-        return prev.filter((item) => item !== category);
-      }
-    });
-  }
+
 
   useEffect(() => {
     if (currentIdx >= visibleCards.length) {
@@ -132,18 +111,9 @@ export function StudyPanel({
   return (
     <section className="study u-shadow">
       <div className="study__header">
-    
+
+       <FlashcardControls {...flashCardControlsProps} />
        
-       <FlashcardControls
-          onShuffle={() => setCards((prev) => shuffleArray(prev))}
-          onDropDown={() => dropDown()}
-          hideMasteredCards={hideMasteredCards}
-          setHideMasteredCards={setHideMasteredCards}
-          showCategories={showCategories}
-          uniqueCat={uniqueCat}
-          filterCategories={filterCategories}
-          selectedCategories={selectedCategories} 
-          cards={cards}/>
       </div>
 
       <hr className="solid" />

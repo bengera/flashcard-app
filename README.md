@@ -67,3 +67,9 @@ App shell – overall layout
 Header – logo + mode tabs
 
 Study area – filters + single flashcard + progress (later)
+
+Problems:
+
+Flashcard controls needs to be shared with allCards.tsx and studyPanel.
+Now it is just servivng StudyPanel
+Need to raise FlashcardContent and pass to both

@@ -32,3 +32,9 @@ textarea {
 textarea {
   resize: none;
 }
+
+.flashcard-controls {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+}

@@ -1,6 +1,6 @@
 import type { Flashcard } from "../types/flashcard";
 
-type FlashcardControlProps ={
+export type FlashCardControlProps ={
     onShuffle: () => void;
     onDropDown: () => void;
     hideMasteredCards: boolean;
@@ -22,7 +22,7 @@ export function FlashcardControls({
     cards,
     filterCategories,
     selectedCategories
-}: FlashcardControlProps){
+}: FlashCardControlProps){
     return (
       <>
          <div className="study__filters">
