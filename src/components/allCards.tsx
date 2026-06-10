@@ -13,7 +13,7 @@ type cardsStateProps = {
 };
 
 export function AllCards({
-  cardsState: { setCards },
+  cardsState: { cards, setCards },
   flashCardControlsProps,
 }: cardsStateProps) {
   const [question, setQuestion] = useState<string>("");
@@ -93,20 +93,31 @@ export function AllCards({
         <main>
           <div className="flashcards-preview">
 
-            <article className="flashcard-box">
+            {
+            cards.map((card)=>(
+              <article className="flashcard-box u-shadow--thick" key={card.id}>
+              
               <h2 className="flashcard-box__heading">
-                What does HTML stand for?
+                {card.question}
               </h2>
+               <hr className="solid" />
+               <div className="flashcard-box-inner ">
               <p>Answer:</p>
-              <p>HyperText Markup Language</p>
+              <p>{card.answer}</p>
+               
               <div className="flashcard-box__meta-data">
-                <span>Web Development</span>
-                <progress id="flashcard-progress-bar" max="100" value="70">
-                  0/5
+                <span>{card.category}</span>
+                <progress id="flashcard-progress-bar" max="5" value={card.knownCount}>
+                  {card.knownCount / 5}
                 </progress>
+                <p>{card.knownCount} / 5</p>
                 <button>...</button>
-              </div>
+                </div>
+                </div>
+             
+             
             </article>
+            ))}
 
           </div> 
         </main>

@@ -1,3 +1,10 @@
+html {
+  overflow-y: scroll;
+}
+
+/*Force scrollbar to always exist even when not visible, sorts out tabbing issue
+for displaying complete list of mini flashcards*/
+
 body {
   font-family: "Poppins", sans-serif;
   background-color: var(--clr-neutral-100);
@@ -25,6 +32,8 @@ select {
 
 .app {
   padding: 0.8rem;
+  max-width: 1640px;
+  margin: 0 auto;
 }
 
 @media only screen and (min-width: 1024px) {

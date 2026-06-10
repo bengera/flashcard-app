@@ -1,0 +1,17 @@
+.flashcard-box {
+  border: 1px solid black;
+  max-width: 400px;
+}
+
+.flashcard-box__heading {
+  margin-left: 1rem;
+}
+
+.flashcard-box-inner {
+  padding: 1rem;
+}
+
+.flashcard-box__meta-data {
+  display: flex;
+  gap: 1rem;
+}
