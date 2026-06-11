@@ -5,10 +5,21 @@
 
 .flashcard-box__heading {
   margin-left: 1rem;
+  color: var(--clr-neutral-900);
+  font-size: 20px;
 }
 
 .flashcard-box-inner {
   padding: 1rem;
+}
+
+.flashcard-box-inner span {
+  color: var(--clr-neutral-600);
+}
+
+.flashcard-box__answer-text {
+  color: var(--clr-neutral-900);
+  font-weight: 500;
 }
 
 .flashcard-box__meta-data {

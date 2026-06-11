@@ -70,6 +70,6 @@ Study area – filters + single flashcard + progress (later)
 
 Problems:
 
-Flashcard controls needs to be shared with allCards.tsx and studyPanel.
-Now it is just servivng StudyPanel
-Need to raise FlashcardContent and pass to both
+Latest:
+Need to extract mastered and progress counter to share with cards viewed in studymode and allcards
+list overview with miniflashcards

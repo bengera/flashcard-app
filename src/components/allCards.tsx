@@ -102,14 +102,14 @@ export function AllCards({
               </h2>
                <hr className="solid" />
                <div className="flashcard-box-inner ">
-              <p>Answer:</p>
-              <p>{card.answer}</p>
+              <span>Answer:</span>
+              <p className="flashcard-box__answer-text">{card.answer}</p>
                
               <div className="flashcard-box__meta-data">
-                <span>{card.category}</span>
-                <progress id="flashcard-progress-bar" max="5" value={card.knownCount}>
+                <p className="flashcard__tag u-shadow--thick">{card.category}</p>
+                {/* <progress id="flashcard-progress-bar" max="5" value={card.knownCount}>
                   {card.knownCount / 5}
-                </progress>
+                </progress> */}
                 <p>{card.knownCount} / 5</p>
                 <button>...</button>
                 </div>
