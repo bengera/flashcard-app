@@ -3,6 +3,8 @@ import type { Flashcard } from "../types/flashcard";
 import type React from "react";
 import type { FlashCardControlProps } from "./flashcardControls";
 import { FlashcardControls } from "./flashcardControls";
+import { ProgressBar } from "./progress-bar";
+
 
 type cardsStateProps = {
   cardsState: {
@@ -94,30 +96,26 @@ export function AllCards({
           <div className="flashcards-preview">
 
             {
-            cards.map((card)=>(
-              <article className="flashcard-box u-shadow--thick" key={card.id}>
-              
-              <h2 className="flashcard-box__heading">
-                {card.question}
-              </h2>
-               <hr className="solid" />
-               <div className="flashcard-box-inner ">
-              <span>Answer:</span>
-              <p className="flashcard-box__answer-text">{card.answer}</p>
-               
-              <div className="flashcard-box__meta-data">
-                <p className="flashcard__tag u-shadow--thick">{card.category}</p>
-                {/* <progress id="flashcard-progress-bar" max="5" value={card.knownCount}>
-                  {card.knownCount / 5}
-                </progress> */}
-                <p>{card.knownCount} / 5</p>
-                <button>...</button>
-                </div>
-                </div>
-             
-             
-            </article>
-            ))}
+              cards.map((card) => {
+                const isMastered = card.knownCount === 5;
+                return (
+                  <article className="flashcard-box u-shadow--thick" key={card.id}>
+                    <h2 className="flashcard-box__heading">{card.question}</h2>
+                    <hr className="solid" />
+                    <div className="flashcard-box-inner ">
+                      <span>Answer:</span>
+                      <p className="flashcard-box__answer-text">{card.answer}</p>
+
+                      <div className="flashcard-box__meta-data">
+                        <p className="flashcard__tag u-shadow--thick">{card.category}</p>
+                        <ProgressBar knownCount={card.knownCount} isMastered={isMastered} />
+                        <button>...</button>
+                      </div>
+                    </div>
+                  </article>
+                );
+              })
+            }
 
           </div> 
         </main>
