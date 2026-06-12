@@ -1,4 +1,5 @@
 import type { Flashcard } from "../types/flashcard";
+import { ProgressBar } from "./progress-bar";
 
 type FlashcardContentProps = {
   reveal: boolean;
@@ -75,9 +76,9 @@ export function FlashCardContent({
           >
             <div className="flashcard__progress-bar-fill"></div>
           </div>
-          <p className="flashcard__progress-number">
-            {currentCard.knownCount}/5
-          </p>
+          <ProgressBar
+          knownCount={currentCard.knownCount}
+          />
         </div>
       </div>
     </div>
