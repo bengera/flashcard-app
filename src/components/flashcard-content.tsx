@@ -70,12 +70,7 @@ export function FlashCardContent({
           </div>) : null}
           
 
-          <div
-            className="flashcard__progress-bar "
-            style={{ "--value": currentCard.knownCount } as React.CSSProperties}
-          >
-            <div className="flashcard__progress-bar-fill"></div>
-          </div>
+         
           <ProgressBar
           knownCount={currentCard.knownCount}
           />
