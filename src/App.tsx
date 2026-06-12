@@ -80,6 +80,14 @@ const flashCardControlsProps = {
     return shuffled;
   }
 
+    const visibleCards = cards.filter((card) => {
+    const categoryFilter =
+      selectedCategories.length === 0 ||
+      selectedCategories.includes(card.category);
+    const masterFilter = hideMasteredCards ? card.knownCount !== 5 : true;
+    return categoryFilter && masterFilter; // return if both true
+  });
+
   // DROPDOWN CATEGORIES RENDER
   function dropDown() {
     setShowCategories(!showCategories);
@@ -115,6 +123,7 @@ const flashCardControlsProps = {
               studyState={studyState}
               controlState={controlsState}
               flashCardControlsProps={flashCardControlsProps}
+              visibleCards={visibleCards}
              
               
             />
@@ -124,6 +133,8 @@ const flashCardControlsProps = {
           <AllCards  
           cardsState={cardsState} 
          flashCardControlsProps={flashCardControlsProps}
+         visibleCards={visibleCards}
+
           />
           
         )}

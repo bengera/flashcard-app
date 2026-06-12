@@ -13,6 +13,7 @@ type StudyPanelProps = {
   };
 
    flashCardControlsProps: FlashCardControlProps;
+  
 
 
   studyState: {
@@ -35,6 +36,8 @@ type StudyPanelProps = {
     
   };
 
+ visibleCards: Flashcard[];
+
  
 };
 
@@ -43,9 +46,10 @@ export function StudyPanel({
  studyState,
  controlState,
  flashCardControlsProps,
+ visibleCards,
 
 }: StudyPanelProps) {
- const {cards, setCards} = cardsState;
+ const { setCards} = cardsState;
    const {
     setStudyMode,
     reveal,
@@ -55,18 +59,12 @@ export function StudyPanel({
   } = studyState;
 
   const {
-    hideMasteredCards,
+    
     selectedCategories,
       
   } = controlState;
 
-  const visibleCards = cards.filter((card) => {
-    const categoryFilter =
-      selectedCategories.length === 0 ||
-      selectedCategories.includes(card.category);
-    const masterFilter = hideMasteredCards ? card.knownCount !== 5 : true;
-    return categoryFilter && masterFilter; // return if both true
-  });
+
 
   const hasCards: boolean = visibleCards.length > 0;
   const currentCard = hasCards ? visibleCards[currentIdx] : undefined;

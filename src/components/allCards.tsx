@@ -12,10 +12,13 @@ type cardsStateProps = {
     setCards: React.Dispatch<React.SetStateAction<Flashcard[]>>;
   };
   flashCardControlsProps: FlashCardControlProps;
+  visibleCards: Flashcard[];
+  
 };
 
 export function AllCards({
-  cardsState: { cards, setCards },
+  cardsState: { setCards },
+  visibleCards,
   flashCardControlsProps,
 }: cardsStateProps) {
   const [question, setQuestion] = useState<string>("");
@@ -96,7 +99,7 @@ export function AllCards({
           <div className="flashcards-preview">
 
             {
-              cards.map((card) => {
+              visibleCards.map((card) => {
                 const isMastered = card.knownCount === 5;
                 return (
                   <article className="flashcard-box u-shadow--thick" key={card.id}>
