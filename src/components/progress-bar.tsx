@@ -1,10 +1,16 @@
 type ProgressBarProps = {
     knownCount: number;
+    isMastered: boolean;
 }
 
-export function ProgressBar({knownCount}: ProgressBarProps){
+export function ProgressBar({knownCount, isMastered}: ProgressBarProps){
     return (
         <>
+        <div className={`flashcard__progress-container ${isMastered ? 'flashcard__progress-container-mastered' : ''}`}>
+          {isMastered ? (<div className="flashcard__mastered-badge u-shadow">
+            <img alt="mastered-icon" src="images/icon-mastered.svg"></img>
+            <span>Mastered 5/5</span>
+          </div>) : null}
          <div
             className="flashcard__progress-bar "
             style={{ "--value": knownCount } as React.CSSProperties}
@@ -14,6 +20,7 @@ export function ProgressBar({knownCount}: ProgressBarProps){
          <p className="flashcard__progress-number">
             {knownCount}/5
           </p>
+          </div>
           </>
     )
 }

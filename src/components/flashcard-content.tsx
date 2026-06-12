@@ -63,18 +63,12 @@ export function FlashCardContent({
           )}
         </div>
 
-        <div className={`flashcard__progress-container ${isMastered ? 'flashcard__progress-container-mastered' : ''}`}>
-          {isMastered ? (<div className="flashcard__mastered-badge u-shadow">
-            <img alt="mastered-icon" src="images/icon-mastered.svg"></img>
-            <span>Mastered 5/5</span>
-          </div>) : null}
-          
-
-         
+                 
           <ProgressBar
           knownCount={currentCard.knownCount}
+          isMastered={isMastered}
           />
-        </div>
+        
       </div>
     </div>
   );
