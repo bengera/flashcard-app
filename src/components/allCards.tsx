@@ -112,7 +112,7 @@ export function AllCards({
                       <div className="flashcard-box__meta-data">
                         <p className="flashcard__tag u-shadow--thick">{card.category}</p>
                         <ProgressBar knownCount={card.knownCount} isMastered={isMastered} />
-                        <button>...</button>
+                        <button className="btn-menu"><img src="images/icon-menu.svg" alt="edit card" /></button>
                       </div>
                     </div>
                   </article>

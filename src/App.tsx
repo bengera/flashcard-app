@@ -15,7 +15,7 @@ function App() {
   })
   const [hideMasteredCards, setHideMasteredCards] = useState(false); // state for checkbox input of hiding mastered cards
   const [currentIdx, setCurrentIdx] = useState(0); // current card being viewed
-  const [studyMode, setStudyMode] = useState<boolean>(true); // true default!
+  const [studyMode, setStudyMode] = useState<boolean>(false); // true default!
   
   const [reveal, setReveal] = useState<boolean>(false); // show answer
   const [uniqueCat, setUniqueCat] = useState<string[]>([]);

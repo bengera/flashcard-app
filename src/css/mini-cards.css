@@ -17,7 +17,7 @@
 }
 
 .flashcard-box-inner {
-  padding: 1rem;
+  padding: 1rem 1rem 0 1rem;
 }
 
 .flashcard-box-inner span {
@@ -32,4 +32,11 @@
 .flashcard-box__meta-data {
   display: flex;
   gap: 1rem;
+  justify-content: space-between;
+}
+
+.btn-menu {
+  border: 0;
+  background: none;
+  cursor: pointer;
 }
