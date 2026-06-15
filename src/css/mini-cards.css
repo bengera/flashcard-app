@@ -1,6 +1,13 @@
+.flashcards-preview {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 0.5rem;
+}
+
 .flashcard-box {
   border: 1px solid black;
-  max-width: 400px;
+  background-color: white;
+  max-width: auto;
 }
 
 .flashcard-box__heading {
