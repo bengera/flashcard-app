@@ -35,6 +35,12 @@
   font-weight: 500;
 }
 
+.flashcard-box hr {
+  border: none;
+  border-bottom: 1px solid black;
+  margin: 1rem 0;
+}
+
 .flashcard-box__meta-data {
   display: flex;
   gap: 1rem;
