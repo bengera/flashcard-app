@@ -198,6 +198,10 @@ input[type="checkbox"]:checked {
   overflow: hidden;
 }
 
+.flashcard__progress-bar .grey-bar {
+  background-color: red;
+}
+
 .flashcard__progress-bar-fill {
   background-color: var(--clr-teal-400);
   width: calc((var(--value) / 5) * 100%);

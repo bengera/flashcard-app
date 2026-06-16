@@ -1,6 +1,7 @@
 type ProgressBarProps = {
     knownCount: number;
     isMastered: boolean;
+    variant?: "study" | "minicard"
 }
 
 export function ProgressBar({knownCount, isMastered}: ProgressBarProps){
