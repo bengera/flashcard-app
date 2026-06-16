@@ -190,6 +190,10 @@ input[type="checkbox"]:checked {
   gap: 5px;
 }
 
+.flashcard__progress-container--study span {
+  padding: 0 8px;
+}
+
 .flashcard__progress-container--minicard {
   margin-right: auto;
 }
