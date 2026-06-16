@@ -189,6 +189,11 @@ input[type="checkbox"]:checked {
   align-items: center;
   gap: 5px;
 }
+
+.flashcard__progress-container--minicard {
+  margin-right: auto;
+}
+
 .flashcard__progress-bar {
   width: 60px;
   height: 8px;
@@ -217,9 +222,12 @@ input[type="checkbox"]:checked {
   background-color: var(--clr-neutral-900);
 }
 
+.flashcard__mastered {
+  width: 132px;
+}
+
 @media only screen and (min-width: 670px) {
   .flashcard__mastered-badge {
-    width: 120px;
     border: 1px solid black;
     font-size: 12px;
     border-radius: var(--radius-full);
