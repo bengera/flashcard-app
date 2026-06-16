@@ -4,10 +4,10 @@ type ProgressBarProps = {
     variant?: "study" | "minicard"
 }
 
-export function ProgressBar({knownCount, isMastered}: ProgressBarProps){
+export function ProgressBar({knownCount, isMastered, variant = 'study'}: ProgressBarProps){
     return (
         <>
-        <div className={`flashcard__progress-container ${isMastered ? 'flashcard__progress-container-mastered' : ''}`}>
+        <div className={`flashcard__progress-container flashcard__progress-container--${variant} ${isMastered ? 'flashcard__progress-container-mastered' : ''}`}>
           {isMastered ? (<div className="flashcard__mastered-badge u-shadow">
             <img alt="mastered-icon" src="images/icon-mastered.svg"></img>
             <span>Mastered 5/5</span>
