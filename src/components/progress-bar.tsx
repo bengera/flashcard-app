@@ -8,7 +8,7 @@ export function ProgressBar({knownCount, isMastered, variant = 'study'}: Progres
     return (
         <>
         <div className={`flashcard__progress-container flashcard__progress-container--${variant} ${isMastered ? 'flashcard__progress-container-mastered' : ''}`}>
-          {isMastered ? (<div className="flashcard__mastered-badge u-shadow">
+          {isMastered ? (<div className={`flashcard__mastered-badge flashcard__mastered-badge--${variant} u-shadow`}>
             <img alt="mastered-icon" src="images/icon-mastered.svg"></img>
             <span>Mastered 5/5</span>
           </div>) : null}
