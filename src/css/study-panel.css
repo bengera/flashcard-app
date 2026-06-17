@@ -182,22 +182,6 @@ input[type="checkbox"]:checked {
   grid-row: 2;
 }
 
-.flashcard__progress-container {
-  margin-top: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 5px;
-}
-
-.flashcard__progress-container--study span {
-  padding: 0 8px;
-}
-
-.flashcard__progress-container--minicard {
-  margin-right: auto;
-}
-
 /*FLASHCARD-REVEALED*/
 .flashcard__content--revealed {
   background-color: var(--clr-blue-400);
