@@ -25,14 +25,14 @@
   flex: 1;
 }
 
-.flashcard-box-inner span,
+.flashcard-box-inner span:not(:last-child),
 .flashcard-box__answer-text {
-  padding: 0 1rem 0 1rem;
+  padding: 0 1rem;
 }
 
-.flashcard-box-inner span {
+/* .flashcard-box-inner span {
   color: var(--clr-neutral-600);
-}
+} */
 
 .flashcard-box__answer-text {
   color: var(--clr-neutral-900);

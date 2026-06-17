@@ -34,6 +34,7 @@
   align-self: center;
   justify-content: center;
   gap: 3px;
+  width: 120px;
 }
 
 .flashcard__progress-container-mastered .flashcard__progress-bar,
