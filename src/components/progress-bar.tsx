@@ -13,10 +13,10 @@ export function ProgressBar({knownCount, isMastered, variant = 'study'}: Progres
             <span>Mastered 5/5</span>
           </div>) : null}
          <div
-            className="flashcard__progress-bar "
+            className="flashcard__progress-bar"
             style={{ "--value": knownCount } as React.CSSProperties}
           >
-            <div className="flashcard__progress-bar-fill"></div>
+            <div className={`flashcard__progress-bar-fill flashcard__progress-bar-fill--${variant}`}></div>
           </div>
          <p className="flashcard__progress-number">
             {knownCount}/5

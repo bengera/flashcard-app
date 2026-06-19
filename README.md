@@ -70,6 +70,4 @@ Study area – filters + single flashcard + progress (later)
 
 Problems:
 
-Latest:
-Need to extract mastered and progress counter to share with cards viewed in studymode and allcards
-list overview with miniflashcards
+Progress bar has a tiny 1px visual gap. Tried height: 100%, display: block, removing border-radius, checking margin. Functionally fine. Leave for now unless it becomes visually distracting later.
