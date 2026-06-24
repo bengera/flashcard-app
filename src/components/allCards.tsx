@@ -106,13 +106,22 @@ export function AllCards({
                     <h2 className="flashcard-box__heading">{card.question}</h2>
                     <hr className="solid" />
                     <div className="flashcard-box-inner ">
+                      <div className="flashcard-box-dropdown">
+                        <button className="flashcard-box-btn-edit">
+                          <img src="images/icon-edit.svg" alt="edit button" className="flashcard-box-btn-icon" />
+                          Edit
+                        </button>
+                        <button className="flashcard-box-btn-delete">
+                          <img src="images/icon-delete.svg" alt="delete button" className="flashcard-box-btn-icon" />
+                          Delete</button>
+                      </div>
                       <span>Answer:</span>
                       <p className="flashcard-box__answer-text">{card.answer}</p>
 
                       <div className="flashcard-box__meta-data">
                         <p className="flashcard__tag u-shadow--thick">{card.category}</p>
                         <ProgressBar knownCount={card.knownCount} isMastered={isMastered} variant="minicard" />
-                        <button className="btn-menu"><img src="images/icon-menu.svg" alt="edit card" /></button>
+                        <button className="btn-menu" aria-label="Card actions"><img src="images/icon-menu.svg" alt="edit card" /></button>
                       </div>
                     </div>
                   </article>

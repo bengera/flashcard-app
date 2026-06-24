@@ -23,6 +23,14 @@
   display: flex;
   flex-direction: column;
   flex: 1;
+  position: relative;
+}
+
+.flashcard-box-dropdown {
+  border: 2px solid red;
+  position: absolute;
+  right: 5px;
+  bottom: 69px;
 }
 
 .flashcard-box-inner span:not(:last-child),

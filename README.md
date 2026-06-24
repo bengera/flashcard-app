@@ -71,3 +71,17 @@ Study area – filters + single flashcard + progress (later)
 Problems:
 
 Progress bar has a tiny 1px visual gap. Tried height: 100%, display: block, removing border-radius, checking margin. Functionally fine. Leave for now unless it becomes visually distracting later.
+
+The form for creating new flashcards needs to reject empty fields, at the moment the
+form is accepting anything even if that value is empty and using the setter function
+to change the state of answer question and category inline.
+I need to refactor this and create a function that will check the input, if its
+empty it needs to return and not set anyuthing while also showing the error in the UI
+in the field with the error message below.
+
+1st - Create the function
+2nd - Make sure they still work with the function
+3rd - Create a condition for empty fields
+4th - After console logs work add the UI effects
+
+(Start Sunday or Monday morning.)
