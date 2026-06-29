@@ -4,6 +4,7 @@ import type React from "react";
 import type { FlashCardControlProps } from "./flashcardControls";
 import { FlashcardControls } from "./flashcardControls";
 import { ProgressBar } from "./progress-bar";
+import { DropDown } from "./dropDown";
 
 
 type cardsStateProps = {
@@ -114,15 +115,7 @@ export function AllCards({
                     <h2 className="flashcard-box__heading">{card.question}</h2>
                     <hr className="solid" />
                     <div className="flashcard-box-inner ">
-                      {isOpen ?  <div className="flashcard-box-dropdown">
-                        <button className="flashcard-box-btn-edit">
-                          <img src="images/icon-edit.svg" alt="edit button" className="flashcard-box-btn-icon" />
-                          Edit
-                        </button>
-                        <button className="flashcard-box-btn-delete">
-                          <img src="images/icon-delete.svg" alt="delete button" className="flashcard-box-btn-icon" />
-                          Delete</button>
-                      </div> : null}
+                      {isOpen ?  <DropDown/> : null}
                      
                       <span>Answer:</span>
                       <p className="flashcard-box__answer-text">{card.answer}</p>
