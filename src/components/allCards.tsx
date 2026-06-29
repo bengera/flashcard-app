@@ -115,7 +115,7 @@ export function AllCards({
                     <h2 className="flashcard-box__heading">{card.question}</h2>
                     <hr className="solid" />
                     <div className="flashcard-box-inner ">
-                      {isOpen ?  <DropDown cardId={card.id}/> : null}
+                      {isOpen ?  <DropDown/> : null}
                      
                       <span>Answer:</span>
                       <p className="flashcard-box__answer-text">{card.answer}</p>
