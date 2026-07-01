@@ -107,7 +107,7 @@ function handleOpenDropDown(cardId: string) {
       </form>
 
       <div className="flashcards-container">
-        {/* Flashcard controls component here */}
+        <div className="modal">modal</div>
         <div className="flashcard-controls">
           <FlashcardControls {...flashCardControlsProps} />
         </div>

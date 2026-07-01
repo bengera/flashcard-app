@@ -38,3 +38,20 @@ textarea {
   justify-content: space-between;
   padding: 1rem;
 }
+
+.flashcards-container {
+  position: relative;
+}
+
+/*TEMP MODAL*/
+.modal {
+  border: 2px solid red;
+  width: 200px;
+  height: 100px;
+  position: fixed;
+  background-color: white;
+  z-index: 100;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
