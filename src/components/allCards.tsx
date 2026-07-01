@@ -26,6 +26,7 @@ export function AllCards({
   const [answer, setAnswer] = useState<string>("");
   const [category, setCategory] = useState<string>("");
   const [openCardId, setOpenCardId] = useState<string | null>(null);
+  const [showModal, setShowModal] = useState<boolean>(false)
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -57,6 +58,7 @@ function handleOpenDropDown(cardId: string) {
   
   function handleEditCard(cardId:string){
     console.log(cardId)
+    setShowModal(!showModal)
   }
 
   return (
@@ -107,7 +109,8 @@ function handleOpenDropDown(cardId: string) {
       </form>
 
       <div className="flashcards-container">
-        <div className="modal">modal</div>
+        {showModal ? <div className="modal">modal</div> : null}
+        
         <div className="flashcard-controls">
           <FlashcardControls {...flashCardControlsProps} />
         </div>
