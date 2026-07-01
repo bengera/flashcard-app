@@ -114,10 +114,11 @@ function handleOpenDropDown(cardId: string) {
       </form>
 
       <div className="flashcards-container">
-        {showModal ? <div className="modal">
-          <div>{selectedCard.question}</div>
-          <div></div>
-          <div></div>
+        {showModal ?  <div className="modal">
+          <div>{selectedCard?.question}</div>
+          <div>{selectedCard?.answer}</div>
+          <div>{selectedCard?.category}</div>
+          <button>Update Card</button>
 
         </div> : null}
         

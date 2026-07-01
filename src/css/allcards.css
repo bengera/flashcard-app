@@ -47,11 +47,12 @@ textarea {
 .modal {
   border: 2px solid red;
   width: 200px;
-  height: 100px;
+  height: auto;
   position: fixed;
   background-color: white;
   z-index: 100;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  padding: 1rem;
 }
