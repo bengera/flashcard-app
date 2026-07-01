@@ -27,6 +27,7 @@ export function AllCards({
   const [category, setCategory] = useState<string>("");
   const [openCardId, setOpenCardId] = useState<string | null>(null);
   const [showModal, setShowModal] = useState<boolean>(false)
+  const [currentCardId, setCurrentCardId] = useState<string>('');
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -59,7 +60,11 @@ function handleOpenDropDown(cardId: string) {
   function handleEditCard(cardId:string){
     console.log(cardId)
     setShowModal(!showModal)
+    setCurrentCardId(cardId);
   }
+
+  const selectedCard = visibleCards.find(card =>  card.id === currentCardId);
+ 
 
   return (
     <>
@@ -109,7 +114,12 @@ function handleOpenDropDown(cardId: string) {
       </form>
 
       <div className="flashcards-container">
-        {showModal ? <div className="modal">modal</div> : null}
+        {showModal ? <div className="modal">
+          <div>{selectedCard.question}</div>
+          <div></div>
+          <div></div>
+
+        </div> : null}
         
         <div className="flashcard-controls">
           <FlashcardControls {...flashCardControlsProps} />
