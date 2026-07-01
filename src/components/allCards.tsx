@@ -25,7 +25,7 @@ export function AllCards({
   const [question, setQuestion] = useState<string>("");
   const [answer, setAnswer] = useState<string>("");
   const [category, setCategory] = useState<string>("");
-  const [isOpen, setIsOpen] = useState(false);
+  const [openCardId, setOpenCardId] = useState<string | null>(null);
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -45,12 +45,19 @@ export function AllCards({
     // blank space for cateogry to add my questions without retyping
   }
 
+function handleOpenDropDown(cardId: string) {
+  setOpenCardId((prevOpenCardId) =>
+    prevOpenCardId === cardId ? null : cardId
+  );
+}
 
-  function handleOpenDropDown(cardId: string){
-    console.log(cardId);
-    setIsOpen(prev => !prev);
+  function handleDeleteCard(cardId: string){
+    setCards((prevCards) => prevCards.filter((card) => card.id !==cardId))
   }
   
+  function handleEditCard(cardId:string){
+    console.log(cardId)
+  }
 
   return (
     <>
@@ -115,7 +122,7 @@ export function AllCards({
                     <h2 className="flashcard-box__heading">{card.question}</h2>
                     <hr className="solid" />
                     <div className="flashcard-box-inner ">
-                      {isOpen ?  <DropDown/> : null}
+                      {openCardId === card.id ?  <DropDown cardId={card.id} onDelete={handleDeleteCard} onEdit={handleEditCard}/> : null}
                      
                       <span>Answer:</span>
                       <p className="flashcard-box__answer-text">{card.answer}</p>
