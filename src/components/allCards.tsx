@@ -115,9 +115,13 @@ function handleOpenDropDown(cardId: string) {
 
       <div className="flashcards-container">
         {showModal ?  <div className="modal">
-          <div>{selectedCard?.question}</div>
-          <div>{selectedCard?.answer}</div>
-          <div>{selectedCard?.category}</div>
+          <h2>Edit your card</h2>
+          <p>Question</p>
+          <input className="modal__input" type="text" defaultValue={selectedCard?.question} />
+          <p>Answer</p>
+          <input className="modal__input" type="text" defaultValue={selectedCard?.answer} />
+          <p>Catergory</p>
+          <input className="modal__input" type="text" defaultValue={selectedCard?.category} />
           <button>Update Card</button>
 
         </div> : null}
