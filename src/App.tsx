@@ -21,6 +21,7 @@ function App() {
   const [uniqueCat, setUniqueCat] = useState<string[]>([]);
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
   const [showCategories, setShowCategories] = useState(false); // false by default
+  const [showModal, setShowModal] = useState<boolean>(false)
 
 
   const cardsState = {
@@ -109,6 +110,7 @@ const flashCardControlsProps = {
 
   return (
     <div className="app">
+      <div className={showModal === true ? "overlay show" : "overlay"}></div>
       <h1 className="u-visually-hidden">Study Flashcards</h1>
       <Header
         studyMode={studyMode}
@@ -134,6 +136,8 @@ const flashCardControlsProps = {
           cardsState={cardsState} 
          flashCardControlsProps={flashCardControlsProps}
          visibleCards={visibleCards}
+         showModal={showModal}
+         setShowModal={setShowModal}
 
           />
           

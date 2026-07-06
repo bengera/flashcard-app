@@ -69,3 +69,19 @@ textarea {
   border: 0;
   background: none;
 }
+
+.overlay {
+  position: fixed;
+  background-color: transparent;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.overlay.show {
+  opacity: 0.6;
+  z-index: 1;
+  background-color: rgb(0, 0, 0);
+}

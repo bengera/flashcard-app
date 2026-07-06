@@ -14,6 +14,8 @@ type cardsStateProps = {
   };
   flashCardControlsProps: FlashCardControlProps;
   visibleCards: Flashcard[];
+  showModal: boolean;
+  setShowModal: React.Dispatch<React.SetStateAction<boolean>>;
   
 };
 
@@ -21,12 +23,14 @@ export function AllCards({
   cardsState: { setCards },
   visibleCards,
   flashCardControlsProps,
+  showModal,
+  setShowModal,
+  
 }: cardsStateProps) {
   const [question, setQuestion] = useState<string>("");
   const [answer, setAnswer] = useState<string>("");
   const [category, setCategory] = useState<string>("");
   const [openCardId, setOpenCardId] = useState<string | null>(null);
-  const [showModal, setShowModal] = useState<boolean>(false)
   const [currentCardId, setCurrentCardId] = useState<string>('');
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -119,6 +123,7 @@ function handleOpenDropDown(cardId: string) {
 
       <div className="flashcards-container">
         {showModal ?  <div className="modal">
+          
           <button className="modal__close">
             <img src="images/icon-cross.svg" alt="modal close" onClick={() => setShowModal(false)} />
           </button>
