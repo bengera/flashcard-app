@@ -63,6 +63,10 @@ function handleOpenDropDown(cardId: string) {
     setCurrentCardId(cardId);
   }
 
+  function handleUpdateCard(){
+    console.log('updating card')
+  }
+
   const selectedCard = visibleCards.find(card =>  card.id === currentCardId);
  
 
@@ -115,6 +119,9 @@ function handleOpenDropDown(cardId: string) {
 
       <div className="flashcards-container">
         {showModal ?  <div className="modal">
+          <button className="modal__close">
+            <img src="images/icon-cross.svg" alt="modal close" onClick={() => setShowModal(false)} />
+          </button>
           <h2>Edit your card</h2>
           <p>Question</p>
           <input className="modal__input" type="text" defaultValue={selectedCard?.question} />
@@ -122,7 +129,7 @@ function handleOpenDropDown(cardId: string) {
           <input className="modal__input" type="text" defaultValue={selectedCard?.answer} />
           <p>Catergory</p>
           <input className="modal__input" type="text" defaultValue={selectedCard?.category} />
-          <button>Update Card</button>
+          <button onClick={()=> handleUpdateCard()}>Update Card</button>
 
         </div> : null}
         

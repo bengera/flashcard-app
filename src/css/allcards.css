@@ -45,6 +45,7 @@ textarea {
 
 /*TEMP MODAL*/
 .modal {
+  position: relative;
   border: 2px solid red;
   max-width: 350px;
   height: auto;
@@ -59,4 +60,12 @@ textarea {
 
 .modal__input {
   padding: 1rem;
+}
+
+.modal__close {
+  position: absolute;
+  right: 15px;
+  cursor: pointer;
+  border: 0;
+  background: none;
 }
