@@ -19,6 +19,8 @@ type cardsStateProps = {
   
 };
 
+
+
 export function AllCards({
   cardsState: { setCards },
   visibleCards,
@@ -32,6 +34,8 @@ export function AllCards({
   const [category, setCategory] = useState<string>("");
   const [openCardId, setOpenCardId] = useState<string | null>(null);
   const [currentCardId, setCurrentCardId] = useState<string>('');
+  const [cardDraft, setCardDraft] = useState<Flashcard | null>(null);
+
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -62,16 +66,25 @@ function handleOpenDropDown(cardId: string) {
   }
   
   function handleEditCard(cardId:string){
-    console.log(cardId)
+    const cardToEdit = visibleCards.find((card) => card.id === cardId)
     setShowModal(!showModal)
     setCurrentCardId(cardId);
+    if (cardToEdit) {
+      setCardDraft(cardToEdit)
+    }
   }
 
-  function handleUpdateCard(){
-    console.log('updating card')
+  function handleUpdateCard(cardDraft: Flashcard ) {
+   const updatedCards = visibleCards.map((card) => card.id === cardDraft.id ? cardDraft : card)
+  setCards(updatedCards);
+  setShowModal(false)
   }
 
-  const selectedCard = visibleCards.find(card =>  card.id === currentCardId);
+
+
+
+
+  // const selectedCard = visibleCards.find(card =>  card.id === currentCardId);
  
 
   return (
@@ -129,12 +142,12 @@ function handleOpenDropDown(cardId: string) {
           </button>
           <h2>Edit your card</h2>
           <p>Question</p>
-          <input className="modal__input" type="text" defaultValue={selectedCard?.question} />
+          <input className="modal__input" type="text" value={cardDraft?.question ?? ""} onChange={(e) => setCardDraft((prev) => prev ? {...prev, question:e.target.value}: prev)} />
           <p>Answer</p>
-          <input className="modal__input" type="text" defaultValue={selectedCard?.answer} />
+          <input className="modal__input" type="text" value={cardDraft?.answer ?? ""} onChange={(e) => setCardDraft((prev) => prev ? {...prev, answer:e.target.value}: prev)}/>
           <p>Catergory</p>
-          <input className="modal__input" type="text" defaultValue={selectedCard?.category} />
-          <button onClick={()=> handleUpdateCard()}>Update Card</button>
+          <input className="modal__input" type="text" value={cardDraft?.category ?? ""} onChange={(e) => setCardDraft((prev) => prev ? {...prev, category:e.target.value}: prev)} />
+          <button onClick={()=> cardDraft && handleUpdateCard(cardDraft)}>Update Card</button>
 
         </div> : null}
         
