@@ -75,8 +75,7 @@ function handleOpenDropDown(cardId: string) {
   }
 
   function handleUpdateCard(cardDraft: Flashcard ) {
-   const updatedCards = visibleCards.map((card) => card.id === cardDraft.id ? cardDraft : card)
-  setCards(updatedCards);
+   setCards((prevCards) => prevCards.map((card) => card.id === cardDraft.id ? cardDraft : card))
   setShowModal(false)
   }
 
