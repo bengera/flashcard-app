@@ -68,6 +68,7 @@ function handleOpenDeletetionModal(){
 
   function handleDeleteCard(cardId: string){
     setCards((prevCards) => prevCards.filter((card) => card.id !==cardId))
+    setShowDeletionModal(false);
   }
   
   
@@ -143,8 +144,8 @@ function handleOpenDeletetionModal(){
         {showDeletionModal ? <div className="modal modal__deletion">
           <h2>Delete this card?</h2>
           <p>This action can't be undone.</p>
-          <button>Cancel</button>
-          <button>Delete Card</button>
+          <button onClick={() => setShowDeletionModal(false)}>Cancel</button>
+          <button onClick={() => handleDeleteCard(currentCardId)}>Delete Card</button>
       
         </div> : null}
         {showModal ?  <div className="modal">
