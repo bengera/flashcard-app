@@ -32,6 +32,7 @@ export function AllCards({
   const [cardDraft, setCardDraft] = useState<Flashcard | null>(null);
   const [showDeletionModal, setShowDeletionModal] = useState<boolean>(false);
   const [showToast, setShowToast] = useState<boolean>(false);
+  const [toastMessage, setToastMessage] = useState<string>("");
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -64,6 +65,8 @@ export function AllCards({
   function handleDeleteCard(cardId: string) {
     setCards((prevCards) => prevCards.filter((card) => card.id !== cardId));
     setShowDeletionModal(false);
+    setShowToast(true);
+    setToastMessage('Card deleted.');
   }
 
   function handleEditCard(cardId: string) {
@@ -73,6 +76,7 @@ export function AllCards({
     if (cardToEdit) {
       setCardDraft(cardToEdit);
     }
+    
   }
 
   function handleUpdateCard(cardDraft: Flashcard) {
@@ -80,6 +84,8 @@ export function AllCards({
       prevCards.map((card) => (card.id === cardDraft.id ? cardDraft : card))
     );
     setShowModal(false);
+    setShowToast(true);
+    setToastMessage('Card updated successfully.');
   }
 
   // const selectedCard = visibleCards.find(card =>  card.id === currentCardId);
@@ -89,11 +95,12 @@ export function AllCards({
       {showToast ? (
         <div className="toast u-shadow--thick">
           <div className="toast__inner-content">
-            Toast notification
+            {toastMessage}
             <img
               className="toast__close"
               src="images/icon-cross.svg"
               alt="close notification"
+              onClick={()=> setShowToast(false)}
             />
           </div>
         </div>
