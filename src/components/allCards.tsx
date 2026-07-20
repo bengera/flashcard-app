@@ -48,8 +48,9 @@ export function AllCards({
 
     setCards((prevCards) => [...prevCards, newCard]);
     setQuestion("");
-    setAnswer("");
-    // blank space for cateogry to add my questions without retyping
+    setAnswer(""); // blank space for cateogry to add my questions without retyping
+    setShowToast(true);
+     setToastMessage('Card updated successfully.');
   }
 
   function handleOpenDropDown(cardId: string) {
@@ -144,6 +145,7 @@ export function AllCards({
         <button
           className="btn-submit u-rounded-pill u-shadow--thick"
           type="submit"
+          
         >
           <img src="images/icon-circle-plus.svg" alt="icon-plus" />
           Create Card
