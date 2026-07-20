@@ -59,11 +59,14 @@ export function AllCards({
     );
   }
 
-  function handleOpenDeletetionModal() {
+  function handleOpenDeletetionModal(cardId: string) {
+     setCurrentCardId(cardId);
     setShowDeletionModal(!showDeletionModal);
   }
 
   function handleDeleteCard(cardId: string) {
+   
+    console.log(`Current card ID is ${cardId}`)
     setCards((prevCards) => prevCards.filter((card) => card.id !== cardId));
     setShowDeletionModal(false);
     setShowToast(true);

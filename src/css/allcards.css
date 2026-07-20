@@ -75,8 +75,8 @@ textarea {
 
 .toast {
   background-color: var(--clr-neutral-0);
-  padding: 8px 5px;
-  width: 175px;
+  padding: 10px 8px;
+  width: auto;
   font-size: 12px;
   text-align: center;
   align-self: center;
@@ -92,6 +92,8 @@ textarea {
   display: flex;
   justify-content: space-around;
   gap: 5px;
+  font-size: 14px;
+  color: var(--clr-neutral-900);
 }
 
 .toast__close {
