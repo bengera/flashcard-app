@@ -6,7 +6,6 @@ import { FlashcardControls } from "./flashcardControls";
 import { ProgressBar } from "./progress-bar";
 import { DropDown } from "./dropDown";
 
-
 type cardsStateProps = {
   cardsState: {
     cards: Flashcard[];
@@ -16,10 +15,7 @@ type cardsStateProps = {
   visibleCards: Flashcard[];
   showModal: boolean;
   setShowModal: React.Dispatch<React.SetStateAction<boolean>>;
-  
 };
-
-
 
 export function AllCards({
   cardsState: { setCards },
@@ -27,16 +23,15 @@ export function AllCards({
   flashCardControlsProps,
   showModal,
   setShowModal,
-  
 }: cardsStateProps) {
   const [question, setQuestion] = useState<string>("");
   const [answer, setAnswer] = useState<string>("");
   const [category, setCategory] = useState<string>("");
   const [openCardId, setOpenCardId] = useState<string | null>(null);
-  const [currentCardId, setCurrentCardId] = useState<string>('');
+  const [currentCardId, setCurrentCardId] = useState<string>("");
   const [cardDraft, setCardDraft] = useState<Flashcard | null>(null);
-  const [showDeletionModal, setShowDeletionModal] = useState<boolean>(false) // defalt false
-
+  const [showDeletionModal, setShowDeletionModal] = useState<boolean>(false);
+  const [showToast, setShowToast] = useState<boolean>(false);
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -56,45 +51,53 @@ export function AllCards({
     // blank space for cateogry to add my questions without retyping
   }
 
-function handleOpenDropDown(cardId: string) {
-  setOpenCardId((prevOpenCardId) =>
-    prevOpenCardId === cardId ? null : cardId
-  );
-}
+  function handleOpenDropDown(cardId: string) {
+    setOpenCardId((prevOpenCardId) =>
+      prevOpenCardId === cardId ? null : cardId
+    );
+  }
 
-function handleOpenDeletetionModal(){
-  setShowDeletionModal(!showDeletionModal)
-}
+  function handleOpenDeletetionModal() {
+    setShowDeletionModal(!showDeletionModal);
+  }
 
-  function handleDeleteCard(cardId: string){
-    setCards((prevCards) => prevCards.filter((card) => card.id !==cardId))
+  function handleDeleteCard(cardId: string) {
+    setCards((prevCards) => prevCards.filter((card) => card.id !== cardId));
     setShowDeletionModal(false);
   }
-  
-  
-  function handleEditCard(cardId:string){
-    const cardToEdit = visibleCards.find((card) => card.id === cardId)
-    setShowModal(!showModal)
+
+  function handleEditCard(cardId: string) {
+    const cardToEdit = visibleCards.find((card) => card.id === cardId);
+    setShowModal(!showModal);
     setCurrentCardId(cardId);
     if (cardToEdit) {
-      setCardDraft(cardToEdit)
+      setCardDraft(cardToEdit);
     }
   }
 
-  function handleUpdateCard(cardDraft: Flashcard ) {
-   setCards((prevCards) => prevCards.map((card) => card.id === cardDraft.id ? cardDraft : card))
-  setShowModal(false)
+  function handleUpdateCard(cardDraft: Flashcard) {
+    setCards((prevCards) =>
+      prevCards.map((card) => (card.id === cardDraft.id ? cardDraft : card))
+    );
+    setShowModal(false);
   }
 
-
-
-
-
   // const selectedCard = visibleCards.find(card =>  card.id === currentCardId);
- 
 
   return (
     <>
+      {showToast ? (
+        <div className="toast u-shadow--thick">
+          <div className="toast__inner-content">
+            Toast notification
+            <img
+              className="toast__close"
+              src="images/icon-cross.svg"
+              alt="close notification"
+            />
+          </div>
+        </div>
+      ) : null}
       <form className="card-form" onSubmit={handleSubmit}>
         <div className="form-group flex-group">
           <label htmlFor="question">Question</label>
@@ -141,61 +144,113 @@ function handleOpenDeletetionModal(){
       </form>
 
       <div className="flashcards-container">
-        {showDeletionModal ? <div className="modal modal__deletion">
-          <h2>Delete this card?</h2>
-          <p>This action can't be undone.</p>
-          <button onClick={() => setShowDeletionModal(false)}>Cancel</button>
-          <button onClick={() => handleDeleteCard(currentCardId)}>Delete Card</button>
-      
-        </div> : null}
-        {showModal ?  <div className="modal">
-          
-          <button className="modal__close">
-            <img src="images/icon-cross.svg" alt="modal close" onClick={() => setShowModal(false)} />
-          </button>
-          <h2>Edit your card</h2>
-          <p>Question</p>
-          <input className="modal__input" type="text" value={cardDraft?.question ?? ""} onChange={(e) => setCardDraft((prev) => prev ? {...prev, question:e.target.value}: prev)} />
-          <p>Answer</p>
-          <input className="modal__input" type="text" value={cardDraft?.answer ?? ""} onChange={(e) => setCardDraft((prev) => prev ? {...prev, answer:e.target.value}: prev)}/>
-          <p>Catergory</p>
-          <input className="modal__input" type="text" value={cardDraft?.category ?? ""} onChange={(e) => setCardDraft((prev) => prev ? {...prev, category:e.target.value}: prev)} />
-          <button onClick={()=> cardDraft && handleUpdateCard(cardDraft)}>Update Card</button>
-          
+        {showDeletionModal ? (
+          <div className="modal modal__deletion">
+            <h2>Delete this card?</h2>
+            <p>This action can't be undone.</p>
+            <button onClick={() => setShowDeletionModal(false)}>Cancel</button>
+            <button onClick={() => handleDeleteCard(currentCardId)}>
+              Delete Card
+            </button>
+          </div>
+        ) : null}
+        {showModal ? (
+          <div className="modal">
+            <button className="modal__close">
+              <img
+                src="images/icon-cross.svg"
+                alt="modal close"
+                onClick={() => setShowModal(false)}
+              />
+            </button>
+            <h2>Edit your card</h2>
+            <p>Question</p>
+            <input
+              className="modal__input"
+              type="text"
+              value={cardDraft?.question ?? ""}
+              onChange={(e) =>
+                setCardDraft((prev) =>
+                  prev ? { ...prev, question: e.target.value } : prev
+                )
+              }
+            />
+            <p>Answer</p>
+            <input
+              className="modal__input"
+              type="text"
+              value={cardDraft?.answer ?? ""}
+              onChange={(e) =>
+                setCardDraft((prev) =>
+                  prev ? { ...prev, answer: e.target.value } : prev
+                )
+              }
+            />
+            <p>Catergory</p>
+            <input
+              className="modal__input"
+              type="text"
+              value={cardDraft?.category ?? ""}
+              onChange={(e) =>
+                setCardDraft((prev) =>
+                  prev ? { ...prev, category: e.target.value } : prev
+                )
+              }
+            />
+            <button onClick={() => cardDraft && handleUpdateCard(cardDraft)}>
+              Update Card
+            </button>
+          </div>
+        ) : null}
 
-        </div> : null}
-        
         <div className="flashcard-controls">
           <FlashcardControls {...flashCardControlsProps} />
         </div>
         <main>
           <div className="flashcards-preview">
+            {visibleCards.map((card) => {
+              const isMastered = card.knownCount === 5;
+              return (
+                <article
+                  className="flashcard-box u-shadow--thick"
+                  key={card.id}
+                >
+                  <h2 className="flashcard-box__heading">{card.question}</h2>
+                  <hr className="solid" />
+                  <div className="flashcard-box-inner ">
+                    {openCardId === card.id ? (
+                      <DropDown
+                        cardId={card.id}
+                        onDelete={handleOpenDeletetionModal}
+                        onEdit={handleEditCard}
+                      />
+                    ) : null}
 
-            {
-              visibleCards.map((card) => {
-                const isMastered = card.knownCount === 5;
-                return (
-                  <article className="flashcard-box u-shadow--thick" key={card.id}>
-                    <h2 className="flashcard-box__heading">{card.question}</h2>
-                    <hr className="solid" />
-                    <div className="flashcard-box-inner ">
-                      {openCardId === card.id ?  <DropDown cardId={card.id} onDelete={handleOpenDeletetionModal} onEdit={handleEditCard}/> : null}
-                     
-                      <span>Answer:</span>
-                      <p className="flashcard-box__answer-text">{card.answer}</p>
+                    <span>Answer:</span>
+                    <p className="flashcard-box__answer-text">{card.answer}</p>
 
-                      <div className="flashcard-box__meta-data">
-                        <p className="flashcard__tag u-shadow--thick">{card.category}</p>
-                        <ProgressBar knownCount={card.knownCount} isMastered={isMastered} variant="minicard" />
-                        <button className="btn-menu" aria-label="Card actions" onClick={()=> handleOpenDropDown(card.id)}><img src="images/icon-menu.svg" alt="edit card" /></button>
-                      </div>
+                    <div className="flashcard-box__meta-data">
+                      <p className="flashcard__tag u-shadow--thick">
+                        {card.category}
+                      </p>
+                      <ProgressBar
+                        knownCount={card.knownCount}
+                        isMastered={isMastered}
+                        variant="minicard"
+                      />
+                      <button
+                        className="btn-menu"
+                        aria-label="Card actions"
+                        onClick={() => handleOpenDropDown(card.id)}
+                      >
+                        <img src="images/icon-menu.svg" alt="edit card" />
+                      </button>
                     </div>
-                  </article>
-                );
-              })
-            }
-
-          </div> 
+                  </div>
+                </article>
+              );
+            })}
+          </div>
         </main>
       </div>
     </>

@@ -73,6 +73,31 @@ textarea {
 .modal__deletion {
 }
 
+.toast {
+  background-color: var(--clr-neutral-0);
+  padding: 8px 5px;
+  width: 175px;
+  font-size: 12px;
+  text-align: center;
+  align-self: center;
+  font-weight: 600;
+  border: 1px solid var(--clr-neutral-900);
+  position: absolute;
+  top: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.toast__inner-content {
+  display: flex;
+  justify-content: space-around;
+  gap: 5px;
+}
+
+.toast__close {
+  cursor: pointer;
+}
+
 .overlay {
   position: fixed;
   background-color: transparent;
