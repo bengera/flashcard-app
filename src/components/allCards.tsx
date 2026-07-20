@@ -35,6 +35,7 @@ export function AllCards({
   const [openCardId, setOpenCardId] = useState<string | null>(null);
   const [currentCardId, setCurrentCardId] = useState<string>('');
   const [cardDraft, setCardDraft] = useState<Flashcard | null>(null);
+  const [showDeletionModal, setShowDeletionModal] = useState<boolean>(false) // defalt false
 
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -61,9 +62,14 @@ function handleOpenDropDown(cardId: string) {
   );
 }
 
+function handleOpenDeletetionModal(){
+  setShowDeletionModal(!showDeletionModal)
+}
+
   function handleDeleteCard(cardId: string){
     setCards((prevCards) => prevCards.filter((card) => card.id !==cardId))
   }
+  
   
   function handleEditCard(cardId:string){
     const cardToEdit = visibleCards.find((card) => card.id === cardId)
@@ -134,6 +140,13 @@ function handleOpenDropDown(cardId: string) {
       </form>
 
       <div className="flashcards-container">
+        {showDeletionModal ? <div className="modal modal__deletion">
+          <h2>Delete this card?</h2>
+          <p>This action can't be undone.</p>
+          <button>Cancel</button>
+          <button>Delete Card</button>
+      
+        </div> : null}
         {showModal ?  <div className="modal">
           
           <button className="modal__close">
@@ -147,6 +160,7 @@ function handleOpenDropDown(cardId: string) {
           <p>Catergory</p>
           <input className="modal__input" type="text" value={cardDraft?.category ?? ""} onChange={(e) => setCardDraft((prev) => prev ? {...prev, category:e.target.value}: prev)} />
           <button onClick={()=> cardDraft && handleUpdateCard(cardDraft)}>Update Card</button>
+          
 
         </div> : null}
         
@@ -164,7 +178,7 @@ function handleOpenDropDown(cardId: string) {
                     <h2 className="flashcard-box__heading">{card.question}</h2>
                     <hr className="solid" />
                     <div className="flashcard-box-inner ">
-                      {openCardId === card.id ?  <DropDown cardId={card.id} onDelete={handleDeleteCard} onEdit={handleEditCard}/> : null}
+                      {openCardId === card.id ?  <DropDown cardId={card.id} onDelete={handleOpenDeletetionModal} onEdit={handleEditCard}/> : null}
                      
                       <span>Answer:</span>
                       <p className="flashcard-box__answer-text">{card.answer}</p>

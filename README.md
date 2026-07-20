@@ -68,6 +68,18 @@ Header – logo + mode tabs
 
 Study area – filters + single flashcard + progress (later)
 
-NextTask:
+Next Tasks:
 
-The delete button should now open a modal, the deleting logic should be placed on the delete button inside the modal
+- The delete button should now open a modal, the deleting logic should be placed on the delete button inside the modal
+  open deleteModal - handleDelete
+
+- Extract the modal component for editing, its very big
+- possibly extract form, to encapsulate logic in one place
+
+- Add CSS styling for modals and buttons to edit cards
+
+- Add form validation checks to flashcard creation
+
+- Write basic tests
+
+- Test website and deploy
