@@ -58,6 +58,8 @@ const flashCardControlsProps = {
   uniqueCat,
   filterCategories,
   selectedCategories,
+  setSelectedCategories,
+  setShowCategories,
   cards,
 };
 

@@ -9,7 +9,8 @@ export type FlashCardControlProps ={
     uniqueCat: string[]
     cards: Flashcard[]
     filterCategories: (category: string, checked: boolean) => void;
-    selectedCategories:string[]
+    selectedCategories: string[];
+    setSelectedCategories: React.Dispatch<React.SetStateAction<string[]>>;
 }
 
 export function FlashcardControls({
@@ -21,7 +22,9 @@ export function FlashcardControls({
     uniqueCat,
     cards,
     filterCategories,
-    selectedCategories
+    selectedCategories,
+    setSelectedCategories
+    
 }: FlashCardControlProps){
     return (
       <>
@@ -51,6 +54,17 @@ export function FlashcardControls({
           {/* RENDERING CATEGORIES */}
           {showCategories ? (
             <div className="study__categories-dropdown">
+              <div className="category-item">
+              <input className="category-dropdown__checkbox" type="checkbox" 
+              checked={selectedCategories.length === 0} // check all box when array is empty
+              onChange={() => {          
+              setSelectedCategories([]);
+              }}/>           
+             
+             
+              <p className="category-item__description">All</p>
+                    <p className="category-item__number">({cards.length})</p>
+              </div>
               {uniqueCat.map((item) => {
                 const count = cards.filter(
                   (card) => card.category === item
@@ -61,8 +75,9 @@ export function FlashcardControls({
                       type="checkbox"
                       className="category-dropdown__checkbox"
                       onChange={(e) => filterCategories(item, e.target.checked)}
-                      checked={selectedCategories.includes(item)}
+                      checked={selectedCategories.length !== 0 && selectedCategories.includes(item)}
                     />
+                    
                     <p className="category-item__description">{item}</p>
                     <p className="category-item__number">({count})</p>
                   </div>
