@@ -49,7 +49,7 @@ useEffect(() => {
   return () => {
      document.removeEventListener("mousedown", handlePageClick);
   }
-},[])
+},[setShowCategories]);
   
 
     return (
