@@ -1,4 +1,7 @@
 import type { Flashcard } from "../types/flashcard";
+import { useEffect, useRef } from "react";
+
+
 
 export type FlashCardControlProps ={
     onShuffle: () => void;
@@ -6,6 +9,7 @@ export type FlashCardControlProps ={
     hideMasteredCards: boolean;
     setHideMasteredCards: React.Dispatch<React.SetStateAction<boolean>>;
     showCategories: boolean;
+    setShowCategories: React.Dispatch<React.SetStateAction<boolean>>
     uniqueCat: string[]
     cards: Flashcard[]
     filterCategories: (category: string, checked: boolean) => void;
@@ -19,6 +23,7 @@ export function FlashcardControls({
     hideMasteredCards,
     setHideMasteredCards,
     showCategories,
+    setShowCategories,
     uniqueCat,
     cards,
     filterCategories,
@@ -26,9 +31,31 @@ export function FlashcardControls({
     setSelectedCategories
     
 }: FlashCardControlProps){
+
+const catDropDown = useRef<HTMLDivElement>(null);
+
+useEffect(() => {
+  function handlePageClick(e: MouseEvent){
+    if (
+      catDropDown.current && !catDropDown.current.contains(e.target as Node)
+    ) {
+      setShowCategories(false)
+    }
+    
+  }
+
+  document.addEventListener("mousedown", handlePageClick);
+
+  return () => {
+     document.removeEventListener("mousedown", handlePageClick);
+  }
+},[])
+  
+
     return (
       <>
          <div className="study__filters">
+          <div ref={catDropDown}>
              <button
             type="button"
             className="btn btn--categories u-rounded-pill-narrow"
@@ -49,7 +76,7 @@ export function FlashcardControls({
             <label className="study__label" htmlFor="hide-mastered">
               Hide Mastered
             </label>
-          </div>
+          </div> 
             
           {/* RENDERING CATEGORIES */}
           {showCategories ? (
@@ -85,6 +112,7 @@ export function FlashcardControls({
               })}
             </div>
           ) : null}
+          </div>
         </div>
       
        
