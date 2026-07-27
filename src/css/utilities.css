@@ -19,6 +19,11 @@
   box-shadow: 1px 2px 0px var(--clr-neutral-900);
 }
 
+.u-shadow--thick-error {
+  box-shadow: 2px 2px 0px #e11966;
+  border-radius: var(--radius-16);
+}
+
 .u-shadow--thick {
   border: 2px solid #2e1401;
   box-shadow: 2px 2px 0px #2e1401;

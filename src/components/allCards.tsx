@@ -121,7 +121,7 @@ export function AllCards({
           <label htmlFor="question">Question</label>
           <input
             id="question"
-            className={showError && !question.trim() ? "input-error" : ""}
+            className={showError && !question.trim() ? "input-error u-shadow--thick-error" : ""}
             name="question"
             type="text"
             placeholder="e.g., What is the capital of France?"
@@ -136,7 +136,7 @@ export function AllCards({
           <label htmlFor="answer">Answer</label>
           <textarea
             id="answer"
-            className={showError && !answer.trim() ? "input-error" : ""}
+            className={showError && !answer.trim() ? "input-error u-shadow--thick-error" : ""}
             name="answer"
             placeholder="e.g., Paris"
             value={answer}
@@ -149,7 +149,7 @@ export function AllCards({
           <label htmlFor="category">Category</label>
           <input
             id="category"
-            className={showError && !category.trim() ? "input-error" : ""}
+            className={showError && !category.trim() ? "input-error u-shadow--thick-error" : ""}
             name="category"
             type="text"
             placeholder="e.g., Geography"
