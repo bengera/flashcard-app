@@ -33,9 +33,16 @@ export function AllCards({
   const [showDeletionModal, setShowDeletionModal] = useState<boolean>(false);
   const [showToast, setShowToast] = useState<boolean>(false);
   const [toastMessage, setToastMessage] = useState<string>("");
+  const [showError, setShowError] = useState<boolean>(false);
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+
+    if (!question.trim() || !answer.trim() || !category.trim()) {
+      setShowError(true)
+      return;
+    }
+    setShowError(false);
     console.log(question, answer, category);
 
     const newCard: Flashcard = {
@@ -120,6 +127,8 @@ export function AllCards({
             value={question}
             onChange={(e) => setQuestion(e.currentTarget.value)}
           />
+          {showError && !question.trim() && (<p className="error-msg"> <img src="images/icon-error.svg" alt="error-icon" />Please enter a question</p>)}
+         
         </div>
 
         <div className="form-group flex-group">
@@ -131,6 +140,7 @@ export function AllCards({
             value={answer}
             onChange={(e) => setAnswer(e.currentTarget.value)}
           ></textarea>
+          {showError && !answer.trim() && (<p className="error-msg"> <img src="images/icon-error.svg" alt="error-icon" />Please enter an answer</p>)}
         </div>
 
         <div className="form-group flex-group">
@@ -143,6 +153,11 @@ export function AllCards({
             value={category}
             onChange={(e) => setCategory(e.currentTarget.value)}
           />
+         {showError && !category.trim() && (
+           <p className="error-msg"> 
+             <img src="images/icon-error.svg" alt="error-icon" />Please enter a category
+           </p>
+         )}
         </div>
 
         <button

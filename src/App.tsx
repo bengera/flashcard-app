@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import data from "../data.json";
-// import data from "../data-empty.json"; // test for empty flashcards
 import { StatisticsPanel } from "./components/statistics-panel";
 import { Header } from "./components/header";
 import { StudyPanel } from "./components/study";
