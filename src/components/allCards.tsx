@@ -121,6 +121,7 @@ export function AllCards({
           <label htmlFor="question">Question</label>
           <input
             id="question"
+            className={showError && !question.trim() ? "input-error" : ""}
             name="question"
             type="text"
             placeholder="e.g., What is the capital of France?"
@@ -135,6 +136,7 @@ export function AllCards({
           <label htmlFor="answer">Answer</label>
           <textarea
             id="answer"
+            className={showError && !answer.trim() ? "input-error" : ""}
             name="answer"
             placeholder="e.g., Paris"
             value={answer}
@@ -147,6 +149,7 @@ export function AllCards({
           <label htmlFor="category">Category</label>
           <input
             id="category"
+            className={showError && !category.trim() ? "input-error" : ""}
             name="category"
             type="text"
             placeholder="e.g., Geography"

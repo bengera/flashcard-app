@@ -43,6 +43,21 @@ textarea {
   position: relative;
 }
 
+.error-msg {
+  color: var(--clr-pink-700);
+  display: flex;
+  gap: 0.5rem;
+}
+
+.form-group input {
+  border-color: black;
+}
+
+.form-group input.input-error,
+.form-group textarea.input-error {
+  border-color: var(--clr-pink-700);
+}
+
 /*TEMP MODAL*/
 .modal {
   position: relative;
