@@ -38,6 +38,7 @@ export function AllCards({
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
+
     if (!question.trim() || !answer.trim() || !category.trim()) {
       setShowError(true)
       return;
@@ -125,7 +126,7 @@ export function AllCards({
             name="question"
             type="text"
             placeholder="e.g., What is the capital of France?"
-            value={question}
+            value={question.trim()}
             onChange={(e) => setQuestion(e.currentTarget.value)}
           />
           {showError && !question.trim() && (<p className="error-msg"> <img src="images/icon-error.svg" alt="error-icon" />Please enter a question</p>)}
@@ -153,8 +154,11 @@ export function AllCards({
             name="category"
             type="text"
             placeholder="e.g., Geography"
-            value={category}
-            onChange={(e) => setCategory(e.currentTarget.value)}
+            value={category.trim()}
+            onChange={(e) => {
+              const value = e.currentTarget.value;
+              setCategory(value.charAt(0).toUpperCase() + value.slice(1))}
+            }
           />
          {showError && !category.trim() && (
            <p className="error-msg"> 
