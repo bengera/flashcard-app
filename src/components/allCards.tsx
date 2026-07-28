@@ -71,6 +71,7 @@ export function AllCards({
   function handleOpenDeletetionModal(cardId: string) {
      setCurrentCardId(cardId);
     setShowDeletionModal(!showDeletionModal);
+    
   }
 
   function handleDeleteCard(cardId: string) {

@@ -36,26 +36,33 @@
   bottom: 69px;
   border: 1px solid var(--clr-neutral-900);
   border-radius: var(--radius-8);
+  background-color: var(--clr-neutral-0);
 }
 
 .flashcard-box-btn-edit,
 .flashcard-box-btn-delete {
   border: 0;
-  padding: 0.5rem;
-  background-color: transparent;
+  padding: 0.6rem;
   text-align: left;
   width: 135px;
   display: flex;
   gap: 9px;
   color: var(--clr-neutral-900);
+  font-weight: 500;
+  background-color: var(--clr-neutral-0);
 }
 
 .flashcard-box-btn-icon {
   width: 20px;
 }
 
+.flashcard-box-btn-edit {
+  border-radius: var(--radius-8);
+}
+
 .flashcard-box-btn-delete {
   border-top: 1px solid var(--clr-neutral-900);
+  border-radius: 0 0 10px 10px;
 }
 
 .flashcard-box-inner span:not(:last-child),
