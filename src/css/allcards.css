@@ -41,6 +41,8 @@ textarea {
 
 .flashcards-container {
   position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
 .error-msg {
@@ -130,4 +132,10 @@ textarea {
   opacity: 0.6;
   z-index: 1;
   background-color: rgb(70, 26, 4);
+}
+
+.show-btn {
+  max-width: 150px;
+  align-self: center;
+  margin-top: 1rem;
 }

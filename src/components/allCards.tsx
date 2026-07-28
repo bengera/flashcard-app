@@ -102,7 +102,7 @@ export function AllCards({
   }
 
   function handleShowCards(){
-    // setNumberOfCardsShown(visibleCards.length)}>{numberOfCardsShown === 15 ? "show more" : "show less
+   
      if (numberOfCardsShown === 15 ) {
         setNumberOfCardsShown(visibleCards.length)
      } else {
@@ -251,7 +251,7 @@ export function AllCards({
         <div className="flashcard-controls">
           <FlashcardControls {...flashCardControlsProps} />
         </div>
-        <main>
+      
           <div className="flashcards-preview">
             {visibleCards.slice(0,numberOfCardsShown).map((card) => {
               const isMastered = card.knownCount === 5;
@@ -296,8 +296,8 @@ export function AllCards({
               );
             })}
           </div>
-          <button onClick={handleShowCards}>{numberOfCardsShown === 15 ? "show more" : "show less"}</button>
-        </main>
+          <button style={{borderRadius: "999px"}} type="button" className="btn show-btn u-rounded-pill-narrow u-shadow " onClick={handleShowCards}>{numberOfCardsShown === 15 ? "Load More" : "Load Less"}</button>
+       
       </div>
     </>
   );
