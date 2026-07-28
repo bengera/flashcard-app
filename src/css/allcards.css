@@ -98,8 +98,8 @@ textarea {
   font-weight: 600;
   border: 1px solid var(--clr-neutral-900);
   position: absolute;
-  top: 50px;
-  left: 50%;
+  top: 125px;
+  right: 0;
   transform: translateX(-50%);
 }
 
