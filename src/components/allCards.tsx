@@ -101,6 +101,16 @@ export function AllCards({
     setToastMessage('Card updated successfully.');
   }
 
+  function handleShowCards(){
+    // setNumberOfCardsShown(visibleCards.length)}>{numberOfCardsShown === 15 ? "show more" : "show less
+     if (numberOfCardsShown === 15 ) {
+        setNumberOfCardsShown(visibleCards.length)
+     } else {
+      setNumberOfCardsShown(15);
+     }
+    
+  }
+
   // const selectedCard = visibleCards.find(card =>  card.id === currentCardId);
 
   return (
@@ -286,7 +296,7 @@ export function AllCards({
               );
             })}
           </div>
-          <button onClick={() => setNumberOfCardsShown(visibleCards.length)}>show more</button>
+          <button onClick={handleShowCards}>{numberOfCardsShown === 15 ? "show more" : "show less"}</button>
         </main>
       </div>
     </>
