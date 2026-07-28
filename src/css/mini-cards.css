@@ -12,6 +12,10 @@
   background-color: white;
 }
 
+.flashcard-box-btn-delete {
+  border-top: 1px solid var(--clr-neutral-900);
+}
+
 .flashcard-box__heading {
   margin-left: 1rem;
   color: var(--clr-neutral-900);
@@ -27,10 +31,31 @@
 }
 
 .flashcard-box-dropdown {
-  border: 2px solid red;
   position: absolute;
   right: 5px;
   bottom: 69px;
+  border: 1px solid var(--clr-neutral-900);
+  border-radius: var(--radius-8);
+}
+
+.flashcard-box-btn-edit,
+.flashcard-box-btn-delete {
+  border: 0;
+  padding: 0.5rem;
+  background-color: transparent;
+  text-align: left;
+  width: 135px;
+  display: flex;
+  gap: 9px;
+  color: var(--clr-neutral-900);
+}
+
+.flashcard-box-btn-icon {
+  width: 20px;
+}
+
+.flashcard-box-btn-delete {
+  border-top: 1px solid var(--clr-neutral-900);
 }
 
 .flashcard-box-inner span:not(:last-child),
@@ -67,4 +92,9 @@
   background: none;
   cursor: pointer;
   border-left: 1px solid var(--clr-neutral-900);
+}
+
+.flashcard-box-dropdown {
+  display: flex;
+  flex-direction: column;
 }

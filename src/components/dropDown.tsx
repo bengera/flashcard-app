@@ -9,11 +9,11 @@ export function DropDown({cardId, onDelete, onEdit}: DropDownProps) {
      return(
 
         <div className="flashcard-box-dropdown">
-                        <button className="flashcard-box-btn-edit" onClick={()=> onEdit(cardId)}>
+                        <button className="flashcard-box-btn-edit btn" onClick={()=> onEdit(cardId)}>
                           <img src="images/icon-edit.svg" alt="edit button" className="flashcard-box-btn-icon" />
                           Edit
                         </button>
-                        <button className="flashcard-box-btn-delete" onClick={()=> onDelete(cardId)}>
+                        <button className="flashcard-box-btn-delete btn" onClick={()=> onDelete(cardId)}>
                           <img src="images/icon-delete.svg" alt="delete button" className="flashcard-box-btn-icon" />
                           Delete</button>
                       </div>
