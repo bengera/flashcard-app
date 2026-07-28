@@ -47,6 +47,7 @@ textarea {
   color: var(--clr-pink-700);
   display: flex;
   gap: 0.5rem;
+  margin: 10px 0;
 }
 
 .form-group input {

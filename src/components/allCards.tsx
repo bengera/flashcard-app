@@ -34,6 +34,7 @@ export function AllCards({
   const [showToast, setShowToast] = useState<boolean>(false);
   const [toastMessage, setToastMessage] = useState<string>("");
   const [showError, setShowError] = useState<boolean>(false);
+  const [numberOfCardsShown, setNumberOfCardsShown] = useState<number>(15);
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -242,7 +243,7 @@ export function AllCards({
         </div>
         <main>
           <div className="flashcards-preview">
-            {visibleCards.map((card) => {
+            {visibleCards.slice(0,numberOfCardsShown).map((card) => {
               const isMastered = card.knownCount === 5;
               return (
                 <article
@@ -285,6 +286,7 @@ export function AllCards({
               );
             })}
           </div>
+          <button onClick={() => setNumberOfCardsShown(visibleCards.length)}>show more</button>
         </main>
       </div>
     </>
