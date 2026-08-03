@@ -209,8 +209,8 @@ export function AllCards({
                 onClick={() => setShowModal(false)}
               />
             </button>
-            <h2>Edit your card</h2>
-            <p>Question</p>
+            <h2 className="modal__heading">Edit your card</h2>
+            <p className="modal__input-label">Question</p>
             <input
               className="modal__input"
               type="text"
@@ -222,9 +222,8 @@ export function AllCards({
               }
             />
             <p>Answer</p>
-            <input
+            <textarea
               className="modal__input"
-              type="text"
               value={cardDraft?.answer ?? ""}
               onChange={(e) =>
                 setCardDraft((prev) =>

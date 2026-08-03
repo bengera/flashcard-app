@@ -10,13 +10,22 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  padding: 1rem;
+  padding: 1.8rem;
 }
 
 .modal__input {
   padding: 1rem;
   border-radius: var(--radius-10);
   border: 1px solid;
+}
+
+.modal__input-label {
+  color: var(--clr-neutral-900);
+  font-weight: 500;
+}
+
+textarea {
+  height: 127px;
 }
 
 .modal__close {
@@ -27,6 +36,10 @@
   background: none;
 }
 
+.modal__heading {
+  color: var(--clr-neutral-900);
+}
+
 .btn-update {
   font-weight: 500;
   background-color: var(--clr-yellow-500);
@@ -35,5 +48,7 @@
   justify-content: center;
   gap: 0.2rem;
   cursor: pointer;
-  width: 40%;
+  width: 145px;
+  border-radius: var(--radius-20);
+  margin-top: 1rem;
 }
