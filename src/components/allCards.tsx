@@ -201,7 +201,7 @@ export function AllCards({
           </div>
         ) : null}
         {showModal ? (
-          <div className="modal">
+          <div className="modal u-shadow--thick">
             <button className="modal__close">
               <img
                 src="images/icon-cross.svg"
@@ -243,7 +243,7 @@ export function AllCards({
                 )
               }
             />
-            <button onClick={() => cardDraft && handleUpdateCard(cardDraft)}>
+            <button className="btn-update u-rounded-pill u-shadow--thick" onClick={() => cardDraft && handleUpdateCard(cardDraft)}>
               Update Card
             </button>
           </div>

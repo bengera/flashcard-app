@@ -1,0 +1,39 @@
+.modal {
+  position: relative;
+  height: auto;
+  position: fixed;
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  z-index: 100;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 1rem;
+}
+
+.modal__input {
+  padding: 1rem;
+  border-radius: var(--radius-10);
+  border: 1px solid;
+}
+
+.modal__close {
+  position: absolute;
+  right: 15px;
+  cursor: pointer;
+  border: 0;
+  background: none;
+}
+
+.btn-update {
+  font-weight: 500;
+  background-color: var(--clr-yellow-500);
+  display: inline-flex;
+  align-self: flex-end;
+  justify-content: center;
+  gap: 0.2rem;
+  cursor: pointer;
+  width: 40%;
+}
