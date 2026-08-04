@@ -42,6 +42,10 @@
   color: var(--clr-neutral-900);
 }
 
+.card-form label {
+  margin-bottom: 0.4rem;
+}
+
 .btn-update {
   font-weight: 500;
   background-color: var(--clr-yellow-500);
