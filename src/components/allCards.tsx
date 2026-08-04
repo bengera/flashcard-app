@@ -130,7 +130,7 @@ export function AllCards({
               className="toast__close"
               src="images/icon-cross.svg"
               alt="close notification"
-              onClick={() => {setShowModal(false); setshowEditModal(false)}}
+              onClick={() => {setShowModal(false); setshowEditModal(false); setShowToast(false)}}
             />
           </div>
         </div>
