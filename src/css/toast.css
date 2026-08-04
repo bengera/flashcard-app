@@ -8,9 +8,9 @@
   font-weight: 600;
   border: 1px solid var(--clr-neutral-900);
   position: absolute;
-  top: 125px;
   right: 0;
-  transform: translateX(-50%);
+  top: 8px;
+  transform: translateX(33%);
 }
 
 .toast__inner-content {

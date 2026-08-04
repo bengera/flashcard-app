@@ -34,6 +34,10 @@ textarea {
   resize: none;
 }
 
+.main-all-cards {
+  position: relative;
+}
+
 .flashcard-controls {
   display: flex;
   justify-content: space-between;

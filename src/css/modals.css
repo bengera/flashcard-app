@@ -22,10 +22,12 @@
 .modal__input-label {
   color: var(--clr-neutral-900);
   font-weight: 500;
+  margin: 0;
+  margin-top: 0.4rem;
 }
 
-textarea {
-  height: 127px;
+.modal p {
+  margin: 1rem 0 1rem 0;
 }
 
 .modal__close {
