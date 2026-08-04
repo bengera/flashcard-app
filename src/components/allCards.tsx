@@ -64,6 +64,7 @@ export function AllCards({
   }
 
   function handleOpenDropDown(cardId: string) {
+   
     setOpenCardId((prevOpenCardId) =>
       prevOpenCardId === cardId ? null : cardId
     );
@@ -201,7 +202,7 @@ export function AllCards({
             <p>This action can't be undone.</p>
             <hr className="solid"></hr>
             <div className="modal__btn-container">
-            <button onClick={() => {setShowDeletionModal(false); setShowModal(false)}}>Cancel</button>
+            <button onClick={() => {setShowDeletionModal(false); setShowModal(false); setOpenCardId('')}}>Cancel</button>
             <button onClick={() => handleDeleteCard(currentCardId)}>
               Delete Card
             </button>
@@ -215,7 +216,7 @@ export function AllCards({
               <img
                 src="images/icon-cross.svg"
                 alt="modal close"
-                onClick={() => {setShowModal(false); setshowEditModal(false)}}
+                onClick={() => {setShowModal(false); setshowEditModal(false); setOpenCardId('')}}
               />
             </button>
             <h2 className="modal__heading">Edit your card</h2>
@@ -272,7 +273,7 @@ export function AllCards({
                   <h2 className="flashcard-box__heading">{card.question}</h2>
                   <hr className="solid" />
                   <div className="flashcard-box-inner ">
-                    {openCardId === card.id ? (
+                    {openCardId === card.id && !showModal ? (
                       <DropDown
                         cardId={card.id}
                         onDelete={handleOpenDeletetionModal}
