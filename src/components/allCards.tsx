@@ -31,6 +31,7 @@ export function AllCards({
   const [currentCardId, setCurrentCardId] = useState<string>("");
   const [cardDraft, setCardDraft] = useState<Flashcard | null>(null);
   const [showDeletionModal, setShowDeletionModal] = useState<boolean>(false);
+  const [showEditModal, setshowEditModal] = useState<boolean>(false);
   const [showToast, setShowToast] = useState<boolean>(false);
   const [toastMessage, setToastMessage] = useState<string>("");
   const [showError, setShowError] = useState<boolean>(false);
@@ -70,6 +71,7 @@ export function AllCards({
 
   function handleOpenDeletetionModal(cardId: string) {
      setCurrentCardId(cardId);
+     setShowModal(true);
     setShowDeletionModal(!showDeletionModal);
     
   }
@@ -85,7 +87,8 @@ export function AllCards({
 
   function handleEditCard(cardId: string) {
     const cardToEdit = visibleCards.find((card) => card.id === cardId);
-    setShowModal(!showModal);
+    setshowEditModal(true);
+    setShowModal(true);
     setCurrentCardId(cardId);
     if (cardToEdit) {
       setCardDraft(cardToEdit);
@@ -98,6 +101,7 @@ export function AllCards({
       prevCards.map((card) => (card.id === cardDraft.id ? cardDraft : card))
     );
     setShowModal(false);
+    setshowEditModal(false);
     setShowToast(true);
     setToastMessage('Card updated successfully.');
   }
@@ -124,7 +128,7 @@ export function AllCards({
               className="toast__close"
               src="images/icon-cross.svg"
               alt="close notification"
-              onClick={()=> setShowToast(false)}
+              onClick={() => {setShowModal(false); setshowEditModal(false)}}
             />
           </div>
         </div>
@@ -191,22 +195,27 @@ export function AllCards({
 
       <div className="flashcards-container">
         {showDeletionModal ? (
+        
           <div className="modal modal__deletion">
             <h2>Delete this card?</h2>
             <p>This action can't be undone.</p>
-            <button onClick={() => setShowDeletionModal(false)}>Cancel</button>
+            <hr className="solid"></hr>
+            <div className="modal__btn-container">
+            <button onClick={() => {setShowDeletionModal(false); setShowModal(false)}}>Cancel</button>
             <button onClick={() => handleDeleteCard(currentCardId)}>
               Delete Card
             </button>
+            </div>
           </div>
+          
         ) : null}
-        {showModal ? (
+        {showEditModal ? (
           <div className="modal u-shadow--thick">
             <button className="modal__close">
               <img
                 src="images/icon-cross.svg"
                 alt="modal close"
-                onClick={() => setShowModal(false)}
+                onClick={() => {setShowModal(false); setshowEditModal(false)}}
               />
             </button>
             <h2 className="modal__heading">Edit your card</h2>

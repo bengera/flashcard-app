@@ -46,6 +46,10 @@
   margin-bottom: 0.4rem;
 }
 
+hr.solid:nth-child(3) {
+  width: 100%;
+}
+
 .btn-update {
   font-weight: 500;
   background-color: var(--clr-yellow-500);
