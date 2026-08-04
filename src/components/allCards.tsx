@@ -59,7 +59,7 @@ export function AllCards({
     setQuestion("");
     setAnswer(""); // blank space for cateogry to add my questions without retyping
     setShowToast(true);
-     setToastMessage('Card updated successfully.');
+     setToastMessage('Card created successfully.');
   }
 
   function handleOpenDropDown(cardId: string) {
@@ -138,7 +138,7 @@ export function AllCards({
             name="question"
             type="text"
             placeholder="e.g., What is the capital of France?"
-            value={question.trim()}
+            value={question}
             onChange={(e) => setQuestion(e.currentTarget.value)}
           />
           {showError && !question.trim() && (<p className="error-msg"> <img src="images/icon-error.svg" alt="error-icon" />Please enter a question</p>)}
@@ -166,7 +166,7 @@ export function AllCards({
             name="category"
             type="text"
             placeholder="e.g., Geography"
-            value={category.trim()}
+            value={category}
             onChange={(e) => {
               const value = e.currentTarget.value;
               setCategory(value.charAt(0).toUpperCase() + value.slice(1))}
