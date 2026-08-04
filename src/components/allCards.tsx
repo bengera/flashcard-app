@@ -82,6 +82,7 @@ export function AllCards({
     console.log(`Current card ID is ${cardId}`)
     setCards((prevCards) => prevCards.filter((card) => card.id !== cardId));
     setShowDeletionModal(false);
+    setShowModal(false);
     setShowToast(true);
     setToastMessage('Card deleted.');
   }
