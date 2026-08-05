@@ -199,9 +199,10 @@ export function AllCards({
         {showDeletionModal ? (
         
           <div className="modal modal__deletion u-shadow--thick">
+            <div className="modal__deletion-inner-content">
             <h2 className="modal__heading">Delete this card?</h2>
-            <p>This action can't be undone.</p>
-            <hr className="solid"></hr>
+            <p className="modal__deletion-message">This action can't be undone.</p>
+            </div>
             <div className="modal__btn-container">
             <button onClick={() => {setShowDeletionModal(false); setShowModal(false); setOpenCardId('')}}>Cancel</button>
             <button onClick={() => handleDeleteCard(currentCardId)}>
@@ -213,6 +214,7 @@ export function AllCards({
         ) : null}
         {showEditModal ? (
           <div className="modal u-shadow--thick">
+            <div className="modal__inner-content">
             <button className="modal__close">
               <img
                 src="images/icon-cross.svg"
@@ -256,6 +258,7 @@ export function AllCards({
             <button className="btn-update u-rounded-pill u-shadow--thick" onClick={() => cardDraft && handleUpdateCard(cardDraft)}>
               Update Card
             </button>
+            </div>
           </div>
         ) : null}
 
