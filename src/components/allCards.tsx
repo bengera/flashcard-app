@@ -198,8 +198,8 @@ export function AllCards({
       <div className="flashcards-container">
         {showDeletionModal ? (
         
-          <div className="modal modal__deletion">
-            <h2>Delete this card?</h2>
+          <div className="modal modal__deletion u-shadow--thick">
+            <h2 className="modal__heading">Delete this card?</h2>
             <p>This action can't be undone.</p>
             <hr className="solid"></hr>
             <div className="modal__btn-container">

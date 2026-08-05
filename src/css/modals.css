@@ -2,7 +2,7 @@
   position: relative;
   height: auto;
   position: fixed;
-  width: 600px;
+  width: 75vw;
   display: flex;
   flex-direction: column;
   background-color: white;
@@ -10,7 +10,14 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  padding: 1.8rem;
+  padding: 1rem;
+}
+
+@media only screen and (min-width: 1024px) {
+  .modal {
+    width: 600px;
+    padding: 1.8rem;
+  }
 }
 
 .modal__input {
@@ -40,6 +47,10 @@
 
 .modal__heading {
   color: var(--clr-neutral-900);
+}
+
+.modal__deletion {
+  width: 343px;
 }
 
 .card-form label {
