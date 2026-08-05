@@ -105,6 +105,7 @@ export function AllCards({
     setShowModal(false);
     setshowEditModal(false);
     setShowToast(true);
+    setOpenCardId('');
     setToastMessage('Card updated successfully.');
   }
 
@@ -186,7 +187,7 @@ export function AllCards({
         </div>
 
         <button
-          className="btn-submit u-rounded-pill u-shadow--thick"
+          className="btn-submit u-rounded-pill-narrow u-shadow--thick"
           type="submit"
           
         >
@@ -204,8 +205,8 @@ export function AllCards({
             <p className="modal__deletion-message">This action can't be undone.</p>
             </div>
             <div className="modal__btn-container">
-            <button onClick={() => {setShowDeletionModal(false); setShowModal(false); setOpenCardId('')}}>Cancel</button>
-            <button onClick={() => handleDeleteCard(currentCardId)}>
+            <button className="btn u-rounded-pill-narrow" onClick={() => {setShowDeletionModal(false); setShowModal(false); setOpenCardId('')}}>Cancel</button>
+            <button className="btn u-rounded-pill-narrow u-shadow--thick modal-btn-delete" onClick={() => handleDeleteCard(currentCardId)}>
               Delete Card
             </button>
             </div>
@@ -255,7 +256,7 @@ export function AllCards({
                 )
               }
             />
-            <button className="btn-update u-rounded-pill u-shadow--thick" onClick={() => cardDraft && handleUpdateCard(cardDraft)}>
+            <button className="btn-update u-rounded-pill-narrow u-shadow--thick" onClick={() => cardDraft && handleUpdateCard(cardDraft)}>
               Update Card
             </button>
             </div>

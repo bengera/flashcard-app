@@ -27,11 +27,13 @@ textarea {
   gap: 0.2rem;
   cursor: pointer;
   width: 165px;
-  border-radius: var(--radius-24);
+  border-radius: var(--radius-20);
 }
 
 textarea {
   resize: none;
+  overflow-y: hidden;
+  height: 100px;
 }
 
 .main-all-cards {

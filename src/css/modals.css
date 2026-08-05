@@ -71,11 +71,15 @@
   width: 343px;
 }
 
+.modal-btn-delete {
+  background-color: var(--clr-yellow-500);
+}
+
 .modal__deletion-message {
   margin: 0;
 }
 
-.card-form label {
+.modal__deletion-cancel .card-form label {
   margin-bottom: 0.4rem;
 }
 
