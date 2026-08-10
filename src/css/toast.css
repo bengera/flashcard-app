@@ -10,7 +10,13 @@
   position: absolute;
   right: 0;
   top: 8px;
-  transform: translateX(33%);
+  transform: translateX(-6%);
+}
+
+@media only screen and (min-width: 670px) {
+  .toast {
+    transform: translateX(-7%);
+  }
 }
 
 .toast__inner-content {

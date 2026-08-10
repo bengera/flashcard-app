@@ -20,6 +20,7 @@
   padding: 1rem;
   display: flex;
   flex-direction: column;
+  margin-bottom: 5px;
 }
 
 @media only screen and (min-width: 1024px) {
@@ -35,6 +36,9 @@
 .modal__btn-container {
   border-top: 1px solid black;
   padding: 1rem;
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 1rem;
 }
 
 .modal__input {
@@ -68,11 +72,12 @@
 }
 
 .modal__deletion {
-  width: 343px;
+  width: 600px;
 }
 
 .modal-btn-delete {
   background-color: var(--clr-yellow-500);
+  border-radius: var(--radius-full);
 }
 
 .modal__deletion-message {
