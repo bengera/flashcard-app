@@ -71,9 +71,9 @@
   margin: 0;
 }
 
-.modal__deletion {
+/* .modal__deletion {
   width: 600px;
-}
+} */
 
 .modal-btn-delete {
   background-color: var(--clr-yellow-500);
