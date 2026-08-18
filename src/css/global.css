@@ -2,6 +2,13 @@ html {
   overflow-y: scroll;
 }
 
+@font-face {
+  font-family: "Poppins";
+  src: url("/fonts/Poppins/Poppins-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
 /*Force scrollbar to always exist even when not visible, sorts out tabbing issue
 for displaying complete list of mini flashcards*/
 
