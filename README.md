@@ -14,7 +14,7 @@ Users can create their own questions and answers, organise them by category, and
 
 ## Demo
 
-[Live Demo](..) · [Code on GitHub](https://github.com/bengera/flashcard-app)
+[Live Demo](https://flashcard-learning-app.netlify.app/) · [Code on GitHub](https://github.com/bengera/flashcard-app)
 
 ---
 
