@@ -9,8 +9,28 @@ import type { Flashcard } from "./types/flashcard";
 
 function App() {
   const [cards, setCards] = useState<Flashcard[]>(() => {
+    try {
+
+
+
     const storedCards = localStorage.getItem('cards');
-    return storedCards ? JSON.parse(storedCards) : data.flashcards; // fallback
+    if (!storedCards) { // no stored cards
+      return data.flashcards;
+    }
+
+    const parsedCards = JSON.parse(storedCards)
+
+    if (!Array.isArray(parsedCards)){ // not an array
+      return data.flashcards;
+    }
+
+    return parsedCards;
+
+    } catch (err){
+      console.log(err);
+      return data.flashcards;
+    }
+    
   })
   const [hideMasteredCards, setHideMasteredCards] = useState(false); // state for checkbox input of hiding mastered cards
   const [currentIdx, setCurrentIdx] = useState(0); // current card being viewed
@@ -62,6 +82,7 @@ const flashCardControlsProps = {
   cards,
 };
 
+ 
   function filterCategories(category: string, checked: boolean) {
     setSelectedCategories((prev) => {
       if (checked) {
