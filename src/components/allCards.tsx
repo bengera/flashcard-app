@@ -199,7 +199,7 @@ export function AllCards({
       <div className="flashcards-container">
         {showDeletionModal ? (
         
-          <div className="modal modal__deletion u-shadow--thick">
+          <dialog open aria-modal="true" className="modal modal__deletion u-shadow--thick">
             <div className="modal__deletion-inner-content">
             <h2 className="modal__heading">Delete this card?</h2>
             <p className="modal__deletion-message">This action can't be undone.</p>
@@ -210,17 +210,20 @@ export function AllCards({
               Delete Card
             </button>
             </div>
-          </div>
+          </dialog>
           
         ) : null}
         {showEditModal ? (
           <div className="modal u-shadow--thick">
             <div className="modal__inner-content">
-            <button className="modal__close">
+            <button className="modal__close"
+                 onClick={() => {setShowModal(false); setshowEditModal(false); setOpenCardId('')}}
+                aria-label="Close dialog"
+            >
               <img
                 src="images/icon-cross.svg"
                 alt="modal close"
-                onClick={() => {setShowModal(false); setshowEditModal(false); setOpenCardId('')}}
+                
               />
             </button>
             <h2 className="modal__heading">Edit your card</h2>
