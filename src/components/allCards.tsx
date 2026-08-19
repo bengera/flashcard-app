@@ -311,8 +311,9 @@ export function AllCards({
               );
             })}
           </div>
-          <button style={{borderRadius: "999px"}} type="button" className="btn show-btn u-rounded-pill-narrow u-shadow " onClick={handleShowCards}>{numberOfCardsShown === 15 ? "Load More" : "Load Less"}</button>
-       
+          {visibleCards.length >= 15 ?  <button style={{borderRadius: "999px"}} type="button" className="btn show-btn u-rounded-pill-narrow u-shadow " onClick={handleShowCards}>{numberOfCardsShown === 15 ? "Load More" : "Load Less"}</button>
+       :null}
+         
       </div>
     </>
   );
