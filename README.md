@@ -12,6 +12,8 @@ Users can create their own questions and answers, organise them by category, and
 
 ---
 
+![Flashcard App](/screenshot-app.png)
+
 ## Demo
 
 ## [Live Demo](https://flashcard-learning-app.netlify.app/)
