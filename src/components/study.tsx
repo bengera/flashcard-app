@@ -101,9 +101,9 @@ export function StudyPanel({
   }, [currentIdx, visibleCards.length, setCurrentIdx]);
 
   // TESTING DEV MODE EFFECTS
-  useEffect(() => {
-    console.log("categories updated:", selectedCategories);
-  }, [selectedCategories]);
+  // useEffect(() => {
+  //   console.log("categories updated:", selectedCategories);
+  // }, [selectedCategories]);
 
   // if (visibleCards.length === 0) return; // prevent error when no flashcards present
   return (

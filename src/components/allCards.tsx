@@ -46,7 +46,7 @@ export function AllCards({
       return;
     }
     setShowError(false);
-    console.log(question, answer, category);
+    
 
     const newCard: Flashcard = {
       id: crypto.randomUUID(),
@@ -79,7 +79,7 @@ export function AllCards({
 
   function handleDeleteCard(cardId: string) {
    
-    console.log(`Current card ID is ${cardId}`)
+   
     setCards((prevCards) => prevCards.filter((card) => card.id !== cardId));
     setShowDeletionModal(false);
     setShowModal(false);
