@@ -11,9 +11,7 @@ function App() {
   const [cards, setCards] = useState<Flashcard[]>(() => {
     try {
 
-
-
-    const storedCards = localStorage.getItem('cards');
+   const storedCards = localStorage.getItem('cards');
     if (!storedCards) { // no stored cards
       return data.flashcards;
     }

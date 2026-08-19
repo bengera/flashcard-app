@@ -172,10 +172,11 @@ input[type="checkbox"]:checked {
   margin: 0;
 }
 
-.flashcard__button-reveal {
+.flashcard__reveal-text {
   border: 0;
   font-weight: 400;
   background-color: transparent;
+  margin: 0;
 }
 
 .flashcard__button-reveal--revealed {

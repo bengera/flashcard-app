@@ -53,13 +53,9 @@ export function FlashCardContent({
           </p>
 
           {reveal ? (
-            <button type="button" className="flashcard__button-reveal">
-              Answer:
-            </button>
+            <p className="flashcard__reveal-text">Answer:</p>
           ) : (
-            <button type="button" className="flashcard__button-reveal">
-              Click to reveal answer
-            </button>
+           <p className="flashcard__reveal-text">Click to reveal answer</p>
           )}
         </div>
 
